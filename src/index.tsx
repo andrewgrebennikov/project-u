@@ -1,8 +1,8 @@
 import { createRoot } from 'react-dom/client';
-import { test } from './test';
-import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import ThemeProvider from './theme/ThemeProvider';
+import { test } from 'test';
+import App from 'app/App';
+import { ThemeProvider } from 'app/providers/ThemeProvider';
 
 test(1);
 
