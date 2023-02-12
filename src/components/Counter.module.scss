@@ -1,0 +1,16 @@
+.title {
+  color: red;
+}
+
+.button {
+  padding: 5px 10px;
+  margin: 0;
+  border: 0;
+  background-color: green;
+  color: black;
+  cursor: pointer;
+
+  &:hover {
+    background-color: red;
+  }
+}
