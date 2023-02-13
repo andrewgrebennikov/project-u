@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cx from 'classix';
 import { Link } from 'react-router-dom';
 import { useTheme } from 'app/providers/ThemeProvider';
 import 'app/styles/index.scss';
@@ -8,7 +8,7 @@ const App = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className={classNames('app', theme)}>
+    <div className={cx('app', theme)}>
       <button onClick={toggleTheme}>Toggle Theme</button>
       <nav>
         <Link to="/">Главная</Link>
