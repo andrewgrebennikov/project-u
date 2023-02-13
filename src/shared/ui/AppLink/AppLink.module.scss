@@ -1,0 +1,15 @@
+.appLink {
+  color: var(--interactive-color);
+}
+
+.underlineNone {
+  text-decoration: none;
+}
+
+.underlineHover {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
