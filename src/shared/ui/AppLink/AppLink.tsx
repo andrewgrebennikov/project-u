@@ -3,11 +3,14 @@ import { Link, LinkProps } from 'react-router-dom';
 import cx from 'classix';
 import styles from './AppLink.module.scss';
 
-export enum AppLinkUnderline {
-  ALWAYS = 'always',
-  HOVER = 'hover',
-  NONE = 'none',
-}
+export const AppLinkUnderline = {
+  ALWAYS: 'always',
+  HOVER: 'hover',
+  NONE: 'none',
+} as const;
+
+export type ValueOf<T> = T[keyof T];
+export type AppLinkUnderline = ValueOf<typeof AppLinkUnderline>;
 
 interface IAppLink extends LinkProps {
   className?: string;
