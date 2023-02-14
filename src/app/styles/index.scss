@@ -10,3 +10,12 @@
   color: var(--primary-color);
   color-scheme: var(--color-scheme);
 }
+
+.app-content {
+  display: flex;
+}
+
+.app-page {
+  flex-grow: 1;
+  padding: 16px;
+}

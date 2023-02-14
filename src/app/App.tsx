@@ -2,7 +2,7 @@ import cx from 'classix';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { AppRouter } from 'app/router';
 import { Navbar } from 'widgets/Navbar';
-import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
+import { Sidebar } from 'widgets/Sidebar';
 import 'app/styles/index.scss';
 
 const App = () => {
@@ -11,8 +11,10 @@ const App = () => {
   return (
     <div className={cx('app', theme)}>
       <Navbar />
-      <AppRouter />
-      <ThemeSwitcher />
+      <div className="app-content">
+        <Sidebar />
+        <AppRouter />
+      </div>
     </div>
   );
 };
