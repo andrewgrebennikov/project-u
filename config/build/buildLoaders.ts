@@ -5,9 +5,22 @@ import { BuildOptions } from './types/config';
 export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
   const { isDev } = options;
 
-  const assetsLoader = {
-    test: /\.(png|jpg|jpeg|woff|woff2)$/i,
+  const fontLoader = {
+    test: /\.(woff|woff2)$/i,
     type: 'asset/resource',
+    generator: {
+      outputPath: 'fonts/',
+      filename: '[name][ext]',
+    },
+  };
+
+  const imageLoader = {
+    test: /\.(png|jpg|jpeg)$/i,
+    type: 'asset/resource',
+    generator: {
+      outputPath: 'images/',
+      filename: '[name][ext]',
+    },
   };
 
   const svgLoader = {
@@ -39,5 +52,5 @@ export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
     ],
   };
 
-  return [tsLoader, styleLoader, svgLoader, assetsLoader];
+  return [tsLoader, styleLoader, svgLoader, fontLoader, imageLoader];
 };
