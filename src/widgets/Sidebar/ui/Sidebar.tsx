@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import cx from 'classix';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
+import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import styles from './Sidebar.module.scss';
 
 interface ISidebarProps {
@@ -18,9 +19,10 @@ export const Sidebar = (props: ISidebarProps) => {
 
   return (
     <div className={cx(styles.sidebar, className, collapsed && styles.collapsed)}>
-      <button onClick={handleSidebarClick}>Toggle Sidebar</button>
+      <button onClick={handleSidebarClick}>Toggle</button>
       <div className={styles.switchers}>
         <ThemeSwitcher />
+        <LangSwitcher />
       </div>
     </div>
   );
