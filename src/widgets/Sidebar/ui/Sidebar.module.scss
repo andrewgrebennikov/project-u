@@ -1,9 +1,12 @@
 .sidebar {
+  position: relative;
+
   width: 300px;
   height: calc(100vh - 56px);
-  background-color: var(--secondary-color);
-  position: relative;
   padding: 16px;
+
+  background-color: var(--secondary-color);
+
   transition: width 0.3s;
 }
 
@@ -15,7 +18,8 @@
   position: absolute;
   bottom: 16px;
   left: 16px;
+
   display: flex;
-  align-items: center;
   gap: 16px;
+  align-items: center;
 }

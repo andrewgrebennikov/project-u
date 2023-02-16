@@ -9,7 +9,9 @@
     "build:dev": "webpack --env mode=development",
     "prettier": "prettier --write ./**/*.{js,jsx,ts,tsx}",
     "lint:eslint": "eslint \"./**/*.{js,jsx,ts,tsx}\"",
-    "lint:eslint:fix": "eslint \"./**/*.{js,jsx,ts,tsx}\" --fix"
+    "lint:eslint:fix": "eslint \"./**/*.{js,jsx,ts,tsx}\" --fix",
+    "lint:stylelint": "stylelint \"./**/*.scss\"",
+    "lint:stylelint:fix": "stylelint \"./**/*.scss\" --fix"
   },
   "author": "",
   "license": "ISC",
@@ -29,6 +31,7 @@
     "@typescript-eslint/parser": "^5.52.0",
     "css-loader": "^6.7.3",
     "eslint": "^8.34.0",
+    "eslint-plugin-i18next": "^6.0.0-2",
     "eslint-plugin-react": "^7.32.2",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.7.2",
@@ -37,6 +40,9 @@
     "sass": "^1.58.1",
     "sass-loader": "^13.2.0",
     "style-loader": "^3.3.1",
+    "stylelint": "^15.1.0",
+    "stylelint-config-clean-order": "^5.0.0",
+    "stylelint-config-standard-scss": "^7.0.1",
     "ts-loader": "^9.4.2",
     "ts-node": "^10.9.1",
     "type-fest": "^3.5.7",

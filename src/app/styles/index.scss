@@ -5,10 +5,12 @@
 
 .app {
   min-height: 100vh;
-  background-color: var(--bg-color);
+
   font: var(--font-m);
   color: var(--primary-color);
+
   color-scheme: var(--color-scheme);
+  background-color: var(--bg-color);
 }
 
 .app-content {
