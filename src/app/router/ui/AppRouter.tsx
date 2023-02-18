@@ -1,11 +1,12 @@
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { routeConfig } from 'shared/config/routeConfig/routeConfig';
+import { Loader } from 'shared/ui/Loader/Loader';
 
 export const AppRouter = () => {
   return (
     <div className="app-page">
-      <Suspense fallback={<div>Загрузка...</div>}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           {routeConfig.map((route) => {
             const { path, element } = route;

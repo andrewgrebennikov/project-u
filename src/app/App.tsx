@@ -4,6 +4,7 @@ import { useTheme } from 'app/providers/ThemeProvider';
 import { AppRouter } from 'app/router';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
+import { Loader } from 'shared/ui/Loader/Loader';
 import 'app/styles/index.scss';
 
 const App = () => {
@@ -11,7 +12,7 @@ const App = () => {
 
   return (
     <div className={cx('app', theme)}>
-      <Suspense fallback={<div>Загрузка...</div>}>
+      <Suspense fallback={<Loader />}>
         <Navbar />
         <div className="app-content">
           <Sidebar />
