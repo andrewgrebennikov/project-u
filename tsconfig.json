@@ -18,7 +18,5 @@
       "module": "CommonJS"
     }
   },
-  "exclude": [
-    "./dist"
-  ]
+  "exclude": ["./dist"]
 }
