@@ -1,6 +1,7 @@
 import { FC, PropsWithChildren } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 import cx from 'classix';
+import { ValueOf } from 'shared/types/valueOf';
 import styles from './AppLink.module.scss';
 
 export const AppLinkUnderline = {
@@ -9,7 +10,6 @@ export const AppLinkUnderline = {
   NONE: 'none',
 } as const;
 
-export type ValueOf<T> = T[keyof T];
 export type AppLinkUnderline = ValueOf<typeof AppLinkUnderline>;
 
 interface IAppLink extends LinkProps {

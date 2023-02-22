@@ -2,6 +2,7 @@ import { RouteProps } from 'react-router-dom';
 import { MainPage } from 'pages/MainPage';
 import { AboutPage } from 'pages/AboutPage';
 import { NotFound } from 'pages/NotFound';
+import { ValueOf } from 'shared/types/valueOf';
 
 export const AppRoutes = {
   MAIN: 'main',
@@ -9,7 +10,6 @@ export const AppRoutes = {
   NOT_FOUND: 'not_found',
 } as const;
 
-export type ValueOf<T> = T[keyof T];
 export type AppRoutes = ValueOf<typeof AppRoutes>;
 
 export const RoutePath: Record<AppRoutes, string> = {

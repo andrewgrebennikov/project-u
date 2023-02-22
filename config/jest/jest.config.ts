@@ -1,4 +1,5 @@
 import type { JestConfigWithTsJest } from 'ts-jest';
+import path from 'path';
 
 /*
  * For a detailed explanation regarding each configuration property, visit:
@@ -79,6 +80,7 @@ const jestConfig: JestConfigWithTsJest = {
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
     '\\.(css|scss)$': 'identity-obj-proxy',
+    '\\.svg': path.resolve(__dirname, 'svgMock.tsx'),
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
@@ -146,7 +148,7 @@ const jestConfig: JestConfigWithTsJest = {
   // testLocationInResults: false,
 
   // The glob patterns Jest uses to detect test files
-  testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)'],
+  testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   testPathIgnorePatterns: ['\\\\node_modules\\\\'],
