@@ -1,5 +1,12 @@
+import cx from 'classix';
 import styles from './Loader.module.scss';
 
-export const Loader = () => {
-  return <div className={styles.loader}></div>;
+interface ILoaderProps {
+  className?: string;
+}
+
+export const Loader = (props: ILoaderProps) => {
+  const { className } = props;
+
+  return <div className={cx(styles.loader, className)}></div>;
 };
