@@ -10,8 +10,28 @@
   transition: width 0.3s;
 }
 
+.nav {
+  display: grid;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+.navLink {
+  font-size: 20px;
+
+  &:hover,
+  &:focus-visible {
+    color: black;
+    transition: color 0.3s ease-in-out;
+  }
+}
+
 .collapsed {
   width: 80px;
+
+  .label {
+    display: none;
+  }
 }
 
 .switchers {
@@ -20,6 +40,16 @@
   left: 16px;
 
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
   align-items: center;
+}
+
+.toggle {
+  position: absolute;
+  right: -40px;
+  bottom: 16px;
+
+  background-color: var(--secondary-color);
+  border-radius: 0;
 }

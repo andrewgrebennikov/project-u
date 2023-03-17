@@ -21,3 +21,15 @@
   flex-grow: 1;
   padding: 16px;
 }
+
+.icon {
+  pointer-events: none;
+
+  display: inline-block;
+  flex-shrink: 0;
+
+  color: inherit;
+  vertical-align: top;
+
+  fill: currentcolor;
+}

@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC, ReactNode } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 import cx from 'classix';
 import { ValueOf } from 'shared/types/valueOf';
@@ -15,10 +15,12 @@ export type AppLinkUnderline = ValueOf<typeof AppLinkUnderline>;
 interface IAppLink extends LinkProps {
   className?: string;
   underline?: AppLinkUnderline;
+  startIcon?: ReactNode;
+  endIcon?: ReactNode;
 }
 
-export const AppLink: FC<PropsWithChildren<IAppLink>> = (props) => {
-  const { className, children, to, underline = AppLinkUnderline.ALWAYS, ...otherProps } = props;
+export const AppLink: FC<IAppLink> = (props) => {
+  const { className, children, to, underline = AppLinkUnderline.ALWAYS, startIcon, endIcon, ...otherProps } = props;
 
   return (
     <Link
@@ -31,7 +33,9 @@ export const AppLink: FC<PropsWithChildren<IAppLink>> = (props) => {
       )}
       {...otherProps}
     >
+      {startIcon}
       {children}
+      {endIcon}
     </Link>
   );
 };

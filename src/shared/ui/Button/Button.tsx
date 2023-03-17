@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC, PropsWithChildren } from 'react';
+import { ButtonHTMLAttributes, FC, ReactNode } from 'react';
 import cx from 'classix';
 import { ValueOf } from 'shared/types/valueOf';
 import styles from './Button.module.scss';
@@ -14,10 +14,12 @@ export type ButtonVariant = ValueOf<typeof ButtonVariant>;
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   variant?: ButtonVariant;
+  startIcon?: ReactNode;
+  endIcon?: ReactNode;
 }
 
-export const Button: FC<PropsWithChildren<IButtonProps>> = (props) => {
-  const { children, className, variant = ButtonVariant.TEXT, ...otherProps } = props;
+export const Button: FC<IButtonProps> = (props) => {
+  const { children, className, variant = ButtonVariant.TEXT, startIcon, endIcon, ...otherProps } = props;
 
   return (
     <button
@@ -29,7 +31,9 @@ export const Button: FC<PropsWithChildren<IButtonProps>> = (props) => {
       )}
       {...otherProps}
     >
+      {startIcon}
       {children}
+      {endIcon}
     </button>
   );
 };

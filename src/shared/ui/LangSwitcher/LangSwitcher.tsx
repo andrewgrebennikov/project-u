@@ -1,5 +1,7 @@
 import { FC } from 'react';
+import cx from 'classix';
 import { Button } from 'shared/ui/Button/Button';
+import styles from './LangSwitcher.module.scss';
 import { useTranslation } from 'react-i18next';
 
 interface ILangSwitcherProps {
@@ -15,7 +17,7 @@ export const LangSwitcher: FC<ILangSwitcherProps> = (props) => {
   };
 
   return (
-    <Button className={className} onClick={handleLangClick}>
+    <Button className={cx(className, styles.toggle)} onClick={handleLangClick}>
       {t('РУ')}
     </Button>
   );

@@ -1,5 +1,14 @@
 .appLink {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+
+  padding: 5px;
+
   color: var(--interactive-color);
+  vertical-align: top;
+
+  transition: color 0.3s ease-in-out;
 }
 
 .underlineNone {

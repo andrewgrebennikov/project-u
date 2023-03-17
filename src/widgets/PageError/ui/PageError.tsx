@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import styles from './PageError.module.scss';
 import { useTranslation } from 'react-i18next';
 import cx from 'classix';
@@ -6,7 +7,7 @@ interface IPageErrorProps {
   className?: string;
 }
 
-export const PageError = (props: IPageErrorProps) => {
+export const PageError: FC<IPageErrorProps> = (props) => {
   const { className } = props;
   const { t } = useTranslation('error');
 

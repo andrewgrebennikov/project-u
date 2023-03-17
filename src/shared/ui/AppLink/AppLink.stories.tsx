@@ -2,6 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { AppLink, AppLinkUnderline } from './AppLink';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import IconArrowRight from 'shared/assets/icons/icon-arrow-right.svg';
 
 export default {
   title: 'shared/AppLink',
@@ -54,3 +55,29 @@ UnderlineNoneDark.args = {
   underline: AppLinkUnderline.NONE,
 };
 UnderlineNoneDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const StartIcon = Template.bind({});
+StartIcon.args = {
+  children: 'Text',
+  startIcon: <IconArrowRight className="icon" width="30" height="30" />,
+};
+
+export const StartIconDark = Template.bind({});
+StartIconDark.args = {
+  children: 'Text',
+  startIcon: <IconArrowRight className="icon" width="30" height="30" />,
+};
+StartIconDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const EndIcon = Template.bind({});
+EndIcon.args = {
+  children: 'Text',
+  endIcon: <IconArrowRight className="icon" width="30" height="30" />,
+};
+
+export const EndIconDark = Template.bind({});
+EndIconDark.args = {
+  children: 'Text',
+  endIcon: <IconArrowRight className="icon" width="30" height="30" />,
+};
+EndIconDark.decorators = [ThemeDecorator(Theme.DARK)];
