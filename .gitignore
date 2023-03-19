@@ -6,3 +6,6 @@
 
 # ide
 .idea
+
+# storybook
+/storybook-static
