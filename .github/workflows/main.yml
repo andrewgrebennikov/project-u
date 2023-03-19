@@ -26,18 +26,24 @@ jobs:
 
       - name: Build production project
         run: npm run build:prod
+        if: always()
 
       - name: Linting for ts, js
         run: npm run lint:eslint
+        if: always()
 
       - name: Linting for css, scss
         run: npm run lint:stylelint
+        if: always()
 
       - name: Unit testing
         run: npm run test:unit
+        if: always()
 
       - name: Build storybook
         run: npm run storybook:build
+        if: always()
 
       - name: Screenshot testing
         run: npm run test:ui:ci
+        if: always()
