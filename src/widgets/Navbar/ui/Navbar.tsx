@@ -12,7 +12,7 @@ interface INavbarProps {
 
 export const Navbar: FC<INavbarProps> = (props) => {
   const { className } = props;
-  const { t } = useTranslation('common');
+  const { t } = useTranslation('translation');
   const { isOpenModal, handleModalToggle } = useModal();
 
   return (

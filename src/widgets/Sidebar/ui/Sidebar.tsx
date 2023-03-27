@@ -18,7 +18,7 @@ interface ISidebarProps {
 
 export const Sidebar: FC<ISidebarProps> = (props) => {
   const { className } = props;
-  const { t } = useTranslation('common');
+  const { t } = useTranslation('translation');
 
   const [collapsed, setCollapsed] = useState(false);
 
