@@ -7,7 +7,7 @@ interface IPortalProps {
 }
 
 export const Portal = (props: IPortalProps) => {
-  const { children, element = document.querySelector('body') } = props;
+  const { children, element = document.querySelector('#root') } = props;
 
   return createPortal(children, element);
 };
