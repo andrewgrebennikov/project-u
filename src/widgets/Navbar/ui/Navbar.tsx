@@ -17,7 +17,7 @@ export const Navbar: FC<INavbarProps> = (props) => {
 
   return (
     <>
-      <nav className={cx(styles.navbar, className)}>
+      <nav className={cx(styles.navbar, className)} data-testid="navbar">
         <Button variant="text" onClick={handleModalToggle}>
           {t('Войти')}
         </Button>
