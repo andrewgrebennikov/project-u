@@ -4,5 +4,9 @@
   "РУ": "RU",
   "Войти": "Login",
   "Увеличить": "Increment",
-  "Уменьшить": "Decrement"
+  "Уменьшить": "Decrement",
+  "Форма авторизации": "Authorization",
+  "Отправить": "Send",
+  "Имя": "Name",
+  "Пароль": "Password"
 }
