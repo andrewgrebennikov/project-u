@@ -1,20 +1,23 @@
-import { FC, PropsWithChildren, useCallback, useEffect } from 'react';
-import styles from './Modul.module.scss';
+import { FC, PropsWithChildren, useCallback, useEffect, useState } from 'react';
 import cx from 'classix';
 import { Portal } from 'shared/ui/Portal/Portal';
+import styles from './Modul.module.scss';
 
 interface IModalProps {
   className?: string;
   isOpen: boolean;
   onClose: () => void;
+  lazy?: boolean;
 }
 
 export const Modal: FC<PropsWithChildren<IModalProps>> = (props) => {
-  const { className, children, isOpen, onClose } = props;
+  const { className, children, isOpen, onClose, lazy } = props;
+  const [isMounted, setIsMounted] = useState(false);
 
   const handleClose = useCallback(() => {
     if (onClose) {
       onClose();
+      setIsMounted(false);
     }
   }, [onClose]);
 
@@ -29,6 +32,12 @@ export const Modal: FC<PropsWithChildren<IModalProps>> = (props) => {
 
   useEffect(() => {
     if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (isOpen) {
       window.addEventListener('keydown', handleKeyDown);
     }
 
@@ -37,7 +46,7 @@ export const Modal: FC<PropsWithChildren<IModalProps>> = (props) => {
     };
   }, [handleKeyDown, isOpen]);
 
-  if (!isOpen) {
+  if (!isMounted && lazy) {
     return null;
   }
 

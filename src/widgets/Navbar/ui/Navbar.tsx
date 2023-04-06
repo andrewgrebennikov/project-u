@@ -3,8 +3,8 @@ import cx from 'classix';
 import { useTranslation } from 'react-i18next';
 import styles from './Navbar.module.scss';
 import { Button } from 'shared/ui/Button/Button';
-import { Modal } from 'shared/ui/Modal/Modal';
 import { useModal } from 'shared/hooks/useModal';
+import { LoginModal } from 'features/AuthByUsername';
 
 interface INavbarProps {
   className?: string;
@@ -13,19 +13,16 @@ interface INavbarProps {
 export const Navbar: FC<INavbarProps> = (props) => {
   const { className } = props;
   const { t } = useTranslation('translation');
-  const { isOpenModal, handleModalToggle } = useModal();
+  const { isOpenModal, handleModalClose, handleModalOpen } = useModal();
 
   return (
     <>
       <nav className={cx(styles.navbar, className)} data-testid="navbar">
-        <Button variant="text" onClick={handleModalToggle}>
+        <Button variant="text" onClick={handleModalOpen}>
           {t('Войти')}
         </Button>
       </nav>
-      {/* eslint-disable-next-line i18next/no-literal-string */}
-      <Modal isOpen={isOpenModal} onClose={handleModalToggle}>
-        Модальное окно
-      </Modal>
+      <LoginModal isOpen={isOpenModal} onClose={handleModalClose} />
     </>
   );
 };
