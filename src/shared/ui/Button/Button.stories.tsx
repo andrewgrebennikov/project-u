@@ -82,3 +82,18 @@ EndIconDark.args = {
   endIcon: <IconArrowRight className="icon" width="30" height="30" />,
 };
 EndIconDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  children: 'Text',
+  variant: ButtonVariant.TEXT,
+  disabled: true,
+};
+
+export const DisabledDark = Template.bind({});
+DisabledDark.args = {
+  children: 'Text',
+  variant: ButtonVariant.TEXT,
+  disabled: true,
+};
+DisabledDark.decorators = [ThemeDecorator(Theme.DARK)];

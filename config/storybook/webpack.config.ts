@@ -12,7 +12,13 @@ export default ({ config }: { config: webpack.Configuration }) => {
     src: path.resolve(__dirname, '..', '..', 'src'),
   };
 
-  config.resolve.modules.push(paths.src);
+  config.plugins.push(
+    new webpack.DefinePlugin({
+      __IS_DEV__: true,
+    }),
+  );
+
+  config.resolve.modules = [paths.src, 'node_modules'];
   config.resolve.extensions.push('.ts', '.tsx');
 
   config.module.rules = config.module.rules.map((rule: RuleSetRule) => {

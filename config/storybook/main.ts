@@ -7,6 +7,7 @@ const config: StorybookConfig = {
   core: {
     builder: '@storybook/builder-webpack5',
   },
+  staticDirs: ['../../public'],
 };
 
 module.exports = config;
