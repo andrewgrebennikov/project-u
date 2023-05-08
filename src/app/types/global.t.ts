@@ -26,4 +26,5 @@ declare module '*.jpeg' {
   export default content;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 declare const __IS_DEV__: boolean;
