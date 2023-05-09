@@ -5,5 +5,9 @@ import { LoginSchema } from 'features/AuthByUsername';
 export interface StoreSchema {
   counter: CounterSchema;
   user: UserSchema;
-  login: LoginSchema;
+
+  // Асинхронные редюсеры
+  login?: LoginSchema;
 }
+
+export type StoreSchemaKeys = keyof StoreSchema;
