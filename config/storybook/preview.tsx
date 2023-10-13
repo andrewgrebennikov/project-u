@@ -11,6 +11,6 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
-    decorators: [StyleDecorator, ThemeDecorator(Theme.LIGHT), TranslationDecorator],
+    decorators: [StyleDecorator, ThemeDecorator(Theme.LIGHT), TranslationDecorator, RouterDecorator],
   },
 };
