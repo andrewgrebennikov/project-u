@@ -1,48 +1,55 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import LoginForm from './LoginForm';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 
-export default {
-  title: 'features/LoginForm',
+const meta: Meta<typeof LoginForm> = {
   component: LoginForm,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} as ComponentMeta<typeof LoginForm>;
+  title: 'features/LoginForm',
+};
 
-const Template: ComponentStory<typeof LoginForm> = () => <LoginForm />;
+export default meta;
+type Story = StoryObj<typeof LoginForm>;
 
-export const Default = Template.bind({});
-Default.args = {};
-Default.decorators = [StoreDecorator({ login: { username: '123', password: '123' } })];
+export const Light: Story = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({ login: { username: '123', password: '123' } })],
+};
 
-export const LoginFormDark = Template.bind({});
-LoginFormDark.args = {};
-LoginFormDark.decorators = [
-  ThemeDecorator(Theme.DARK),
-  StoreDecorator({ login: { username: '123', password: '123' } }),
-];
+export const Dark: Story = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({ login: { username: '123', password: '123' } })],
+};
 
-export const withError = Template.bind({});
-withError.args = {};
-withError.decorators = [StoreDecorator({ login: { username: '123', password: '123', error: 'Ошибка' } })];
+export const LightWithError: Story = {
+  args: {},
+  decorators: [
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({ login: { username: '123', password: '123', error: 'Ошибка' } }),
+  ],
+};
 
-export const withErrorDark = Template.bind({});
-withErrorDark.args = {};
-withErrorDark.decorators = [
-  ThemeDecorator(Theme.DARK),
-  StoreDecorator({ login: { username: '123', password: '123', error: 'Ошибка' } }),
-];
+export const DarkWithError: Story = {
+  args: {},
+  decorators: [
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({ login: { username: '123', password: '123', error: 'Ошибка' } }),
+  ],
+};
 
-export const loading = Template.bind({});
-loading.args = {};
-loading.decorators = [StoreDecorator({ login: { username: '123', password: '123', isLoading: true } })];
+export const LightWithLoading: Story = {
+  args: {},
+  decorators: [
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({ login: { username: '123', password: '123', isLoading: true } }),
+  ],
+};
 
-export const loadingDark = Template.bind({});
-loadingDark.args = {};
-loadingDark.decorators = [
-  ThemeDecorator(Theme.DARK),
-  StoreDecorator({ login: { username: '123', password: '123', isLoading: true } }),
-];
+export const DarkWithLoading: Story = {
+  args: {},
+  decorators: [
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({ login: { username: '123', password: '123', isLoading: true } }),
+  ],
+};

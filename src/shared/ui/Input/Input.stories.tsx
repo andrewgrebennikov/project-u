@@ -1,27 +1,28 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Input } from './Input';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 
-export default {
-  title: 'shared/Input',
+const meta: Meta<typeof Input> = {
   component: Input,
-  argTypes: {
-    backgroundColor: { control: 'color' },
+  title: 'shared/Input',
+};
+
+export default meta;
+type Story = StoryObj<typeof Input>;
+
+export const InputLight: Story = {
+  args: {
+    label: 'Введите имя',
+    type: 'text',
   },
-} as ComponentMeta<typeof Input>;
-
-const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  label: 'Введите имя',
-  type: 'text',
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
-export const InputDark = Template.bind({});
-InputDark.args = {
-  label: 'Введите имя',
-  type: 'text',
+export const InputDark: Story = {
+  args: {
+    label: 'Введите имя',
+    type: 'text',
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 };
-InputDark.decorators = [ThemeDecorator(Theme.DARK)];

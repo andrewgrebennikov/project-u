@@ -1,99 +1,115 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Button, ButtonVariant } from './Button';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import IconArrowRight from 'shared/assets/icons/icon-arrow-right.svg';
 
-export default {
-  title: 'shared/Button',
+const meta: Meta<typeof Button> = {
   component: Button,
-  argTypes: {
-    backgroundColor: { control: 'color' },
+  title: 'shared/Button',
+};
+
+export default meta;
+type Story = StoryObj<typeof Button>;
+
+export const TextLight: Story = {
+  args: {
+    children: 'Text',
+    variant: ButtonVariant.TEXT,
   },
-} as ComponentMeta<typeof Button>;
-
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
-
-export const Text = Template.bind({});
-Text.args = {
-  children: 'Text',
-  variant: ButtonVariant.TEXT,
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
-export const TextDark = Template.bind({});
-TextDark.args = {
-  children: 'Text',
-  variant: ButtonVariant.TEXT,
-};
-TextDark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const Contained = Template.bind({});
-Contained.args = {
-  children: 'Text',
-  variant: ButtonVariant.CONTAINED,
+export const TextDark: Story = {
+  args: {
+    children: 'Text',
+    variant: ButtonVariant.TEXT,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 };
 
-export const ContainedDark = Template.bind({});
-ContainedDark.args = {
-  children: 'Text',
-  variant: ButtonVariant.CONTAINED,
-};
-ContainedDark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const Outlined = Template.bind({});
-Outlined.args = {
-  children: 'Text',
-  variant: ButtonVariant.OUTLINED,
+export const ContainedLight: Story = {
+  args: {
+    children: 'Text',
+    variant: ButtonVariant.CONTAINED,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
-export const OutlinedDark = Template.bind({});
-OutlinedDark.args = {
-  children: 'Text',
-  variant: ButtonVariant.OUTLINED,
-};
-OutlinedDark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const StartIcon = Template.bind({});
-StartIcon.args = {
-  children: 'Text',
-  variant: ButtonVariant.TEXT,
-  startIcon: <IconArrowRight className="icon" width="30" height="30" />,
+export const ContainedDark: Story = {
+  args: {
+    children: 'Text',
+    variant: ButtonVariant.CONTAINED,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 };
 
-export const StartIconDark = Template.bind({});
-StartIconDark.args = {
-  children: 'Text',
-  variant: ButtonVariant.TEXT,
-  startIcon: <IconArrowRight className="icon" width="30" height="30" />,
-};
-StartIconDark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const EndIcon = Template.bind({});
-EndIcon.args = {
-  children: 'Text',
-  variant: ButtonVariant.TEXT,
-  endIcon: <IconArrowRight className="icon" width="30" height="30" />,
+export const OutlinedLight: Story = {
+  args: {
+    children: 'Text',
+    variant: ButtonVariant.OUTLINED,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
-export const EndIconDark = Template.bind({});
-EndIconDark.args = {
-  children: 'Text',
-  variant: ButtonVariant.TEXT,
-  endIcon: <IconArrowRight className="icon" width="30" height="30" />,
-};
-EndIconDark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const Disabled = Template.bind({});
-Disabled.args = {
-  children: 'Text',
-  variant: ButtonVariant.TEXT,
-  disabled: true,
+export const OutlinedDark: Story = {
+  args: {
+    children: 'Text',
+    variant: ButtonVariant.OUTLINED,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
 };
 
-export const DisabledDark = Template.bind({});
-DisabledDark.args = {
-  children: 'Text',
-  variant: ButtonVariant.TEXT,
-  disabled: true,
+export const StartIconLight: Story = {
+  args: {
+    children: 'Text',
+    variant: ButtonVariant.TEXT,
+    startIcon: <IconArrowRight className="icon" width="30" height="30" />,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 };
-DisabledDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const StartIconDark: Story = {
+  args: {
+    children: 'Text',
+    variant: ButtonVariant.TEXT,
+    startIcon: <IconArrowRight className="icon" width="30" height="30" />,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const EndIconLight: Story = {
+  args: {
+    children: 'Text',
+    variant: ButtonVariant.TEXT,
+    endIcon: <IconArrowRight className="icon" width="30" height="30" />,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+};
+
+export const EndIconDark: Story = {
+  args: {
+    children: 'Text',
+    variant: ButtonVariant.TEXT,
+    endIcon: <IconArrowRight className="icon" width="30" height="30" />,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const DisabledLight: Story = {
+  args: {
+    children: 'Text',
+    variant: ButtonVariant.TEXT,
+    disabled: true,
+  },
+  decorators: [ThemeDecorator(Theme.LIGHT)],
+};
+
+export const DisabledDark: Story = {
+  args: {
+    children: 'Text',
+    variant: ButtonVariant.TEXT,
+    disabled: true,
+  },
+  decorators: [ThemeDecorator(Theme.DARK)],
+};

@@ -17,6 +17,7 @@ interface IAppLink extends LinkProps {
   underline?: AppLinkUnderline;
   startIcon?: ReactNode;
   endIcon?: ReactNode;
+  children: ReactNode;
 }
 
 export const AppLink: FC<IAppLink> = (props) => {

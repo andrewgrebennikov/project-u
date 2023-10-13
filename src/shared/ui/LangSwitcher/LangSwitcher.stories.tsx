@@ -1,21 +1,23 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { LangSwitcher } from './LangSwitcher';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import { TranslationDecorator } from 'shared/config/storybook/TranslationDecorator';
 
-export default {
-  title: 'shared/LangSwitcher',
+const meta: Meta<typeof LangSwitcher> = {
   component: LangSwitcher,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} as ComponentMeta<typeof LangSwitcher>;
+  title: 'shared/LangSwitcher',
+};
 
-const Template: ComponentStory<typeof LangSwitcher> = (args) => <LangSwitcher {...args} />;
+export default meta;
+type Story = StoryObj<typeof LangSwitcher>;
 
-export const Lang = Template.bind({});
-Lang.args = {};
+export const Light: Story = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.LIGHT), TranslationDecorator],
+};
 
-export const LangDark = Template.bind({});
-LangDark.args = {};
-LangDark.decorators = [ThemeDecorator(Theme.DARK)];
+export const Dark: Story = {
+  args: {},
+  decorators: [ThemeDecorator(Theme.DARK), TranslationDecorator],
+};
