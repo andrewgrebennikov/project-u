@@ -27,8 +27,11 @@ export const Button: FC<IButtonProps> = (props) => {
       className={cx(
         styles.button,
         className,
-        variant === ButtonVariant.CONTAINED && styles.contained,
-        variant === ButtonVariant.OUTLINED && styles.outlined,
+        {
+          [ButtonVariant.CONTAINED]: styles.contained,
+          [ButtonVariant.TEXT]: styles.text,
+          [ButtonVariant.OUTLINED]: styles.outlined,
+        }[variant],
       )}
       {...otherProps}
     >

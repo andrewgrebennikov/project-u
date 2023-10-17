@@ -26,5 +26,12 @@ declare module '*.jpeg' {
   export default content;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 declare const __IS_DEV__: boolean;
+
+declare const __API__: string;
+
+type DeepPartial<T> = T extends object
+  ? {
+      [P in keyof T]?: DeepPartial<T[P]>;
+    }
+  : T;

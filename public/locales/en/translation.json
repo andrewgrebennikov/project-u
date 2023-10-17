@@ -10,5 +10,7 @@
   "Отправить": "Send",
   "Имя": "Name",
   "Пароль": "Password",
-  "Вы ввели неверный логин или пароль": "You entered an incorrect username or password"
+  "Вы ввели неверный логин или пароль": "You entered an incorrect username or password",
+  "Страница О нас": "Page about",
+  "Страница профиля": "Page profile"
 }
