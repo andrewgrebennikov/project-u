@@ -1,6 +1,18 @@
 {
-  "posts": [{ "id": 1, "title": "json-server", "author": "typicode" }],
-  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
   "users": [
     {
       "id": 1,
@@ -8,5 +20,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "first": "Андрей",
+    "lastname": "Гребенников",
+    "age": 32,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Moscow",
+    "username": "ASGrebennikov",
+    "avatar": "https://upload.wikimedia.org/wikipedia/ru/f/f6/Kirby_FL.png"
+  }
 }

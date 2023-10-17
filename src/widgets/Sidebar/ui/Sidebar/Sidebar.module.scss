@@ -16,22 +16,8 @@
   justify-content: flex-start;
 }
 
-.navLink {
-  font-size: 20px;
-
-  &:hover,
-  &:focus-visible {
-    color: black;
-    transition: color 0.3s ease-in-out;
-  }
-}
-
 .collapsed {
   width: 80px;
-
-  .label {
-    display: none;
-  }
 }
 
 .switchers {

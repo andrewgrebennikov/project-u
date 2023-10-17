@@ -1,6 +1,7 @@
 import { memo, SyntheticEvent, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import cx from 'classix';
 import { Input } from 'shared/ui/Input/Input';
 import { Button } from 'shared/ui/Button/Button';
 import { loginActions, loginReducer } from '../../model/slices/loginSlice';
@@ -11,12 +12,19 @@ import { getLoginError } from '../../model/selectors/getLoginError/getLoginError
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import styles from './LoginForm.module.scss';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 
 const initialReducers: ReducersList = { login: loginReducer };
 
-const LoginForm = memo(() => {
+interface ILoginFormProps {
+  onClose: () => void;
+  className?: string;
+}
+
+const LoginForm = memo((props: ILoginFormProps) => {
+  const { className, onClose } = props;
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
   const isLoading = useSelector(getLoginIsLoading);
@@ -37,17 +45,20 @@ const LoginForm = memo(() => {
   );
 
   const handleLoginFormSubmit = useCallback(
-    (event: SyntheticEvent) => {
+    async (event: SyntheticEvent) => {
       event.preventDefault();
-      // @ts-ignore
-      dispatch(loginByUsername({ username, password }));
+      const result = await dispatch(loginByUsername({ username, password }));
+
+      if (result.meta.requestStatus === 'fulfilled') {
+        onClose();
+      }
     },
-    [dispatch, password, username],
+    [dispatch, password, username, onClose],
   );
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={true}>
-      <form className={styles.form} onSubmit={handleLoginFormSubmit}>
+      <form className={cx(styles.form, className)} onSubmit={handleLoginFormSubmit}>
         <fieldset className={styles.fieldset}>
           <legend className={styles.legend}>{t('Форма авторизации')}</legend>
           {error && <p className={styles.error}>{t('Вы ввели неверный логин или пароль')}</p>}

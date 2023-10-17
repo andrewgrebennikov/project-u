@@ -3,11 +3,11 @@ import { Counter } from 'entities/Counter';
 import { useEffect } from 'react';
 
 const MainPage = () => {
-  const { t, i18n } = useTranslation('main');
+  const { t } = useTranslation('main');
 
   useEffect(() => {
     document.title = t('Главная страница');
-  }, [i18n.language, t]);
+  }, [t]);
 
   return (
     <>
