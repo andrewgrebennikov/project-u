@@ -5,8 +5,9 @@ import styles from './Navbar.module.scss';
 import { Button } from 'shared/ui/Button/Button';
 import { useModal } from 'shared/hooks/useModal';
 import { LoginModal } from 'features/AuthByUsername';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getAuthData, userActions } from 'entities/User';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 
 interface INavbarProps {
   className?: string;
@@ -17,7 +18,7 @@ export const Navbar: FC<INavbarProps> = memo((props) => {
   const { t } = useTranslation('translation');
   const { isOpenModal, handleModalClose, handleModalOpen } = useModal();
   const authData = useSelector(getAuthData);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const handleLogout = useCallback(() => {
     dispatch(userActions.logout());
