@@ -33,10 +33,8 @@ export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
       {
         loader: 'ts-loader',
         options: {
-          ...(isDev && {
-            getCustomTransformers: () => ({
-              before: [ReactRefreshTypeScript()],
-            }),
+          getCustomTransformers: () => ({
+            before: [isDev && ReactRefreshTypeScript()].filter(Boolean),
           }),
           transpileOnly: isDev,
         },

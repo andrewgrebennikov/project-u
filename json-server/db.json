@@ -21,12 +21,12 @@
     }
   ],
   "profile": {
-    "first": "Андрей",
+    "firstname": "Андрей",
     "lastname": "Гребенников",
     "age": 32,
     "currency": "RUB",
-    "country": "Russia",
-    "city": "Moscow",
+    "country": "Россия",
+    "city": "Ульяновск",
     "username": "ASGrebennikov",
     "avatar": "https://upload.wikimedia.org/wikipedia/ru/f/f6/Kirby_FL.png"
   }

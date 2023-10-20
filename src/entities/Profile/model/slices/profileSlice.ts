@@ -1,9 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Profile, ProfileSchema } from '../types/profileSchema';
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
+import { updateProfileData } from 'entities/Profile/model/services/updateProfileData/updateProfileData';
 
 const initialState: ProfileSchema = {
   profileData: undefined,
+  formData: undefined,
   isLoading: false,
   error: undefined,
   readonly: true,
@@ -12,7 +14,18 @@ const initialState: ProfileSchema = {
 export const profileSlice = createSlice({
   name: 'profile',
   initialState,
-  reducers: {},
+  reducers: {
+    setReadOnly: (state, action: PayloadAction<boolean>) => {
+      state.readonly = action.payload;
+    },
+    cancelEdit: (state) => {
+      state.readonly = true;
+      state.formData = state.profileData;
+    },
+    updateProfile: (state, action: PayloadAction<Profile>) => {
+      state.formData = { ...state.formData, ...action.payload };
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchProfileData.pending, (state) => {
@@ -22,10 +35,24 @@ export const profileSlice = createSlice({
       .addCase(fetchProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
         state.isLoading = false;
         state.profileData = action.payload;
+        state.formData = action.payload;
       })
       .addCase(fetchProfileData.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.payload as string;
+        state.error = action.payload;
+      })
+      .addCase(updateProfileData.pending, (state) => {
+        state.error = undefined;
+        state.isLoading = true;
+      })
+      .addCase(updateProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
+        state.isLoading = false;
+        state.profileData = action.payload;
+        state.readonly = true;
+      })
+      .addCase(updateProfileData.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
       });
   },
 });

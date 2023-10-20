@@ -2,7 +2,7 @@
   position: relative;
 
   width: 300px;
-  height: calc(100vh - 56px);
+  min-height: calc(100vh - 56px);
   padding: 16px;
 
   background-color: var(--secondary-color);
