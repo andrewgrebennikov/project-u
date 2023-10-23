@@ -3,6 +3,8 @@
 }
 
 .select {
+  cursor: pointer;
+
   display: block;
 
   width: 100%;
@@ -13,7 +15,7 @@
   border-right: 0;
   border-left: 0;
 
-  &:read-only {
+  &:disabled {
     cursor: not-allowed;
   }
 }

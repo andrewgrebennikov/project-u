@@ -6,7 +6,9 @@ import { StoreProvider } from 'app/providers/StoreProvider';
 import 'shared/config/i18n/i18n';
 import App from 'app/App';
 
-createRoot(document.getElementById('root')).render(
+const root = createRoot(document.getElementById('root') as Element);
+
+root.render(
   <BrowserRouter>
     <StoreProvider>
       <ErrorBoundary>
