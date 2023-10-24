@@ -4,6 +4,7 @@ import { ValueOf } from 'shared/lib/types/valueOf';
 export const Theme = {
   LIGHT: 'light',
   DARK: 'dark',
+  RED: 'red',
 } as const;
 
 export type Theme = ValueOf<typeof Theme>;

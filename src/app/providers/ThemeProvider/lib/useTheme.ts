@@ -11,7 +11,15 @@ export const useTheme = (): IUseTheme => {
   const { theme, setTheme } = useContext(ThemeContext);
 
   const toggleTheme = () => {
-    const newTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;
+    let newTheme: Theme;
+
+    if (theme === Theme.LIGHT) {
+      newTheme = Theme.DARK;
+    } else if (theme === Theme.DARK) {
+      newTheme = Theme.RED;
+    } else {
+      newTheme = Theme.LIGHT;
+    }
 
     setTheme?.(newTheme);
 
