@@ -1,9 +1,15 @@
-import { RouteProps } from 'react-router-dom';
 import { MainPage } from 'pages/MainPage';
 import { AboutPage } from 'pages/AboutPage';
 import { NotFound } from 'pages/NotFound';
 import { ProfilePage } from 'pages/ProfilePage';
 import { ValueOf } from 'shared/lib/types/valueOf';
+import { ReactNode } from 'react';
+
+export type AppRoutesProps = {
+  path: string;
+  authOnly?: boolean;
+  element: ReactNode;
+};
 
 export const AppRoutes = {
   MAIN: 'main',
@@ -21,7 +27,7 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.NOT_FOUND]: '*',
 };
 
-export const routeConfig: Array<RouteProps> = [
+export const routeConfig: AppRoutesProps[] = [
   {
     path: RoutePath.main,
     element: <MainPage />,
@@ -33,6 +39,7 @@ export const routeConfig: Array<RouteProps> = [
   {
     path: RoutePath.profile,
     element: <ProfilePage />,
+    authOnly: true,
   },
   {
     path: RoutePath.not_found,
