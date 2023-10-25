@@ -9,7 +9,7 @@ export const AppRouter = () => {
     <div className="app-page">
       <Suspense fallback={<Loader />}>
         <Routes>
-          {Object.values(routeConfig).map((route) => {
+          {routeConfig.map((route) => {
             const { path, element, authOnly } = route;
 
             return <Route key={path} path={path} element={authOnly ? <RequireAuth>{element}</RequireAuth> : element} />;
