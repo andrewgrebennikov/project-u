@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import cx from 'classix';
 import { Button } from 'shared/ui/Button/Button';
 import styles from './LangSwitcher.module.scss';
@@ -17,6 +17,11 @@ export const LangSwitcher: FC<ILangSwitcherProps> = (props) => {
     await i18n.changeLanguage(newLang);
     document.documentElement.setAttribute('lang', newLang);
   };
+
+  useEffect(() => {
+    const lang = i18n.language;
+    document.documentElement.setAttribute('lang', lang);
+  }, [i18n.language]);
 
   return (
     <Button className={cx(className, styles.toggle)} onClick={handleLangClick}>

@@ -14,12 +14,11 @@ interface ISelectProps extends HTMLInputProps {
   label?: string;
   value?: string;
   onChange?: (value: string) => void;
-  placeholder?: string;
   options: ISelectOption[];
 }
 
 export const Select = memo((props: ISelectProps) => {
-  const { className, label, value, onChange, placeholder, options, ...otherProps } = props;
+  const { className, label, value, onChange, options, ...otherProps } = props;
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
     onChange?.(event.target.value);
@@ -29,13 +28,7 @@ export const Select = memo((props: ISelectProps) => {
     <label className={cx(className, styles.field)}>
       <span>
         <span className={styles.label}>{label}</span>
-        <select
-          value={value}
-          onChange={handleChange}
-          className={styles.select}
-          placeholder={placeholder}
-          {...otherProps}
-        >
+        <select value={value} onChange={handleChange} className={styles.select} {...otherProps}>
           {options.map((option) => {
             const { value, name } = option;
 

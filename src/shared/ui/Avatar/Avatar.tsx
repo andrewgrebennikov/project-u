@@ -3,10 +3,10 @@ import styles from './Avatar.module.scss';
 
 interface IAvatarProps {
   className?: string;
-  src: string;
+  src: string | undefined;
   width?: string | number;
   height?: string | number;
-  alt: string;
+  alt: string | undefined;
 }
 
 export const Avatar = (props: IAvatarProps) => {

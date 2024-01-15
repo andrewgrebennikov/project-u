@@ -29,8 +29,11 @@ export const AppLink: FC<IAppLink> = (props) => {
       className={cx(
         styles.appLink,
         className,
-        underline === AppLinkUnderline.NONE && styles.underlineNone,
-        underline === AppLinkUnderline.HOVER && styles.underlineHover,
+        {
+          [AppLinkUnderline.NONE]: styles.underlineNone,
+          [AppLinkUnderline.HOVER]: styles.underlineHover,
+          [AppLinkUnderline.ALWAYS]: styles.underlineAlways,
+        }[underline],
       )}
       {...otherProps}
     >

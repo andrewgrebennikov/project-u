@@ -1,3 +1,3 @@
 import { StoreSchema } from 'app/providers/StoreProvider/types/storeSchema';
 
-export const getCounter = (state: StoreSchema) => state.counter;
+export const getArticleError = (state: StoreSchema) => state.article?.error;
