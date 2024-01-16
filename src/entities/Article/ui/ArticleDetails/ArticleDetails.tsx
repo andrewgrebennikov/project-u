@@ -37,20 +37,12 @@ export const ArticleDetails = (props: IArticleDetailsProps) => {
   const content = () => {
     if (isLoading) {
       // TODO article skeleton
-      return (
-        <div className={styles.article}>
-          <p>{t('Загрузка статьи')}</p>
-        </div>
-      );
+      return <p>{t('Загрузка статьи')}</p>;
     } else if (error) {
-      return (
-        <div className={styles.article}>
-          <p>{t('Произошла ошибка при загрузки статьи')}</p>
-        </div>
-      );
+      return <p>{t('Произошла ошибка при загрузки статьи')}</p>;
     } else {
       return (
-        <div className={styles.article}>
+        <>
           <Avatar className={styles.avatar} src={articleData?.img} alt={articleData?.title} width="200" height="200" />
           <h1 className={styles.title}>{articleData?.title}</h1>
           <p className={styles.subtitle}>{articleData?.subtitle}</p>
@@ -95,7 +87,7 @@ export const ArticleDetails = (props: IArticleDetailsProps) => {
 
             return null;
           })}
-        </div>
+        </>
       );
     }
   };

@@ -57,7 +57,7 @@ const LoginForm = memo((props: ILoginFormProps) => {
   );
 
   return (
-    <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={true}>
+    <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <form className={cx(styles.form, className)} onSubmit={handleLoginFormSubmit}>
         <fieldset className={styles.fieldset}>
           <legend className={styles.legend}>{t('Форма авторизации')}</legend>
