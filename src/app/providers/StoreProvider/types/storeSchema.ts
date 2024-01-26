@@ -3,6 +3,7 @@ import { LoginSchema } from 'features/AuthByUsername';
 import { ProfileSchema } from 'entities/Profile';
 import { ArticleSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
+import { AddCommentFormSchema } from 'features/AddCommentForm';
 
 export interface StoreSchema {
   user: UserSchema;
@@ -12,6 +13,7 @@ export interface StoreSchema {
   profile?: ProfileSchema;
   article?: ArticleSchema;
   articleDetailsComments?: ArticleDetailsCommentsSchema;
+  addCommentForm?: AddCommentFormSchema;
 }
 
 export type StoreSchemaKeys = keyof StoreSchema;

@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -100,6 +102,48 @@
       "text": "Нормас",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "Пиздец",
+      "id": "nuOf0_E"
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "Огнище",
+      "id": "cZhDQAN"
+    },
+    {
+      "articleId": "1",
+      "userId": 1,
+      "text": "123",
+      "id": "zVGZmIb"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "Ченя",
+      "id": "mnpn6Ss"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "Оп!",
+      "id": "TnmTVw7"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "123",
+      "id": "Be-asKK"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "123",
+      "id": "UQrF1yi"
     }
   ],
   "users": [
@@ -115,17 +159,31 @@
       "username": "user",
       "password": "123",
       "role": "USER",
-      "avatar": "https://upload.wikimedia.org/wikipedia/ru/f/f6/Kirby_FL.png"
+      "avatar": "https://voronpitomnik.ru/assets/images/5f381798-79bb-4639-bdea-eb27f5a846d7.JPG"
     }
   ],
-  "profile": {
-    "firstname": "Андрей",
-    "lastname": "Гребенников",
-    "age": 32,
-    "currency": "RUB",
-    "country": "Россия",
-    "city": "Ульяновск",
-    "username": "ASGrebennikov",
-    "avatar": "https://upload.wikimedia.org/wikipedia/ru/f/f6/Kirby_FL.png"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "firstname": "Андрей",
+      "lastname": "Гребенников",
+      "age": 32,
+      "currency": "RUB",
+      "country": "Россия",
+      "city": "Ульяновск",
+      "username": "ASGrebennikov",
+      "avatar": "https://upload.wikimedia.org/wikipedia/ru/f/f6/Kirby_FL.png"
+    },
+    {
+      "id": "2",
+      "firstname": "Ченя",
+      "lastname": "Хуйкин",
+      "age": 13,
+      "currency": "RUB",
+      "country": "Россия",
+      "city": "Ульяновск",
+      "username": "Chechen",
+      "avatar": "https://voronpitomnik.ru/assets/images/5f381798-79bb-4639-bdea-eb27f5a846d7.JPG"
+    }
+  ]
 }

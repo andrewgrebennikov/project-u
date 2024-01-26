@@ -17,10 +17,12 @@ import { useSelector } from 'react-redux';
 import { ProfilePageHeader } from '../ProfilePageHeader/ProfilePageHeader';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import { useParams } from 'react-router-dom';
 
 const initialReducers: ReducersList = { profile: profileReducer };
 
 const ProfilePage = () => {
+  const { id: profileId } = useParams();
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const formData = useSelector(getProfileFormData);
@@ -37,7 +39,7 @@ const ProfilePage = () => {
   }, [dispatch]);
 
   const onSaveForm = useCallback(() => {
-    dispatch(updateProfileData());
+    dispatch(updateProfileData(profileId));
   }, [dispatch]);
 
   const onChangeFirstname = useCallback(
@@ -95,7 +97,7 @@ const ProfilePage = () => {
 
   useEffect(() => {
     if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData());
+      dispatch(fetchProfileData(profileId));
     }
   }, [dispatch]);
 

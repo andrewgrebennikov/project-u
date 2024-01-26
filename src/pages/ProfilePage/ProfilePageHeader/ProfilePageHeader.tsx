@@ -2,6 +2,9 @@ import cx from 'classix';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button/Button';
 import styles from './ProfilePageHeader.module.scss';
+import { useSelector } from 'react-redux';
+import { getAuthData } from 'entities/User';
+import { getProfileFormData } from 'entities/Profile';
 
 interface IProfilePageHeader {
   className?: string;
@@ -14,24 +17,28 @@ interface IProfilePageHeader {
 export const ProfilePageHeader = (props: IProfilePageHeader) => {
   const { className, readOnly, onEditForm, onCancelEditForm, onSaveForm } = props;
   const { t } = useTranslation('profile');
+  const authData = useSelector(getAuthData);
+  const profileData = useSelector(getProfileFormData);
+  const canEdit = authData?.id === profileData?.id;
 
   return (
     <div className={cx(styles.header, className)}>
       <h1>{t('Профиль')}</h1>
-      {readOnly ? (
-        <Button variant="outlined" onClick={onEditForm}>
-          {t('Редактировать')}
-        </Button>
-      ) : (
-        <div className={styles.actions}>
-          <Button variant="outlined" onClick={onSaveForm}>
-            {t('Сохранить')}
+      {canEdit &&
+        (readOnly ? (
+          <Button variant="outlined" onClick={onEditForm}>
+            {t('Редактировать')}
           </Button>
-          <Button variant="outlined" onClick={onCancelEditForm}>
-            {t('Отмена')}
-          </Button>
-        </div>
-      )}
+        ) : (
+          <div className={styles.actions}>
+            <Button variant="outlined" onClick={onSaveForm}>
+              {t('Сохранить')}
+            </Button>
+            <Button variant="outlined" onClick={onCancelEditForm}>
+              {t('Отмена')}
+            </Button>
+          </div>
+        ))}
     </div>
   );
 };

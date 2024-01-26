@@ -2,6 +2,8 @@ import cx from 'classix';
 import styles from './CommentItem.module.scss';
 import { Comment } from '../../model/types/comment';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 interface ICommentItemProps {
   className?: string;
@@ -16,7 +18,9 @@ export const CommentItem = (props: ICommentItemProps) => {
     <div className={cx(className, styles.commentItem)}>
       <div className={styles.user}>
         {user.avatar ? (
-          <Avatar className={styles.avatar} src={user.avatar} alt={user.username} width={32} height={32} />
+          <AppLink className={styles.link} to={`${RoutePath.profile}${user.id}`}>
+            <Avatar className={styles.avatar} src={user.avatar} alt={user.username} width={32} height={32} />
+          </AppLink>
         ) : null}
         <span className={styles.username}>{user.username}</span>
       </div>

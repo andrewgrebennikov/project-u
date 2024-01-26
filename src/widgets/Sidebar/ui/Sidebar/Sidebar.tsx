@@ -6,8 +6,9 @@ import IconArrowRight from 'shared/assets/icons/icon-arrow-right.svg';
 import IconArrowLeft from 'shared/assets/icons/icon-arrow-left.svg';
 import styles from './Sidebar.module.scss';
 import { IconButton } from 'shared/ui/IconBtn/IconButton';
-import { sidebarItemList } from '../../model/item';
 import { SidebarItem } from 'widgets/Sidebar/ui/SidebarItem/SidebarItem';
+import { useSelector } from 'react-redux';
+import { getSidebarItems } from 'widgets/Sidebar/model/selectors/getSidebarItems';
 
 interface ISidebarProps {
   className?: string;
@@ -16,6 +17,7 @@ interface ISidebarProps {
 export const Sidebar: FC<ISidebarProps> = (props) => {
   const { className } = props;
   const [collapsed, setCollapsed] = useState(false);
+  const sidebarItemList = useSelector(getSidebarItems);
 
   const handleSidebarClick = () => {
     setCollapsed((prevState) => !prevState);

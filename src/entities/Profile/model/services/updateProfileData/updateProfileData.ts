@@ -3,14 +3,14 @@ import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Profile } from '../../types/profileSchema';
 import { getProfileFormData } from '../../selectors/getProfileFormData/getProfileFormData';
 
-export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<string>>(
+export const updateProfileData = createAsyncThunk<Profile, string | undefined, ThunkConfig<string>>(
   'profile/updateProfileData',
-  async (_, thunkAPI) => {
+  async (profileId, thunkAPI) => {
     const { rejectWithValue, extra, getState } = thunkAPI;
     const formData = getProfileFormData(getState());
 
     try {
-      const response = await extra.api.put<Profile>('/profile', formData);
+      const response = await extra.api.put<Profile>(`/profile/${profileId}`, formData);
 
       if (!response.data) {
         throw new Error();

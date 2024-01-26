@@ -23,7 +23,7 @@ export const Input = memo((props: IInputProps) => {
   return (
     <label className={cx(className, styles.field)}>
       <span>
-        <span className={styles.label}>{label}</span>
+        {label && <span className={styles.label}>{label}</span>}
         <input
           type={type}
           value={value}

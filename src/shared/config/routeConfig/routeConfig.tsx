@@ -25,9 +25,9 @@ export type AppRoutes = ValueOf<typeof AppRoutes>;
 export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: '/',
   [AppRoutes.ABOUT]: '/about',
-  [AppRoutes.PROFILE]: '/profile',
+  [AppRoutes.PROFILE]: '/profile/',
   [AppRoutes.ARTICLES]: '/articles',
-  [AppRoutes.ARTICLE_DETAILS]: '/article/:id',
+  [AppRoutes.ARTICLE_DETAILS]: '/article/',
   [AppRoutes.NOT_FOUND]: '*',
 };
 
@@ -46,12 +46,12 @@ export const routeConfig: AppRoutesProps[] = [
     authOnly: true,
   },
   {
-    path: RoutePath.article_details,
+    path: `${RoutePath.article_details}:id`,
     element: <ArticleDetailsPage />,
     authOnly: true,
   },
   {
-    path: RoutePath.profile,
+    path: `${RoutePath.profile}:id`,
     element: <ProfilePage />,
     authOnly: true,
   },

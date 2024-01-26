@@ -7,9 +7,11 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import { articleDetailsCommentsReducer, getArticleComments } from '../model/slice/articleDetailsCommentsSlice';
 import { useSelector } from 'react-redux';
 import { getArticleDetailsCommentsIsLoading } from '../model/selectors/getArticleDetailsCommentsIsLoading/getArticleDetailsCommentsIsLoading';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { AddCommentForm } from 'features/AddCommentForm';
+import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
 
 const initialReducers: ReducersList = { articleDetailsComments: articleDetailsCommentsReducer };
 
@@ -19,6 +21,13 @@ const ArticleDetailsPage = () => {
   const { t } = useTranslation();
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
+
+  const onSubmitCommentForm = useCallback(
+    (text: string) => {
+      dispatch(addCommentForArticle(text));
+    },
+    [dispatch],
+  );
 
   useEffect(() => {
     if (__PROJECT__ !== 'storybook') {
@@ -34,6 +43,7 @@ const ArticleDetailsPage = () => {
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <div className={styles.article}>
         <ArticleDetails articleId={articleId} />
+        <AddCommentForm className={styles.form} onSubmitCommentForm={onSubmitCommentForm} />
         <div className={styles.comments}>
           <h2>Комментарии</h2>
           <CommentList comments={comments} isLoading={commentsIsLoading} />

@@ -17,7 +17,7 @@ import IconEye from 'shared/assets/icons/icon-eye.svg';
 import IconDate from 'shared/assets/icons/icon-date.svg';
 import { ArticleCodeBlock, ArticleImageBlock, ArticleTextBlock } from 'entities/Article/model/types/article';
 
-const reducers: ReducersList = {
+const initialReducers: ReducersList = {
   article: articleReducer,
 };
 
@@ -97,7 +97,7 @@ export const ArticleDetails = (props: IArticleDetailsProps) => {
   }, [articleId, dispatch]);
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+    <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       {content()}
     </DynamicModuleLoader>
   );
