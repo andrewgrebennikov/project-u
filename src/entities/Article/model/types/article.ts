@@ -1,4 +1,5 @@
 import { ValueOf } from 'shared/lib/types/valueOf';
+import { User } from 'entities/User';
 
 export const ArticleBlockType = {
   TEXT: 'TEXT',
@@ -37,6 +38,13 @@ export const ArticleType = {
 
 export type ArticleType = ValueOf<typeof ArticleType>;
 
+export const ArticlesView = {
+  LIST: 'LIST',
+  GRID: 'GRID',
+} as const;
+
+export type ArticlesView = ValueOf<typeof ArticlesView>;
+
 export interface Article {
   id: string;
   title: string;
@@ -46,4 +54,5 @@ export interface Article {
   createdAt: string;
   type: ArticleType[];
   blocks: ArticleBlock[];
+  user: User;
 }
