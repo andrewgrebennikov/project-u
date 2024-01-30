@@ -4,6 +4,7 @@ import { ProfileSchema } from 'entities/Profile';
 import { ArticleSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
+import { ArticlesSchema } from 'pages/ArticlesPage';
 
 export interface StoreSchema {
   user: UserSchema;
@@ -14,6 +15,7 @@ export interface StoreSchema {
   article?: ArticleSchema;
   articleDetailsComments?: ArticleDetailsCommentsSchema;
   addCommentForm?: AddCommentFormSchema;
+  articles?: ArticlesSchema;
 }
 
 export type StoreSchemaKeys = keyof StoreSchema;

@@ -9,6 +9,7 @@ interface IArticlesListProps {
   articles: Article[];
   view?: ArticlesView;
   isLoading?: boolean;
+  error?: string;
 }
 
 const getSkeletons = (view: ArticlesView) => {
@@ -18,7 +19,15 @@ const getSkeletons = (view: ArticlesView) => {
 };
 
 export const ArticlesList = (props: IArticlesListProps) => {
-  const { articles, view = ArticlesView.LIST, className, isLoading } = props;
+  const { articles, view = ArticlesView.LIST, className, isLoading, error } = props;
+
+  if (error) {
+    return (
+      <div className={cx(styles.listing, className, view === ArticlesView.GRID && styles.listingGrid)}>
+        <p>Произошла ошибка</p>
+      </div>
+    );
+  }
 
   if (isLoading) {
     return (

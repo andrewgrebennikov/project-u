@@ -1,4 +1,5 @@
-export type { Article, ArticlesView } from './model/types/article';
+export type { Article } from './model/types/article';
+export { ArticlesView } from './model/types/article';
 export type { ArticleSchema } from './model/types/articleSchema';
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 export { getArticleData } from './model/selectors/getArticleData/getArticleData';
