@@ -1,8 +1,8 @@
+import cx from 'classix';
 import styles from './ArticlesList.module.scss';
 import { Article, ArticlesView } from '../../model/types/article';
-import ArticlesListItem from '../ArticlesListItem/ArticlesListItem';
-import cx from 'classix';
-import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticlesListItem/ArticleListItemSkeleton';
+import { ArticlesListItem } from '../ArticlesListItem/ArticlesListItem';
+import { ArticleListItemSkeleton } from '../ArticlesListItem/ArticleListItemSkeleton';
 
 interface IArticlesListProps {
   className?: string;
@@ -29,23 +29,13 @@ export const ArticlesList = (props: IArticlesListProps) => {
     );
   }
 
-  if (isLoading) {
-    return (
-      <div className={cx(styles.listing, className, view === ArticlesView.GRID && styles.listingGrid)}>
-        {getSkeletons(view)}
-      </div>
-    );
-  }
-
   return (
     <div className={cx(styles.listing, className, view === ArticlesView.GRID && styles.listingGrid)}>
-      {articles.length > 0 ? (
+      {articles.length > 0 &&
         articles.map((article) => {
           return <ArticlesListItem key={article.id} article={article} view={view} />;
-        })
-      ) : (
-        <p>Ничего не найдено</p>
-      )}
+        })}
+      {isLoading && getSkeletons(view)}
     </div>
   );
 };

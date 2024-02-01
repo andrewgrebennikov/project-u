@@ -12,6 +12,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
+import { Page } from 'shared/ui/Page/Page';
 
 const initialReducers: ReducersList = { articleDetailsComments: articleDetailsCommentsReducer };
 
@@ -41,14 +42,14 @@ const ArticleDetailsPage = () => {
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
-      <div className={styles.article}>
+      <Page className={styles.article}>
         <ArticleDetails articleId={articleId} />
         <AddCommentForm className={styles.form} onSubmitCommentForm={onSubmitCommentForm} />
         <div className={styles.comments}>
           <h2>Комментарии</h2>
           <CommentList comments={comments} isLoading={commentsIsLoading} />
         </div>
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

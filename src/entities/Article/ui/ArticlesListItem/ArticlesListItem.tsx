@@ -96,5 +96,3 @@ export const ArticlesListItem = (props: IArticlesListItemProps) => {
     </article>
   );
 };
-
-export default ArticlesListItem;

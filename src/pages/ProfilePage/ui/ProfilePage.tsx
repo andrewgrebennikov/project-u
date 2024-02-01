@@ -18,6 +18,7 @@ import { ProfilePageHeader } from '../ProfilePageHeader/ProfilePageHeader';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { useParams } from 'react-router-dom';
+import { Page } from 'shared/ui/Page/Page';
 
 const initialReducers: ReducersList = { profile: profileReducer };
 
@@ -103,25 +104,27 @@ const ProfilePage = () => {
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
-      <ProfilePageHeader
-        readOnly={readOnly}
-        onEditForm={onEditForm}
-        onCancelEditForm={onCancelEditForm}
-        onSaveForm={onSaveForm}
-      />
-      <ProfileCard
-        data={formData}
-        isLoading={isLoading}
-        error={error}
-        readOnly={readOnly}
-        onChangeFirstname={onChangeFirstname}
-        onChangeLastname={onChangeLastname}
-        onChangeAge={onChangeAge}
-        onChangeCity={onChangeCity}
-        onChangeAvatar={onChangeAvatar}
-        onChangeCountry={onChangeCountry}
-        onChangeCurrency={onChangeCurrency}
-      />
+      <Page>
+        <ProfilePageHeader
+          readOnly={readOnly}
+          onEditForm={onEditForm}
+          onCancelEditForm={onCancelEditForm}
+          onSaveForm={onSaveForm}
+        />
+        <ProfileCard
+          data={formData}
+          isLoading={isLoading}
+          error={error}
+          readOnly={readOnly}
+          onChangeFirstname={onChangeFirstname}
+          onChangeLastname={onChangeLastname}
+          onChangeAge={onChangeAge}
+          onChangeCity={onChangeCity}
+          onChangeAvatar={onChangeAvatar}
+          onChangeCountry={onChangeCountry}
+          onChangeCurrency={onChangeCurrency}
+        />
+      </Page>
     </DynamicModuleLoader>
   );
 };

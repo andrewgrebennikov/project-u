@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Page } from 'shared/ui/Page/Page';
 
 const AboutPage = () => {
   const { t } = useTranslation('about');
@@ -9,9 +10,9 @@ const AboutPage = () => {
   }, [t]);
 
   return (
-    <>
+    <Page>
       <h1>{t('Страница О нас')}</h1>
-    </>
+    </Page>
   );
 };
 

@@ -17,6 +17,8 @@ html {
 
 .app-content {
   display: flex;
+  overflow: hidden;
+  height: calc(100vh - 60px);
 }
 
 .app-page {

@@ -3,13 +3,8 @@ import { StoreSchema } from '../types/storeSchema';
 import { userReducer } from 'entities/User';
 import { api } from 'shared/api/api';
 import { createReducerManager } from '../../StoreProvider/config/reducerManager';
-import { To, NavigateOptions } from 'react-router-dom';
 
-export const createReduxStore = (
-  initialState?: StoreSchema,
-  asyncReducers?: ReducersMapObject<StoreSchema>,
-  navigate?: (to: To, options?: NavigateOptions) => void,
-) => {
+export const createReduxStore = (initialState?: StoreSchema, asyncReducers?: ReducersMapObject<StoreSchema>) => {
   const rootReducer: ReducersMapObject<StoreSchema> = {
     ...asyncReducers,
     user: userReducer,
@@ -26,7 +21,6 @@ export const createReduxStore = (
         thunk: {
           extraArgument: {
             api,
-            navigate,
           },
         },
       }),
