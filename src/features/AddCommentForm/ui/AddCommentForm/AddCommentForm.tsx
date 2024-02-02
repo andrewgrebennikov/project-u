@@ -21,7 +21,7 @@ const initialReducers: ReducersList = {
 const AddCommentForm = (props: ICommentFormProps) => {
   const { className, onSubmitCommentForm } = props;
   const dispatch = useAppDispatch();
-  const commentText = useSelector(getCommentFormText) || '';
+  const commentText = useSelector(getCommentFormText);
 
   const onCommentTextChange = useCallback(
     (value: string) => {

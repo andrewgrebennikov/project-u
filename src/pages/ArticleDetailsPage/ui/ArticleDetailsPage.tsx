@@ -12,7 +12,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 
 const initialReducers: ReducersList = { articleDetailsComments: articleDetailsCommentsReducer };
 

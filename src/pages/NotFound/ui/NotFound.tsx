@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 
 export const NotFound = () => {
   const { t } = useTranslation('notFound');

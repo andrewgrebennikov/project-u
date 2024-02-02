@@ -5,9 +5,11 @@ import { ArticleSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { ArticlesSchema } from 'pages/ArticlesPage';
+import { ScrollSchema } from 'features/SavePositionScroll';
 
 export interface StoreSchema {
   user: UserSchema;
+  scroll: ScrollSchema;
 
   // Асинхронные редюсеры
   login?: LoginSchema;

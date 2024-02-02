@@ -9,7 +9,7 @@ import { getArticlesIsLoading } from '../model/selectors/getArticlesIsLoading/ge
 import { getArticlesError } from '../model/selectors/getArticlesError/getArticlesError';
 import { getArticlesView } from '../model/selectors/getArticlesView/getArticlesView';
 import { ArticlesViewSelector } from 'features/ArticlesViewSelector';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/Page';
 import { fetchArticlesMore } from '../model/services/fetchArticlesMore/fetchArticlesMore';
 import { initArticles } from '../model/services/initArticles/initArticles';
 

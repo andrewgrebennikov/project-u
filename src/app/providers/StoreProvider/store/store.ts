@@ -3,11 +3,13 @@ import { StoreSchema } from '../types/storeSchema';
 import { userReducer } from 'entities/User';
 import { api } from 'shared/api/api';
 import { createReducerManager } from '../../StoreProvider/config/reducerManager';
+import { scrollReducer } from 'features/SavePositionScroll/model/slice/scrollSlice';
 
 export const createReduxStore = (initialState?: StoreSchema, asyncReducers?: ReducersMapObject<StoreSchema>) => {
   const rootReducer: ReducersMapObject<StoreSchema> = {
     ...asyncReducers,
     user: userReducer,
+    scroll: scrollReducer,
   };
 
   const reducerManager = createReducerManager(rootReducer);
