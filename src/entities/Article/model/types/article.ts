@@ -45,6 +45,14 @@ export const ArticlesView = {
 
 export type ArticlesView = ValueOf<typeof ArticlesView>;
 
+export const ArticlesSortField = {
+  VIEWS: 'views',
+  TITLE: 'title',
+  CREATED: 'createdAt',
+} as const;
+
+export type ArticlesSortField = ValueOf<typeof ArticlesSortField>;
+
 export interface Article {
   id: string;
   title: string;

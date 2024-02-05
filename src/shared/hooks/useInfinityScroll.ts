@@ -11,9 +11,14 @@ export const useInfinityScroll = (props: IUseInfinityScrollProps) => {
 
   useEffect(() => {
     const triggerElement = triggerRef.current;
+    const wrapperElement = wrapperRef.current;
+
+    if (!triggerElement || !wrapperElement) {
+      return;
+    }
 
     const options = {
-      root: wrapperRef.current,
+      root: wrapperElement,
       rootMargin: '0px',
       threshold: 1.0,
     };

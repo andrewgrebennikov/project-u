@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import styles from './ArticlesPage.module.scss';
-import { ArticlesList, ArticlesView } from 'entities/Article';
+import { ArticlesList, ArticlesSortField, ArticlesView } from 'entities/Article';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { articlesActions, articlesReducer, getArticles } from '../model/slice/articlesSlice';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
@@ -12,6 +12,8 @@ import { ArticlesViewSelector } from 'features/ArticlesViewSelector';
 import { Page } from 'widgets/Page/Page';
 import { fetchArticlesMore } from '../model/services/fetchArticlesMore/fetchArticlesMore';
 import { initArticles } from '../model/services/initArticles/initArticles';
+import { ArticlesSort } from 'features/ArticlesSort';
+import { getArticlesSort } from '../model/selectors/getArticlesSort/getArticlesSort';
 
 const initialReducers: ReducersList = { articles: articlesReducer };
 
@@ -21,14 +23,24 @@ const ArticlesPage = () => {
   const isLoading = useSelector(getArticlesIsLoading);
   const error = useSelector(getArticlesError);
   const view = useSelector(getArticlesView);
+  const sort = useSelector(getArticlesSort);
 
   const handleViewChange = (view: ArticlesView) => {
     dispatch(articlesActions.setView(view));
   };
 
   const onLoadMore = useCallback(() => {
-    dispatch(fetchArticlesMore());
-  }, [dispatch]);
+    if (!isLoading) {
+      dispatch(fetchArticlesMore());
+    }
+  }, [dispatch, isLoading]);
+
+  const handleSortChange = useCallback(
+    (newSort: ArticlesSortField) => {
+      dispatch(articlesActions.setSort(newSort));
+    },
+    [dispatch],
+  );
 
   useEffect(() => {
     dispatch(initArticles());
@@ -37,7 +49,14 @@ const ArticlesPage = () => {
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={false}>
       <Page className={styles.articles} onScrollEnd={onLoadMore}>
-        <ArticlesViewSelector className={styles.articlesView} view={view} onViewChange={handleViewChange} />
+        <div className={styles.filters}>
+          <ArticlesSort onChangeSort={handleSortChange} sort={sort} />
+          <ArticlesViewSelector className={styles.articlesView} view={view} onViewChange={handleViewChange} />
+        </div>
+        <div className={styles.filters}>
+          <ArticlesSort onChangeSort={handleSortChange} sort={sort} />
+          <ArticlesViewSelector className={styles.articlesView} view={view} onViewChange={handleViewChange} />
+        </div>
         <ArticlesList articles={articles} isLoading={isLoading} view={view} error={error} />
       </Page>
     </DynamicModuleLoader>

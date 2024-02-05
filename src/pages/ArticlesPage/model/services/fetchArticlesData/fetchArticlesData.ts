@@ -20,6 +20,7 @@ export const fetchArticlesData = createAsyncThunk<Article[], IFetchArticlesArgs,
           _expand: 'user',
           _page: page,
           _limit: limit,
+          _order: 'asc',
         },
       });
 

@@ -2,3 +2,12 @@
   justify-content: flex-end;
   margin: 0 0 16px;
 }
+
+.filters {
+  display: flex;
+  gap: 0 24px;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  margin: 0 0 24px;
+}

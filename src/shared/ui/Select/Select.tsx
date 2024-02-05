@@ -2,14 +2,14 @@ import cx from 'classix';
 import { ChangeEvent, memo, OptionHTMLAttributes, SelectHTMLAttributes } from 'react';
 import styles from './Select.module.scss';
 
-type HTMLInputProps = Omit<SelectHTMLAttributes<HTMLSelectElement>, 'value' | 'onChange'>;
+type HTMLSelectProps = Omit<SelectHTMLAttributes<HTMLSelectElement>, 'value' | 'onChange'>;
 
 interface ISelectOption extends OptionHTMLAttributes<HTMLOptionElement> {
   value: string;
   name: string;
 }
 
-interface ISelectProps extends HTMLInputProps {
+interface ISelectProps extends HTMLSelectProps {
   className?: string;
   label?: string;
   value?: string;

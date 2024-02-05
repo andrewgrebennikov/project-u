@@ -13,8 +13,8 @@
 .link {
   &::before {
     content: '';
-    display: block;
     position: absolute;
     inset: 0;
+    display: block;
   }
 }

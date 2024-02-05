@@ -41,7 +41,7 @@ export const Page = (props: IPageProps) => {
   return (
     <div ref={wrapperRef} className={cx(styles.page, className)} onScroll={handlePageScroll}>
       {children}
-      <div ref={triggerRef} />
+      <div ref={triggerRef} className={styles.trigger} />
     </div>
   );
 };
