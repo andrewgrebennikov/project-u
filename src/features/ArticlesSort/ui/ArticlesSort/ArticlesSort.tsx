@@ -1,7 +1,7 @@
 import cx from 'classix';
 import styles from './ArticlesSort.module.scss';
 import { Select } from 'shared/ui/Select/Select';
-import { ArticlesSortField } from 'entities/Article';
+import { ArticlesSortField } from '../../model/types/articles';
 
 interface IArticlesSortProps {
   className?: string;
@@ -25,11 +25,15 @@ const options = [
 ];
 
 export const ArticlesSort = (props: IArticlesSortProps) => {
-  const { className, sort } = props;
+  const { className, sort, onChangeSort } = props;
+
+  const handleSortChange = (sort: string) => {
+    onChangeSort(sort as ArticlesSortField);
+  };
 
   return (
     <div className={cx(styles.sort, className)}>
-      <Select label="Сортировать" options={options} value={sort} onChange={() => {}} />
+      <Select label="Сортировать" options={options} value={sort} onChange={handleSortChange} />
     </div>
   );
 };

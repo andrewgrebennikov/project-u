@@ -1,7 +1,7 @@
 import cx from 'classix';
 import styles from './ArticlesListItem.module.scss';
-import { ArticlesView } from '../../model/types/article';
 import { Skeleton, SkeletonVariant } from 'shared/ui/Skeleton/Skeleton';
+import { ArticlesView } from 'features/ArticlesViewSelector';
 
 interface ArticleListItemSkeletonProps {
   className?: string;

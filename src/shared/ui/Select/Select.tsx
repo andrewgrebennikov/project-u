@@ -26,20 +26,18 @@ export const Select = memo((props: ISelectProps) => {
 
   return (
     <label className={cx(className, styles.field)}>
-      <span>
-        <span className={styles.label}>{label}</span>
-        <select value={value} onChange={handleChange} className={styles.select} {...otherProps}>
-          {options.map((option) => {
-            const { value, name } = option;
+      <span className={styles.label}>{label}</span>
+      <select value={value} onChange={handleChange} className={styles.select} {...otherProps}>
+        {options.map((option) => {
+          const { value, name } = option;
 
-            return (
-              <option value={value} key={value}>
-                {name}
-              </option>
-            );
-          })}
-        </select>
-      </span>
+          return (
+            <option value={value} key={value}>
+              {name}
+            </option>
+          );
+        })}
+      </select>
     </label>
   );
 });

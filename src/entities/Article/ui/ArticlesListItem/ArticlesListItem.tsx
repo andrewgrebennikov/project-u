@@ -1,5 +1,5 @@
 import styles from './ArticlesListItem.module.scss';
-import { Article, ArticleBlockType, ArticlesView, ArticleTextBlock } from '../../model/types/article';
+import { Article, ArticleBlockType, ArticleTextBlock } from '../../model/types/article';
 import cx from 'classix';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonVariant } from 'shared/ui/Button/Button';
@@ -7,6 +7,7 @@ import IconEye from 'shared/assets/icons/icon-eye.svg';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { ArticleTextBlockComponent } from '../ArticleTextBlock/ArticleTextBlockComponent';
+import { ArticlesView } from 'features/ArticlesViewSelector';
 
 interface IArticlesListItemProps {
   className?: string;

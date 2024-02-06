@@ -1,8 +1,9 @@
 import cx from 'classix';
 import styles from './ArticlesList.module.scss';
-import { Article, ArticlesView } from '../../model/types/article';
+import { Article } from '../../model/types/article';
 import { ArticlesListItem } from '../ArticlesListItem/ArticlesListItem';
 import { ArticleListItemSkeleton } from '../ArticlesListItem/ArticleListItemSkeleton';
+import { ArticlesView } from 'features/ArticlesViewSelector';
 
 interface IArticlesListProps {
   className?: string;

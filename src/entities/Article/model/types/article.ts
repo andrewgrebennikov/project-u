@@ -38,21 +38,6 @@ export const ArticleType = {
 
 export type ArticleType = ValueOf<typeof ArticleType>;
 
-export const ArticlesView = {
-  LIST: 'LIST',
-  GRID: 'GRID',
-} as const;
-
-export type ArticlesView = ValueOf<typeof ArticlesView>;
-
-export const ArticlesSortField = {
-  VIEWS: 'views',
-  TITLE: 'title',
-  CREATED: 'createdAt',
-} as const;
-
-export type ArticlesSortField = ValueOf<typeof ArticlesSortField>;
-
 export interface Article {
   id: string;
   title: string;

@@ -3,7 +3,7 @@ import styles from './ArticlesViewSelector.module.scss';
 import { IconButton } from 'shared/ui/IconBtn/IconButton';
 import IconList from 'shared/assets/icons/icon-list.svg';
 import IconGrid from 'shared/assets/icons/icon-grid.svg';
-import { ArticlesView } from 'entities/Article';
+import { ArticlesView } from '../../model/types/articles';
 
 interface IArticleViewProps {
   className?: string;

@@ -13,7 +13,7 @@ export const LangSwitcher: FC<ILangSwitcherProps> = (props) => {
   const { t, i18n } = useTranslation('translation');
 
   const handleLangClick = async () => {
-    const newLang = i18n.language === 'ru' ? 'en' : 'ru';
+    const newLang = i18n.language === 'ru-RU' ? 'en-US' : 'ru-RU';
     await i18n.changeLanguage(newLang);
     document.documentElement.setAttribute('lang', newLang);
   };

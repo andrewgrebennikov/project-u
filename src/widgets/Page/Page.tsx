@@ -1,4 +1,4 @@
-import { MutableRefObject, ReactNode, UIEvent, useEffect, useRef } from 'react';
+import { memo, MutableRefObject, ReactNode, UIEvent, useEffect, useRef } from 'react';
 import styles from './Page.module.scss';
 import cx from 'classix';
 import { useInfinityScroll } from 'shared/hooks/useInfinityScroll';
@@ -16,7 +16,7 @@ interface IPageProps {
   onScrollEnd?: () => void;
 }
 
-export const Page = (props: IPageProps) => {
+export const Page = memo((props: IPageProps) => {
   const { className, children, onScrollEnd } = props;
   const dispatch = useAppDispatch();
   const { pathname } = useLocation();
@@ -41,7 +41,7 @@ export const Page = (props: IPageProps) => {
   return (
     <div ref={wrapperRef} className={cx(styles.page, className)} onScroll={handlePageScroll}>
       {children}
-      <div ref={triggerRef} className={styles.trigger} />
+      {onScrollEnd && <div ref={triggerRef} className={styles.trigger} />}
     </div>
   );
-};
+});

@@ -15,7 +15,7 @@ import { ArticleImageBlockComponent } from '../ArticleImageBlock/ArticleImageBlo
 import styles from './ArticleDetails.module.scss';
 import IconEye from 'shared/assets/icons/icon-eye.svg';
 import IconDate from 'shared/assets/icons/icon-date.svg';
-import { ArticleCodeBlock, ArticleImageBlock, ArticleTextBlock } from 'entities/Article/model/types/article';
+import { ArticleCodeBlock, ArticleImageBlock, ArticleTextBlock } from '../../model/types/article';
 
 const initialReducers: ReducersList = {
   article: articleReducer,

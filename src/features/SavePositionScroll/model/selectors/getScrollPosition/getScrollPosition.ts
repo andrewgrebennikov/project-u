@@ -3,7 +3,6 @@ import { StoreSchema } from 'app/providers/StoreProvider/types/storeSchema';
 
 export const getScrollPositionByPathname = createSelector(
   (state: StoreSchema) => state.scroll.scrollPosition,
-  (_, pathname: string) => pathname,
-  // @ts-ignore
+  (_state: StoreSchema, pathname: string) => pathname,
   (scroll, pathname) => scroll[pathname] || 0,
 );

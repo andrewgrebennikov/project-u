@@ -2,17 +2,21 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Article } from 'entities/Article';
 import { getArticlesLimit } from '../../selectors/getArticlesLimit/getArticlesLimit';
+import { getArticlesPage } from '../../selectors/getArticlesPage/getArticlesPage';
+import { ArticlesSortField, getArticlesSort } from 'features/ArticlesSort';
 
-interface IFetchArticlesArgs {
-  page?: number;
+interface IFetchArticlesProps {
+  replace?: boolean;
 }
 
-export const fetchArticlesData = createAsyncThunk<Article[], IFetchArticlesArgs, ThunkConfig<string>>(
+export const fetchArticlesData = createAsyncThunk<Article[], IFetchArticlesProps, ThunkConfig<string>>(
   'articles/fetchArticlesData',
-  async (args, thunkAPI) => {
+  async (_, thunkAPI) => {
     const { rejectWithValue, extra, getState } = thunkAPI;
-    const { page } = args;
     const limit = getArticlesLimit(getState());
+    const page = getArticlesPage(getState());
+    const sort = getArticlesSort(getState());
+    const order = sort === ArticlesSortField.VIEWS ? 'desc' : 'asc';
 
     try {
       const response = await extra.api.get<Article[]>('/articles', {
@@ -20,7 +24,8 @@ export const fetchArticlesData = createAsyncThunk<Article[], IFetchArticlesArgs,
           _expand: 'user',
           _page: page,
           _limit: limit,
-          _order: 'asc',
+          _sort: sort,
+          _order: order,
         },
       });
 
