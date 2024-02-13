@@ -1,10 +1,13 @@
-import cx from 'classix';
+import { cx } from 'classix';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/ui/Button/Button';
-import styles from './ProfilePageHeader.module.scss';
 import { useSelector } from 'react-redux';
-import { getAuthData } from 'entities/User';
+
 import { getProfileFormData } from 'entities/Profile';
+import { getAuthData } from 'entities/User';
+
+import { Button } from 'shared/ui/Button/Button';
+
+import styles from './ProfilePageHeader.module.scss';
 
 interface IProfilePageHeader {
   className?: string;

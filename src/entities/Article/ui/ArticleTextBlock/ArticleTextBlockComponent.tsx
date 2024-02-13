@@ -1,6 +1,8 @@
-import cx from 'classix';
-import styles from './ArticleTextBlockComponent.module.scss';
+import { cx } from 'classix';
+
 import { ArticleTextBlock } from '../../model/types/article';
+
+import styles from './ArticleTextBlockComponent.module.scss';
 
 interface IArticleTextBlockProps {
   className?: string;

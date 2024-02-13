@@ -1,7 +1,9 @@
-import cx from 'classix';
-import styles from './Skeleton.module.scss';
-import { ValueOf } from 'shared/lib/types/valueOf';
+import { cx } from 'classix';
 import { CSSProperties, HTMLAttributes } from 'react';
+
+import { ValueOf } from 'shared/lib/types/valueOf';
+
+import styles from './Skeleton.module.scss';
 
 export const SkeletonVariant = {
   CIRCULAR: 'CIRCULAR',

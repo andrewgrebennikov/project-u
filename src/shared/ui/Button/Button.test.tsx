@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import { Button, ButtonVariant } from 'shared/ui/Button/Button';
+
 import { renderWithTranslation } from 'shared/lib/tests/renderWithTranslation';
+import { Button, ButtonVariant } from 'shared/ui/Button/Button';
 
 describe('Button', () => {
   test('render button', () => {

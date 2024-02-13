@@ -1,4 +1,5 @@
-import cx from 'classix';
+import { cx } from 'classix';
+
 import styles from './Avatar.module.scss';
 
 interface IAvatarProps {

@@ -1,8 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { IconButton } from './IconButton';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+
 import { Theme } from 'app/providers/ThemeProvider';
+
 import IconArrowRight from 'shared/assets/icons/icon-arrow-right.svg';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+
+import { IconButton } from './IconButton';
 
 const meta: Meta<typeof IconButton> = {
   component: IconButton,

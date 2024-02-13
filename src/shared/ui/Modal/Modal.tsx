@@ -1,6 +1,8 @@
+import { cx } from 'classix';
 import { FC, PropsWithChildren, useCallback, useEffect, useState } from 'react';
-import cx from 'classix';
+
 import { Portal } from 'shared/ui/Portal/Portal';
+
 import styles from './Modul.module.scss';
 
 interface IModalProps {

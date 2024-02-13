@@ -1,7 +1,9 @@
-import cx from 'classix';
-import styles from './CommentList.module.scss';
-import { CommentItem } from '../CommentItem/CommentItem';
+import { cx } from 'classix';
+
 import { Comment } from '../../model/types/comment';
+import { CommentItem } from '../CommentItem/CommentItem';
+
+import styles from './CommentList.module.scss';
 
 interface ICommentListProps {
   className?: string;

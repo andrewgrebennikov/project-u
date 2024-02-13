@@ -1,14 +1,17 @@
+import { cx } from 'classix';
 import { FC, useState } from 'react';
-import cx from 'classix';
-import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
-import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
-import IconArrowRight from 'shared/assets/icons/icon-arrow-right.svg';
-import IconArrowLeft from 'shared/assets/icons/icon-arrow-left.svg';
-import styles from './Sidebar.module.scss';
-import { IconButton } from 'shared/ui/IconBtn/IconButton';
-import { SidebarItem } from 'widgets/Sidebar/ui/SidebarItem/SidebarItem';
 import { useSelector } from 'react-redux';
+
 import { getSidebarItems } from 'widgets/Sidebar/model/selectors/getSidebarItems';
+import { SidebarItem } from 'widgets/Sidebar/ui/SidebarItem/SidebarItem';
+
+import IconArrowLeft from 'shared/assets/icons/icon-arrow-left.svg';
+import IconArrowRight from 'shared/assets/icons/icon-arrow-right.svg';
+import { IconButton } from 'shared/ui/IconBtn/IconButton';
+import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
+import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
+
+import styles from './Sidebar.module.scss';
 
 interface ISidebarProps {
   className?: string;

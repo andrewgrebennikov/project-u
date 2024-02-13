@@ -1,8 +1,10 @@
-import { Select } from 'shared/ui/Select/Select';
-import cx from 'classix';
-import { Country, country } from '../../model/types/countrySchema';
-import { useTranslation } from 'react-i18next';
+import { cx } from 'classix';
 import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { Select } from 'shared/ui/Select/Select';
+
+import { Country, country } from '../../model/types/countrySchema';
 
 interface ICountrySelect {
   className?: string;

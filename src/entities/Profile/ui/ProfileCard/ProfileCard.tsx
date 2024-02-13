@@ -1,12 +1,16 @@
-import cx from 'classix';
+import { cx } from 'classix';
 import { useTranslation } from 'react-i18next';
-import styles from './ProfileCard.module.scss';
+
+import { CountrySelect, Country } from 'entities/Country';
+import { Currency, CurrencySelect } from 'entities/Currency';
+
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
+
 import { Profile } from '../../model/types/profileSchema';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Currency, CurrencySelect } from 'entities/Currency';
-import { CountrySelect, Country } from 'entities/Country';
+
+import styles from './ProfileCard.module.scss';
 
 interface IProfileCardProps {
   className?: string;

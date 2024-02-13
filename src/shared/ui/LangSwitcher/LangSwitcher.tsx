@@ -1,8 +1,10 @@
+import { cx } from 'classix';
 import { FC, useEffect } from 'react';
-import cx from 'classix';
-import { Button } from 'shared/ui/Button/Button';
-import styles from './LangSwitcher.module.scss';
 import { useTranslation } from 'react-i18next';
+
+import { Button } from 'shared/ui/Button/Button';
+
+import styles from './LangSwitcher.module.scss';
 
 interface ILangSwitcherProps {
   className?: string;

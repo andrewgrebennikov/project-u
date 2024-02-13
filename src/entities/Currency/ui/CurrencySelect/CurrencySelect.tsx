@@ -1,8 +1,10 @@
-import { Select } from 'shared/ui/Select/Select';
-import cx from 'classix';
-import { Currency, currency } from '../../model/types/currencySchema';
-import { useTranslation } from 'react-i18next';
+import { cx } from 'classix';
 import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { Select } from 'shared/ui/Select/Select';
+
+import { Currency, currency } from '../../model/types/currencySchema';
 
 interface ICurrencySelect {
   className?: string;

@@ -1,5 +1,6 @@
-import { ValueOf } from 'shared/lib/types/valueOf';
 import { User } from 'entities/User';
+
+import { ValueOf } from 'shared/lib/types/valueOf';
 
 export const ArticleBlockType = {
   TEXT: 'TEXT',

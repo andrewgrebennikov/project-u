@@ -1,9 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { AppLink, AppLinkUnderline } from './AppLink';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+
 import { Theme } from 'app/providers/ThemeProvider';
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
+
 import IconArrowRight from 'shared/assets/icons/icon-arrow-right.svg';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+
+import { AppLink, AppLinkUnderline } from './AppLink';
 
 const meta: Meta<typeof AppLink> = {
   component: AppLink,

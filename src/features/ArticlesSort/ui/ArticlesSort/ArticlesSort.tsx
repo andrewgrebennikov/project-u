@@ -1,12 +1,15 @@
-import cx from 'classix';
-import styles from './ArticlesSort.module.scss';
+import { cx } from 'classix';
+
 import { Select } from 'shared/ui/Select/Select';
+
 import { ArticlesSortField } from '../../model/types/articles';
+
+import styles from './ArticlesSort.module.scss';
 
 interface IArticlesSortProps {
   className?: string;
   sort: ArticlesSortField;
-  onChangeSort: (newSort: ArticlesSortField) => void;
+  onSortChange: (sort: ArticlesSortField) => void;
 }
 
 const options = [
@@ -25,10 +28,10 @@ const options = [
 ];
 
 export const ArticlesSort = (props: IArticlesSortProps) => {
-  const { className, sort, onChangeSort } = props;
+  const { className, sort, onSortChange } = props;
 
   const handleSortChange = (sort: string) => {
-    onChangeSort(sort as ArticlesSortField);
+    onSortChange(sort as ArticlesSortField);
   };
 
   return (

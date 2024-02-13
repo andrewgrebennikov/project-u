@@ -1,7 +1,8 @@
+import { cx } from 'classix';
 import { FC } from 'react';
-import styles from './PageError.module.scss';
 import { useTranslation } from 'react-i18next';
-import cx from 'classix';
+
+import styles from './PageError.module.scss';
 
 interface IPageErrorProps {
   className?: string;

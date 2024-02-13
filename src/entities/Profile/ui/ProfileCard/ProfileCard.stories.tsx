@@ -1,9 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ProfileCard } from './ProfileCard';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
+
 import { country } from 'entities/Country';
 import { currency } from 'entities/Currency';
+
+import { Theme } from 'app/providers/ThemeProvider';
+
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+
+import { ProfileCard } from './ProfileCard';
 
 const meta: Meta<typeof ProfileCard> = {
   component: ProfileCard,

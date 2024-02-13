@@ -1,6 +1,8 @@
-import cx from 'classix';
-import styles from './ArticleImageBlockComponent.module.scss';
+import { cx } from 'classix';
+
 import { ArticleImageBlock } from '../../model/types/article';
+
+import styles from './ArticleImageBlockComponent.module.scss';
 
 interface IArticleImageBlockProps {
   className?: string;

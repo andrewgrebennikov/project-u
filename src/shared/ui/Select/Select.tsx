@@ -1,5 +1,6 @@
-import cx from 'classix';
+import { cx } from 'classix';
 import { ChangeEvent, memo, OptionHTMLAttributes, SelectHTMLAttributes } from 'react';
+
 import styles from './Select.module.scss';
 
 type HTMLSelectProps = Omit<SelectHTMLAttributes<HTMLSelectElement>, 'value' | 'onChange'>;

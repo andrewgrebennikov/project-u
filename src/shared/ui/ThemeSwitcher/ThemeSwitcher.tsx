@@ -1,4 +1,5 @@
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
+
 import IconDarkTheme from 'shared/assets/icons/icon-dark-theme.svg';
 import IconLightTheme from 'shared/assets/icons/icon-light-theme.svg';
 import IconRedTheme from 'shared/assets/icons/icon-red-theme.svg';

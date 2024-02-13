@@ -1,9 +1,12 @@
-import cx from 'classix';
-import styles from './CommentItem.module.scss';
-import { Comment } from '../../model/types/comment';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { cx } from 'classix';
+
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+
+import { Comment } from '../../model/types/comment';
+
+import styles from './CommentItem.module.scss';
 
 interface ICommentItemProps {
   className?: string;

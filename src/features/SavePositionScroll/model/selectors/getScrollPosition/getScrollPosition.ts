@@ -1,4 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
+
 import { StoreSchema } from 'app/providers/StoreProvider/types/storeSchema';
 
 export const getScrollPositionByPathname = createSelector(

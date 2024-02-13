@@ -1,8 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { LangSwitcher } from './LangSwitcher';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+
 import { Theme } from 'app/providers/ThemeProvider';
+
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { TranslationDecorator } from 'shared/config/storybook/TranslationDecorator';
+
+import { LangSwitcher } from './LangSwitcher';
 
 const meta: Meta<typeof LangSwitcher> = {
   component: LangSwitcher,

@@ -1,5 +1,5 @@
-import { StoreProvider } from './ui/StoreProvider';
 import { createReduxStore } from './store/store';
+import { StoreProvider } from './ui/StoreProvider';
 
 export { StoreProvider, createReduxStore };
 export type { StoreWithManager } from './types/storeWithManager';

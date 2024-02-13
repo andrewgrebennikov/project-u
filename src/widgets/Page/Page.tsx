@@ -1,14 +1,18 @@
+import { cx } from 'classix';
 import { memo, MutableRefObject, ReactNode, UIEvent, useEffect, useRef } from 'react';
-import styles from './Page.module.scss';
-import cx from 'classix';
-import { useInfinityScroll } from 'shared/hooks/useInfinityScroll';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { scrollActions } from 'features/SavePositionScroll';
-import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+
+import { scrollActions } from 'features/SavePositionScroll';
 import { getScrollPositionByPathname } from 'features/SavePositionScroll/model/selectors/getScrollPosition/getScrollPosition';
+
 import { StoreSchema } from 'app/providers/StoreProvider/types/storeSchema';
+
+import { useInfinityScroll } from 'shared/hooks/useInfinityScroll';
 import { useThrottle } from 'shared/hooks/useThrottle';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+
+import styles from './Page.module.scss';
 
 interface IPageProps {
   className?: string;

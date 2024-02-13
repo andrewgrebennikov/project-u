@@ -1,5 +1,6 @@
-import cx from 'classix';
+import { cx } from 'classix';
 import { ChangeEvent, InputHTMLAttributes, memo } from 'react';
+
 import styles from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;

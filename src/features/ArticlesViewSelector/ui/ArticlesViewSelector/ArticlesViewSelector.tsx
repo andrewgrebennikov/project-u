@@ -1,9 +1,12 @@
-import cx from 'classix';
-import styles from './ArticlesViewSelector.module.scss';
-import { IconButton } from 'shared/ui/IconBtn/IconButton';
-import IconList from 'shared/assets/icons/icon-list.svg';
+import { cx } from 'classix';
+
 import IconGrid from 'shared/assets/icons/icon-grid.svg';
+import IconList from 'shared/assets/icons/icon-list.svg';
+import { IconButton } from 'shared/ui/IconBtn/IconButton';
+
 import { ArticlesView } from '../../model/types/articles';
+
+import styles from './ArticlesViewSelector.module.scss';
 
 interface IArticleViewProps {
   className?: string;

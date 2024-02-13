@@ -1,8 +1,9 @@
-import webpack from 'webpack';
 import ReactRefreshTypeScript from 'react-refresh-typescript';
-import { BuildOptions } from './types/config';
+import webpack from 'webpack';
+
 import { buildStyleLoader } from './loaders/buildStyleLoader';
 import { buildSvgLoader } from './loaders/buildSvgLoader';
+import { BuildOptions } from './types/config';
 
 export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
   const { isDev } = options;

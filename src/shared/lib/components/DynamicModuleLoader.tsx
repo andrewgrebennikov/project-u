@@ -1,8 +1,10 @@
+import { Reducer } from '@reduxjs/toolkit';
 import { FC, PropsWithChildren, useEffect } from 'react';
 import { useStore } from 'react-redux';
+
 import { StoreWithManager } from 'app/providers/StoreProvider';
 import { StoreSchemaKeys } from 'app/providers/StoreProvider/types/storeSchema';
-import { Reducer } from '@reduxjs/toolkit';
+
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 
 export type ReducersList = {

@@ -1,19 +1,25 @@
 import { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import styles from './ArticlesPage.module.scss';
+import { useSearchParams } from 'react-router-dom';
+
 import { ArticlesList } from 'entities/Article';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
-import { articlesActions, articlesReducer, getArticles } from '../model/slice/articlesSlice';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { getArticlesIsLoading } from '../model/selectors/getArticlesIsLoading/getArticlesIsLoading';
-import { getArticlesError } from '../model/selectors/getArticlesError/getArticlesError';
-import { ArticlesView, ArticlesViewSelector, getArticlesView } from 'features/ArticlesViewSelector';
+import { ArticlesOrderField } from 'features/ArticlesOrder';
+import { ArticlesSortField } from 'features/ArticlesSort';
+import { getArticlesView } from 'features/ArticlesViewSelector';
+import { Filters } from 'widgets/Filters/intex';
 import { Page } from 'widgets/Page/Page';
+
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+
+import { getArticlesError } from '../model/selectors/getArticlesError/getArticlesError';
+import { getArticlesIsLoading } from '../model/selectors/getArticlesIsLoading/getArticlesIsLoading';
+import { fetchArticlesData } from '../model/services/fetchArticlesData/fetchArticlesData';
 import { fetchArticlesMore } from '../model/services/fetchArticlesMore/fetchArticlesMore';
 import { initArticles } from '../model/services/initArticles/initArticles';
-import { ArticlesSort, ArticlesSortField, getArticlesSort } from 'features/ArticlesSort';
-import { fetchArticlesData } from '../model/services/fetchArticlesData/fetchArticlesData';
-import { useSearchParams } from 'react-router-dom';
+import { articlesActions, articlesReducer, getArticles } from '../model/slice/articlesSlice';
+
+import styles from './ArticlesPage.module.scss';
 
 const initialReducers: ReducersList = { articles: articlesReducer };
 
@@ -23,12 +29,7 @@ const ArticlesPage = () => {
   const isLoading = useSelector(getArticlesIsLoading);
   const error = useSelector(getArticlesError);
   const view = useSelector(getArticlesView);
-  const sort = useSelector(getArticlesSort);
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  const handleViewChange = (view: ArticlesView) => {
-    dispatch(articlesActions.setView(view));
-  };
+  const [searchParams] = useSearchParams();
 
   const onLoadMore = useCallback(() => {
     if (!isLoading) {
@@ -40,30 +41,23 @@ const ArticlesPage = () => {
     dispatch(fetchArticlesData({ replace: true }));
   }, [dispatch]);
 
-  const handleSortChange = useCallback(
-    (newSort: ArticlesSortField) => {
-      const isSortCreated = newSort === ArticlesSortField.CREATED;
-
-      dispatch(articlesActions.setSort(newSort));
-      dispatch(articlesActions.setPage(1));
-      fetchData();
-
-      !isSortCreated ? setSearchParams({ sort: newSort }) : setSearchParams({});
-    },
-    [dispatch, fetchData, setSearchParams],
-  );
-
   useEffect(() => {
-    dispatch(initArticles(searchParams));
-  }, [dispatch, searchParams]);
+    if (searchParams.size === 0) {
+      dispatch(articlesActions.setPage(1));
+      dispatch(articlesActions.setOrder(ArticlesOrderField.ASC));
+      dispatch(articlesActions.setSort(ArticlesSortField.CREATED));
+      dispatch(articlesActions.setSearch(''));
+      dispatch(articlesActions.initState());
+      fetchData();
+    } else {
+      dispatch(initArticles(searchParams));
+    }
+  }, [dispatch, fetchData, searchParams]);
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={false}>
       <Page className={styles.articles} onScrollEnd={onLoadMore}>
-        <div className={styles.filters}>
-          <ArticlesSort onChangeSort={handleSortChange} sort={sort} />
-          <ArticlesViewSelector className={styles.articlesView} view={view} onViewChange={handleViewChange} />
-        </div>
+        <Filters className={styles.filters} />
         <ArticlesList articles={articles} isLoading={isLoading} view={view} error={error} />
       </Page>
     </DynamicModuleLoader>

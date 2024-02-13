@@ -1,7 +1,9 @@
+import { cx } from 'classix';
 import { FC, ReactNode } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
-import cx from 'classix';
+
 import { ValueOf } from 'shared/lib/types/valueOf';
+
 import styles from './AppLink.module.scss';
 
 export const AppLinkUnderline = {

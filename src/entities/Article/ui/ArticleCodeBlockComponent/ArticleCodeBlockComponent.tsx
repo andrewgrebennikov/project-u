@@ -1,9 +1,12 @@
-import cx from 'classix';
-import styles from './ArticleCodeBlockComponent.module.scss';
-import { ArticleCodeBlock } from '../../model/types/article';
-import { IconButton } from 'shared/ui/IconBtn/IconButton';
-import IconCopy from 'shared/assets/icons/icon-copy.svg';
+import { cx } from 'classix';
 import { useCallback } from 'react';
+
+import IconCopy from 'shared/assets/icons/icon-copy.svg';
+import { IconButton } from 'shared/ui/IconBtn/IconButton';
+
+import { ArticleCodeBlock } from '../../model/types/article';
+
+import styles from './ArticleCodeBlockComponent.module.scss';
 
 interface IArticleCodeBlockProps {
   className?: string;

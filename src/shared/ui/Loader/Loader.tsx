@@ -1,5 +1,6 @@
+import { cx } from 'classix';
 import { FC } from 'react';
-import cx from 'classix';
+
 import styles from './Loader.module.scss';
 
 interface ILoaderProps {

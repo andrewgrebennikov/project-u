@@ -1,11 +1,11 @@
-import { UserSchema } from 'entities/User';
-import { LoginSchema } from 'features/AuthByUsername';
-import { ProfileSchema } from 'entities/Profile';
 import { ArticleSchema } from 'entities/Article';
-import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
+import { ProfileSchema } from 'entities/Profile';
+import { UserSchema } from 'entities/User';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
-import { ArticlesSchema } from 'pages/ArticlesPage';
+import { LoginSchema } from 'features/AuthByUsername';
 import { ScrollSchema } from 'features/SavePositionScroll';
+import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
+import { ArticlesSchema } from 'pages/ArticlesPage';
 
 export interface StoreSchema {
   user: UserSchema;

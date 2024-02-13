@@ -1,5 +1,6 @@
-import type { JestConfigWithTsJest } from 'ts-jest';
 import path from 'path';
+
+import type { JestConfigWithTsJest } from 'ts-jest';
 
 /*
  * For a detailed explanation regarding each configuration property, visit:

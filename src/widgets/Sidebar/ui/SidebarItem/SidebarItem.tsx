@@ -1,8 +1,11 @@
-import cx from 'classix';
-import { AppLink, AppLinkUnderline } from 'shared/ui/AppLink/AppLink';
-import styles from './SidebarItem.module.scss';
+import { cx } from 'classix';
 import { useTranslation } from 'react-i18next';
+
+import { AppLink, AppLinkUnderline } from 'shared/ui/AppLink/AppLink';
+
 import { SidebarItemType } from '../../model/types/sidebarItems';
+
+import styles from './SidebarItem.module.scss';
 
 interface ISidebarItemProps {
   className?: string;

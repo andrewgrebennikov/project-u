@@ -1,21 +1,24 @@
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+
+import IconDate from 'shared/assets/icons/icon-date.svg';
+import IconEye from 'shared/assets/icons/icon-eye.svg';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { articleReducer } from '../../model/slice/articleSlice';
-import { fetchArticleData } from '../../model/services/fetchArticleData/fetchArticleData';
-import { getArticleData } from '../../model/selectors/getArticleData/getArticleData';
-import { getArticleIsLoading } from '../../model/selectors/getArticleIsLoading/getArticleIsLoading';
-import { getArticleError } from '../../model/selectors/getArticleError/getArticleError';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import { ArticleTextBlockComponent } from '../ArticleTextBlock/ArticleTextBlockComponent';
-import { ArticleImageBlockComponent } from '../ArticleImageBlock/ArticleImageBlockComponent';
-import styles from './ArticleDetails.module.scss';
-import IconEye from 'shared/assets/icons/icon-eye.svg';
-import IconDate from 'shared/assets/icons/icon-date.svg';
+
+import { getArticleData } from '../../model/selectors/getArticleData/getArticleData';
+import { getArticleError } from '../../model/selectors/getArticleError/getArticleError';
+import { getArticleIsLoading } from '../../model/selectors/getArticleIsLoading/getArticleIsLoading';
+import { fetchArticleData } from '../../model/services/fetchArticleData/fetchArticleData';
+import { articleReducer } from '../../model/slice/articleSlice';
 import { ArticleCodeBlock, ArticleImageBlock, ArticleTextBlock } from '../../model/types/article';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleImageBlockComponent } from '../ArticleImageBlock/ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlock/ArticleTextBlockComponent';
+
+import styles from './ArticleDetails.module.scss';
 
 const initialReducers: ReducersList = {
   article: articleReducer,

@@ -1,6 +1,8 @@
+import { cx } from 'classix';
 import { ButtonHTMLAttributes, FC, ReactNode } from 'react';
-import cx from 'classix';
+
 import { ValueOf } from 'shared/lib/types/valueOf';
+
 import styles from './Button.module.scss';
 
 export const ButtonVariant = {

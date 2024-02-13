@@ -1,13 +1,16 @@
-import cx from 'classix';
-import styles from './AddCommentForm.module.scss';
-import { Input } from 'shared/ui/Input/Input';
-import { Button, ButtonVariant } from 'shared/ui/Button/Button';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
-import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useSelector } from 'react-redux';
-import { getCommentFormText } from '../../model/selectors/getCommentFormText/getCommentFormText';
+import { cx } from 'classix';
 import { SyntheticEvent, useCallback } from 'react';
+import { useSelector } from 'react-redux';
+
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { Button, ButtonVariant } from 'shared/ui/Button/Button';
+import { Input } from 'shared/ui/Input/Input';
+
+import { getCommentFormText } from '../../model/selectors/getCommentFormText/getCommentFormText';
+import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
+
+import styles from './AddCommentForm.module.scss';
 
 interface ICommentFormProps {
   className?: string;

@@ -1,13 +1,17 @@
-import styles from './ArticlesListItem.module.scss';
-import { Article, ArticleBlockType, ArticleTextBlock } from '../../model/types/article';
-import cx from 'classix';
+import { cx } from 'classix';
+
+import { ArticlesView } from 'features/ArticlesViewSelector';
+
+import IconEye from 'shared/assets/icons/icon-eye.svg';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonVariant } from 'shared/ui/Button/Button';
-import IconEye from 'shared/assets/icons/icon-eye.svg';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+
+import { Article, ArticleBlockType, ArticleTextBlock } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlock/ArticleTextBlockComponent';
-import { ArticlesView } from 'features/ArticlesViewSelector';
+
+import styles from './ArticlesListItem.module.scss';
 
 interface IArticlesListItemProps {
   className?: string;

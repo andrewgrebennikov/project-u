@@ -1,6 +1,10 @@
 import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
 import {
   fetchProfileData,
   getProfileError,
@@ -12,13 +16,12 @@ import {
   profileReducer,
   updateProfileData,
 } from 'entities/Profile';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useSelector } from 'react-redux';
-import { ProfilePageHeader } from '../ProfilePageHeader/ProfilePageHeader';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
-import { useParams } from 'react-router-dom';
 import { Page } from 'widgets/Page/Page';
+
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+
+import { ProfilePageHeader } from '../ProfilePageHeader/ProfilePageHeader';
 
 const initialReducers: ReducersList = { profile: profileReducer };
 
@@ -41,7 +44,7 @@ const ProfilePage = () => {
 
   const onSaveForm = useCallback(() => {
     dispatch(updateProfileData(profileId));
-  }, [dispatch]);
+  }, [dispatch, profileId]);
 
   const onChangeFirstname = useCallback(
     (value: string) => {
@@ -100,7 +103,7 @@ const ProfilePage = () => {
     if (__PROJECT__ !== 'storybook') {
       dispatch(fetchProfileData(profileId));
     }
-  }, [dispatch]);
+  }, [dispatch, profileId]);
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
