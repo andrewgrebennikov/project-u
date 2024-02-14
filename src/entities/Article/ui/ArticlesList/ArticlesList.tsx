@@ -17,7 +17,7 @@ interface IArticlesListProps {
 }
 
 const getSkeletons = (view: ArticlesView) => {
-  return new Array(view === ArticlesView.GRID ? 8 : 3).fill(0).map((_, index) => {
+  return Array.from(Array(view === ArticlesView.GRID ? 8 : 3).keys()).map((_, index) => {
     return <ArticleListItemSkeleton key={index} view={view} />;
   });
 };

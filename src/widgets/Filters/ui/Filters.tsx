@@ -3,6 +3,7 @@ import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 
+import { ArticlesCategoriesField, ArticlesCategory, getArticlesCategory } from 'features/ArticlesCategory';
 import { ArticlesOrder, ArticlesOrderField, getArticlesOrder } from 'features/ArticlesOrder';
 import { ArticlesSearch, getArticlesSearch } from 'features/ArticlesSearch';
 import { ArticlesSort, ArticlesSortField, getArticlesSort } from 'features/ArticlesSort';
@@ -10,6 +11,7 @@ import { ArticlesView, ArticlesViewSelector, getArticlesView } from 'features/Ar
 import { fetchArticlesData } from 'pages/ArticlesPage/model/services/fetchArticlesData/fetchArticlesData';
 import { articlesActions } from 'pages/ArticlesPage/model/slice/articlesSlice';
 
+import { useDebounce } from 'shared/hooks/useDebounce';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 
 import styles from './Filters.module.scss';
@@ -25,11 +27,14 @@ export const Filters = (props: IFiltersProps) => {
   const sort = useSelector(getArticlesSort);
   const order = useSelector(getArticlesOrder);
   const search = useSelector(getArticlesSearch);
+  const category = useSelector(getArticlesCategory);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const fetchData = useCallback(() => {
     dispatch(fetchArticlesData({ replace: true }));
   }, [dispatch]);
+
+  const debounceFetchData = useDebounce(fetchData, 500);
 
   const handleViewChange = (view: ArticlesView) => {
     dispatch(articlesActions.setView(view));
@@ -67,12 +72,26 @@ export const Filters = (props: IFiltersProps) => {
     (newSearch: string) => {
       dispatch(articlesActions.setSearch(newSearch));
       dispatch(articlesActions.setPage(1));
-      fetchData();
+      debounceFetchData();
 
       newSearch ? searchParams.set('search', newSearch) : searchParams.delete('search');
       setSearchParams(searchParams);
     },
-    [dispatch, fetchData, searchParams, setSearchParams],
+    [debounceFetchData, dispatch, searchParams, setSearchParams],
+  );
+
+  const handleCategoryChange = useCallback(
+    (newCategory: ArticlesCategoriesField) => {
+      const isCategoryAll = newCategory === ArticlesCategoriesField.ALL;
+
+      dispatch(articlesActions.setType(newCategory));
+      dispatch(articlesActions.setPage(1));
+      debounceFetchData();
+
+      !isCategoryAll ? searchParams.set('type', newCategory) : searchParams.delete('type');
+      setSearchParams(searchParams);
+    },
+    [debounceFetchData, dispatch, searchParams, setSearchParams],
   );
 
   return (
@@ -81,6 +100,7 @@ export const Filters = (props: IFiltersProps) => {
       <ArticlesOrder onOrderChange={handleOrderChange} order={order} />
       <ArticlesViewSelector className={styles.articlesView} view={view} onViewChange={handleViewChange} />
       <ArticlesSearch className={styles.articlesSearch} search={search} onSearchChange={handleSearchChange} />
+      <ArticlesCategory category={category} onCategoryChange={handleCategoryChange} />
     </div>
   );
 };

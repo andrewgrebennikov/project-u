@@ -1,5 +1,5 @@
 import { cx } from 'classix';
-import { FC, useState } from 'react';
+import { memo, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { getSidebarItems } from 'widgets/Sidebar/model/selectors/getSidebarItems';
@@ -17,7 +17,7 @@ interface ISidebarProps {
   className?: string;
 }
 
-export const Sidebar: FC<ISidebarProps> = (props) => {
+export const Sidebar = memo((props: ISidebarProps) => {
   const { className } = props;
   const [collapsed, setCollapsed] = useState(false);
   const sidebarItemList = useSelector(getSidebarItems);
@@ -46,4 +46,4 @@ export const Sidebar: FC<ISidebarProps> = (props) => {
       </IconButton>
     </div>
   );
-};
+});

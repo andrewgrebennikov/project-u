@@ -1,6 +1,7 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { Article } from 'entities/Article';
+import { ArticlesCategoriesField } from 'features/ArticlesCategory';
 import { ArticlesOrderField } from 'features/ArticlesOrder';
 import { ArticlesSortField } from 'features/ArticlesSort';
 import { ArticlesView } from 'features/ArticlesViewSelector';
@@ -29,11 +30,12 @@ export const articlesSlice = createSlice({
     ids: [],
     view: ArticlesView.LIST,
     page: 1,
-    limit: 3,
+    limit: 8,
     order: ArticlesOrderField.ASC,
     sort: ArticlesSortField.CREATED,
     search: '',
     hasMore: true,
+    type: ArticlesCategoriesField.ALL,
     _inited: false,
   }),
   reducers: {
@@ -53,11 +55,11 @@ export const articlesSlice = createSlice({
     setSearch: (state, action: PayloadAction<string>) => {
       state.search = action.payload;
     },
+    setType: (state, action: PayloadAction<ArticlesCategoriesField>) => {
+      state.type = action.payload;
+    },
     initState: (state) => {
-      const view = localStorage.getItem(ARTICLES_VIEW_LOCAL_STORAGE_KEY) as ArticlesView;
-
-      state.view = view;
-      state.limit = view === ArticlesView.GRID ? 8 : 3;
+      state.view = localStorage.getItem(ARTICLES_VIEW_LOCAL_STORAGE_KEY) as ArticlesView;
 
       state._inited = true;
     },

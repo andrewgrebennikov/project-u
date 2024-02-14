@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { Article } from 'entities/Article';
+import { ArticlesCategoriesField, getArticlesCategory } from 'features/ArticlesCategory';
 import { getArticlesOrder } from 'features/ArticlesOrder';
 import { getArticlesSearch } from 'features/ArticlesSearch';
 import { getArticlesSort } from 'features/ArticlesSort';
@@ -23,6 +24,7 @@ export const fetchArticlesData = createAsyncThunk<Article[], IFetchArticlesProps
     const sort = getArticlesSort(getState());
     const order = getArticlesOrder(getState());
     const search = getArticlesSearch(getState());
+    const type = getArticlesCategory(getState());
 
     try {
       const response = await extra.api.get<Article[]>('/articles', {
@@ -32,7 +34,8 @@ export const fetchArticlesData = createAsyncThunk<Article[], IFetchArticlesProps
           _limit: limit,
           _sort: sort,
           _order: order,
-          q: search,
+          q: !search.length ? undefined : search,
+          type: type === ArticlesCategoriesField.ALL ? undefined : type,
         },
       });
 
