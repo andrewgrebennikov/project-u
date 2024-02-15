@@ -10,9 +10,14 @@ export const Theme = {
 
 export type Theme = ValueOf<typeof Theme>;
 
-interface ThemeContextProps {
+interface IThemeContextProps {
   theme?: Theme;
   setTheme?: (theme: Theme) => void;
 }
 
-export const ThemeContext = createContext<ThemeContextProps>({});
+const initialState: IThemeContextProps = {
+  theme: Theme.LIGHT,
+  setTheme: () => null,
+};
+
+export const ThemeContext = createContext<IThemeContextProps>(initialState);
