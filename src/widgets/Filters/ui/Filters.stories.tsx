@@ -6,16 +6,16 @@ import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 
-import AboutPage from './AboutPage';
+import { Filters } from './Filters';
 
-const meta: Meta<typeof AboutPage> = {
-  title: 'pages/AboutPage',
-  component: AboutPage,
+const meta: Meta<typeof Filters> = {
+  title: 'widget/Filters',
+  component: Filters,
   decorators: [StoreDecorator({}), RouterDecorator],
 };
 
 export default meta;
-type Story = StoryObj<typeof AboutPage>;
+type Story = StoryObj<typeof Filters>;
 
 export const Light: Story = {
   args: {},

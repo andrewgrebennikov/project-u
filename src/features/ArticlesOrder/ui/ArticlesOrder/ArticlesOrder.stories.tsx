@@ -2,20 +2,17 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Theme } from 'app/providers/ThemeProvider';
 
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 
-import AboutPage from './AboutPage';
+import { ArticlesOrder } from './ArticlesOrder';
 
-const meta: Meta<typeof AboutPage> = {
-  title: 'pages/AboutPage',
-  component: AboutPage,
-  decorators: [StoreDecorator({}), RouterDecorator],
+const meta: Meta<typeof ArticlesOrder> = {
+  component: ArticlesOrder,
+  title: 'features/ArticlesOrder',
 };
 
 export default meta;
-type Story = StoryObj<typeof AboutPage>;
+type Story = StoryObj<typeof ArticlesOrder>;
 
 export const Light: Story = {
   args: {},

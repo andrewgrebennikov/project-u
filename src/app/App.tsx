@@ -1,11 +1,12 @@
 import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-import { getAuthInited, userActions } from 'entities/User';
+import { AppRouter } from 'app/router';
+
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 
-import { AppRouter } from 'app/router';
+import { getAuthInited, userActions } from 'entities/User';
 
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Loader } from 'shared/ui/Loader/Loader';

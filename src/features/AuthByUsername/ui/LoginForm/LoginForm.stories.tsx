@@ -10,7 +10,7 @@ import LoginForm from './LoginForm';
 
 const meta: Meta<typeof LoginForm> = {
   component: LoginForm,
-  title: 'features/LoginForm',
+  title: 'features/AuthByUsername/LoginForm',
 };
 
 export default meta;

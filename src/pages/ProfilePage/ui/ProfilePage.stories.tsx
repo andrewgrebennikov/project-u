@@ -9,8 +9,9 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import ProfilePage from './ProfilePage';
 
 const meta: Meta<typeof ProfilePage> = {
-  component: ProfilePage,
   title: 'pages/ProfilePage',
+  component: ProfilePage,
+  decorators: [StoreDecorator({}), RouterDecorator],
 };
 
 export default meta;
@@ -18,10 +19,10 @@ type Story = StoryObj<typeof ProfilePage>;
 
 export const Light: Story = {
   args: {},
-  decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({}), RouterDecorator],
+  decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
 export const Dark: Story = {
   args: {},
-  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({}), RouterDecorator],
+  decorators: [ThemeDecorator(Theme.DARK)],
 };

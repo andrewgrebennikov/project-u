@@ -40,57 +40,32 @@
         "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
         "pathGroups": [
           {
-            "pattern": "api/**",
-            "group": "internal",
-            "position": "after"
-          },
-          {
             "pattern": "app/**",
             "group": "internal",
             "position": "after"
           },
           {
-            "pattern": "components/**",
+            "pattern": "pages/**",
             "group": "internal",
             "position": "after"
           },
           {
-            "pattern": "forms/**",
+            "pattern": "widgets/**",
             "group": "internal",
             "position": "after"
           },
           {
-            "pattern": "hooks/**",
+            "pattern": "features/**",
             "group": "internal",
             "position": "after"
           },
           {
-            "pattern": "domain/**",
-            "group": "internal",
-            "position": "after"
-          },
-          {
-            "pattern": "lib/**",
+            "pattern": "entities/**",
             "group": "internal",
             "position": "after"
           },
           {
             "pattern": "shared/**",
-            "group": "internal",
-            "position": "after"
-          },
-          {
-            "pattern": "utils/**",
-            "group": "internal",
-            "position": "after"
-          },
-          {
-            "pattern": "styles/**",
-            "group": "internal",
-            "position": "after"
-          },
-          {
-            "pattern": "types/**",
             "group": "internal",
             "position": "after"
           }

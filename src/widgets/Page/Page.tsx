@@ -3,10 +3,10 @@ import { memo, MutableRefObject, ReactNode, UIEvent, useEffect, useRef } from 'r
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
+import { StoreSchema } from 'app/providers/StoreProvider/types/storeSchema';
+
 import { scrollActions } from 'features/SavePositionScroll';
 import { getScrollPositionByPathname } from 'features/SavePositionScroll/model/selectors/getScrollPosition/getScrollPosition';
-
-import { StoreSchema } from 'app/providers/StoreProvider/types/storeSchema';
 
 import { useInfinityScroll } from 'shared/hooks/useInfinityScroll';
 import { useThrottle } from 'shared/hooks/useThrottle';

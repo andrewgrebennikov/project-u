@@ -2,10 +2,12 @@ import { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 
-import { ArticlesList } from 'entities/Article';
-import { getArticlesView } from 'features/ArticlesViewSelector';
 import { Filters } from 'widgets/Filters/intex';
 import { Page } from 'widgets/Page/Page';
+
+import { getArticlesView } from 'features/ArticlesViewSelector';
+
+import { ArticlesList } from 'entities/Article';
 
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
@@ -35,7 +37,9 @@ const ArticlesPage = () => {
   }, [dispatch, isLoading]);
 
   useEffect(() => {
-    dispatch(initArticles(searchParams));
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(initArticles(searchParams));
+    }
   }, [dispatch, searchParams]);
 
   return (

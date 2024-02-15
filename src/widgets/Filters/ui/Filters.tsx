@@ -3,13 +3,14 @@ import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 
+import { fetchArticlesData } from 'pages/ArticlesPage/model/services/fetchArticlesData/fetchArticlesData';
+import { articlesActions } from 'pages/ArticlesPage/model/slice/articlesSlice';
+
 import { ArticlesCategoriesField, ArticlesCategory, getArticlesCategory } from 'features/ArticlesCategory';
 import { ArticlesOrder, ArticlesOrderField, getArticlesOrder } from 'features/ArticlesOrder';
 import { ArticlesSearch, getArticlesSearch } from 'features/ArticlesSearch';
 import { ArticlesSort, ArticlesSortField, getArticlesSort } from 'features/ArticlesSort';
 import { ArticlesView, ArticlesViewSelector, getArticlesView } from 'features/ArticlesViewSelector';
-import { fetchArticlesData } from 'pages/ArticlesPage/model/services/fetchArticlesData/fetchArticlesData';
-import { articlesActions } from 'pages/ArticlesPage/model/slice/articlesSlice';
 
 import { useDebounce } from 'shared/hooks/useDebounce';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';

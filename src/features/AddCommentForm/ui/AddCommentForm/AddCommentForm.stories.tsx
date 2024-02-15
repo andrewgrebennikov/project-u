@@ -2,20 +2,19 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Theme } from 'app/providers/ThemeProvider';
 
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 
-import AboutPage from './AboutPage';
+import AddCommentForm from './AddCommentForm';
 
-const meta: Meta<typeof AboutPage> = {
-  title: 'pages/AboutPage',
-  component: AboutPage,
-  decorators: [StoreDecorator({}), RouterDecorator],
+const meta: Meta<typeof AddCommentForm> = {
+  title: 'features/AddCommentForm',
+  component: AddCommentForm,
+  decorators: [StoreDecorator({})],
 };
 
 export default meta;
-type Story = StoryObj<typeof AboutPage>;
+type Story = StoryObj<typeof AddCommentForm>;
 
 export const Light: Story = {
   args: {},
