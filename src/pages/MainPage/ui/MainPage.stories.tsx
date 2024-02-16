@@ -1,27 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from 'app/providers/ThemeProvider';
+import { MainPageLazy } from './MainPageLazy';
 
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-
-import MainPage from './MainPage';
-
-const meta: Meta<typeof MainPage> = {
+const meta: Meta<typeof MainPageLazy> = {
   title: 'pages/MainPage',
-  component: MainPage,
+  component: MainPageLazy,
 };
 
 export default meta;
-type Story = StoryObj<typeof MainPage>;
+type Story = StoryObj<typeof MainPageLazy>;
 
-export const Light: Story = {
+export const MainPage: Story = {
   args: {},
-  decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({}), RouterDecorator],
-};
-
-export const Dark: Story = {
-  args: {},
-  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({}), RouterDecorator],
 };

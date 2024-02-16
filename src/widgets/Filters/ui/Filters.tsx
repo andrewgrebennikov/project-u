@@ -32,7 +32,9 @@ export const Filters = (props: IFiltersProps) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const fetchData = useCallback(() => {
-    dispatch(fetchArticlesData({ replace: true }));
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchArticlesData({ replace: true }));
+    }
   }, [dispatch]);
 
   const debounceFetchData = useDebounce(fetchData, 500);

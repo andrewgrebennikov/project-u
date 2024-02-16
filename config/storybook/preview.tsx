@@ -1,12 +1,31 @@
 import { Preview } from '@storybook/react';
 
-import { Theme } from '../../src/app/providers/ThemeProvider';
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator';
+import { StoreDecorator } from '../../src/shared/config/storybook/StoreDecorator';
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator';
 import { TranslationDecorator } from '../../src/shared/config/storybook/TranslationDecorator';
 
-export const preview: Preview = {
+const preview: Preview = {
+  globalTypes: {
+    theme: {
+      description: 'Global theme for components',
+      defaultValue: 'light',
+      toolbar: {
+        // The label to show for this toolbar item
+        title: 'Theme',
+        icon: 'circlehollow',
+        // Array of plain string values or MenuItem shape (see below)
+        items: [
+          { value: 'light', title: 'Light' },
+          { value: 'dark', title: 'Dark' },
+        ],
+        // Change title based on selected value
+        dynamicTitle: true,
+        showName: true,
+      },
+    },
+  },
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
@@ -16,5 +35,7 @@ export const preview: Preview = {
       },
     },
   },
-  decorators: [StyleDecorator, ThemeDecorator(Theme.LIGHT), TranslationDecorator, RouterDecorator],
+  decorators: [StyleDecorator, ThemeDecorator, TranslationDecorator, RouterDecorator, StoreDecorator({})],
 };
+
+export default preview;

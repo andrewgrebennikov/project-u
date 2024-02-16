@@ -1,7 +1,11 @@
 .sidebar {
   position: relative;
 
+  display: flex;
+  flex-direction: column;
   flex-shrink: 0;
+  gap: 32px 0;
+  justify-content: space-between;
 
   width: 300px;
   padding: 16px;
@@ -22,10 +26,6 @@
 }
 
 .switchers {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
-
   display: flex;
   flex-wrap: wrap;
   gap: 16px;

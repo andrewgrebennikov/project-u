@@ -1,31 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from 'app/providers/ThemeProvider';
+import { Modal as ModalComponent } from './Modal';
 
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-
-import { Modal } from './Modal';
-
-const meta: Meta<typeof Modal> = {
-  component: Modal,
+const meta: Meta<typeof ModalComponent> = {
   title: 'shared/Modal',
+  component: ModalComponent,
 };
 
 export default meta;
-type Story = StoryObj<typeof Modal>;
+type Story = StoryObj<typeof ModalComponent>;
 
-export const ModalLight: Story = {
+export const Modal: Story = {
   args: {
     children: 'Text',
     isOpen: true,
   },
-  decorators: [ThemeDecorator(Theme.LIGHT)],
-};
-
-export const ModalDark: Story = {
-  args: {
-    children: 'Text',
-    isOpen: true,
-  },
-  decorators: [ThemeDecorator(Theme.DARK)],
 };

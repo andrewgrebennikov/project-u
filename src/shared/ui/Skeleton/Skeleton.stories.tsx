@@ -1,49 +1,25 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from 'app/providers/ThemeProvider';
+import { Skeleton as SkeletonComponent, SkeletonVariant } from './Skeleton';
 
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-
-import { Skeleton, SkeletonVariant } from './Skeleton';
-
-const meta: Meta<typeof Skeleton> = {
-  component: Skeleton,
+const meta: Meta<typeof SkeletonComponent> = {
   title: 'shared/Skeleton',
+  component: SkeletonComponent,
 };
 
 export default meta;
-type Story = StoryObj<typeof Skeleton>;
+type Story = StoryObj<typeof SkeletonComponent>;
 
-export const SkeletonLight: Story = {
+export const Skeleton: Story = {
   args: {
     height: '100',
   },
-  decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
-export const SkeletonCircularLight: Story = {
+export const SkeletonCircular: Story = {
   args: {
     width: '100',
     height: '100',
     variant: SkeletonVariant.CIRCULAR,
   },
-  decorators: [ThemeDecorator(Theme.LIGHT)],
-};
-
-export const SkeletonDark: Story = {
-  args: {
-    height: '100',
-    style: { backgroundColor: 'red' },
-  },
-  decorators: [ThemeDecorator(Theme.DARK)],
-};
-
-export const SkeletonCircularDark: Story = {
-  args: {
-    width: '100',
-    height: '100',
-    variant: SkeletonVariant.CIRCULAR,
-    style: { backgroundColor: 'red' },
-  },
-  decorators: [ThemeDecorator(Theme.DARK)],
 };

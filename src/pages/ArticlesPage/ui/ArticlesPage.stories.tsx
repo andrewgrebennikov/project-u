@@ -1,28 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from 'app/providers/ThemeProvider';
+import { ArticlesPageLazy } from './ArticlesPageLazy';
 
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-
-import ArticlesPage from './ArticlesPage';
-
-const meta: Meta<typeof ArticlesPage> = {
+const meta: Meta<typeof ArticlesPageLazy> = {
   title: 'pages/ArticlesPage',
-  component: ArticlesPage,
-  decorators: [StoreDecorator({}), RouterDecorator],
+  component: ArticlesPageLazy,
 };
 
 export default meta;
-type Story = StoryObj<typeof ArticlesPage>;
+type Story = StoryObj<typeof ArticlesPageLazy>;
 
-export const Light: Story = {
+export const ArticlesPage: Story = {
   args: {},
-  decorators: [ThemeDecorator(Theme.LIGHT)],
-};
-
-export const Dark: Story = {
-  args: {},
-  decorators: [ThemeDecorator(Theme.DARK)],
 };

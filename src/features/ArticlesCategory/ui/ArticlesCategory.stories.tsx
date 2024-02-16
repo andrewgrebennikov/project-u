@@ -1,33 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from 'app/providers/ThemeProvider';
-
 import { ArticlesCategoriesField } from 'features/ArticlesCategory';
 
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+import { ArticlesCategory as ArticlesCategoryComponent } from './ArticlesCategory';
 
-import { ArticlesCategory } from './ArticlesCategory';
-
-const meta: Meta<typeof ArticlesCategory> = {
+const meta: Meta<typeof ArticlesCategoryComponent> = {
   title: 'features/ArticlesCategory',
-  component: ArticlesCategory,
-  decorators: [RouterDecorator],
+  component: ArticlesCategoryComponent,
 };
 
 export default meta;
-type Story = StoryObj<typeof ArticlesCategory>;
+type Story = StoryObj<typeof ArticlesCategoryComponent>;
 
-export const Light: Story = {
+export const ArticlesCategory: Story = {
   args: {
     category: ArticlesCategoriesField.ALL,
   },
-  decorators: [ThemeDecorator(Theme.LIGHT)],
-};
-
-export const Dark: Story = {
-  args: {
-    category: ArticlesCategoriesField.ALL,
-  },
-  decorators: [ThemeDecorator(Theme.DARK)],
 };

@@ -9,7 +9,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonVariant } from 'shared/ui/Button/Button';
 
 import { Article, ArticleBlockType, ArticleTextBlock } from '../../model/types/article';
-import { ArticleTextBlockComponent } from '../ArticleTextBlock/ArticleTextBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 import styles from './ArticlesListItem.module.scss';
 

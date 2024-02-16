@@ -1,25 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from 'app/providers/ThemeProvider';
+import { ArticlesSearch as ArticlesSearchComponent } from './ArticlesSearch';
 
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-
-import { ArticlesSearch } from './ArticlesSearch';
-
-const meta: Meta<typeof ArticlesSearch> = {
-  component: ArticlesSearch,
+const meta: Meta<typeof ArticlesSearchComponent> = {
   title: 'features/ArticlesSearch',
+  component: ArticlesSearchComponent,
 };
 
 export default meta;
-type Story = StoryObj<typeof ArticlesSearch>;
+type Story = StoryObj<typeof ArticlesSearchComponent>;
 
-export const Light: Story = {
+export const ArticlesSearch: Story = {
   args: {},
-  decorators: [ThemeDecorator(Theme.LIGHT)],
-};
-
-export const Dark: Story = {
-  args: {},
-  decorators: [ThemeDecorator(Theme.DARK)],
 };

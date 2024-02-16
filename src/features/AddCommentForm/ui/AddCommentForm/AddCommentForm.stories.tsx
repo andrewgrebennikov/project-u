@@ -1,27 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from 'app/providers/ThemeProvider';
+import { AddCommentFormLazy } from './AddCommentFormLazy';
 
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-
-import AddCommentForm from './AddCommentForm';
-
-const meta: Meta<typeof AddCommentForm> = {
+const meta: Meta<typeof AddCommentFormLazy> = {
   title: 'features/AddCommentForm',
-  component: AddCommentForm,
-  decorators: [StoreDecorator({})],
+  component: AddCommentFormLazy,
 };
 
 export default meta;
-type Story = StoryObj<typeof AddCommentForm>;
+type Story = StoryObj<typeof AddCommentFormLazy>;
 
-export const Light: Story = {
+export const AddCommentForm: Story = {
   args: {},
-  decorators: [ThemeDecorator(Theme.LIGHT)],
-};
-
-export const Dark: Story = {
-  args: {},
-  decorators: [ThemeDecorator(Theme.DARK)],
 };

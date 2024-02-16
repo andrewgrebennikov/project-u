@@ -1,37 +1,22 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from 'app/providers/ThemeProvider';
-
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 
-import { Navbar } from './Navbar';
+import { Navbar as NavbarComponent } from './Navbar';
 
-const meta: Meta<typeof Navbar> = {
-  component: Navbar,
+const meta: Meta<typeof NavbarComponent> = {
   title: 'widget/Navbar',
+  component: NavbarComponent,
 };
 
 export default meta;
-type Story = StoryObj<typeof Navbar>;
+type Story = StoryObj<typeof NavbarComponent>;
 
-export const Light: Story = {
+export const Navbar: Story = {
   args: {},
-  decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({}), RouterDecorator],
 };
 
-export const Dark: Story = {
+export const NavbarIsAuth: Story = {
   args: {},
-  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({}), RouterDecorator],
-};
-
-export const Auth: Story = {
-  args: {},
-  decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({ user: { authData: {} } }), RouterDecorator],
-};
-
-export const AuthDark: Story = {
-  args: {},
-  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({ user: { authData: {} } }), RouterDecorator],
+  decorators: [StoreDecorator({ user: { authData: {} } })],
 };

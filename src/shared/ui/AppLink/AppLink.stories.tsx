@@ -1,97 +1,48 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from 'app/providers/ThemeProvider';
-
 import IconArrowRight from 'shared/assets/icons/icon-arrow-right.svg';
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 
 import { AppLink, AppLinkUnderline } from './AppLink';
 
 const meta: Meta<typeof AppLink> = {
-  component: AppLink,
   title: 'shared/AppLink',
+  component: AppLink,
 };
 
 export default meta;
 type Story = StoryObj<typeof AppLink>;
 
-export const UnderlineAlwaysLight: Story = {
+export const UnderlineAlways: Story = {
   args: {
     children: 'Text',
     underline: AppLinkUnderline.ALWAYS,
   },
-  decorators: [ThemeDecorator(Theme.LIGHT), RouterDecorator],
 };
 
-export const UnderlineAlwaysDark: Story = {
-  args: {
-    children: 'Text',
-    underline: AppLinkUnderline.ALWAYS,
-  },
-  decorators: [ThemeDecorator(Theme.DARK), RouterDecorator],
-};
-
-export const UnderlineHoverLight: Story = {
+export const UnderlineHover: Story = {
   args: {
     children: 'Text',
     underline: AppLinkUnderline.HOVER,
   },
-  decorators: [ThemeDecorator(Theme.LIGHT), RouterDecorator],
 };
 
-export const UnderlineHoverDark: Story = {
-  args: {
-    children: 'Text',
-    underline: AppLinkUnderline.HOVER,
-  },
-  decorators: [ThemeDecorator(Theme.DARK), RouterDecorator],
-};
-
-export const UnderlineNoneLight: Story = {
+export const UnderlineNone: Story = {
   args: {
     children: 'Text',
     underline: AppLinkUnderline.NONE,
   },
-  decorators: [ThemeDecorator(Theme.LIGHT), RouterDecorator],
 };
 
-export const UnderlineNoneDark: Story = {
-  args: {
-    children: 'Text',
-    underline: AppLinkUnderline.NONE,
-  },
-  decorators: [ThemeDecorator(Theme.DARK), RouterDecorator],
-};
-
-export const StartIconLight: Story = {
+export const StartIcon: Story = {
   args: {
     children: 'Text',
     startIcon: <IconArrowRight className="icon" width="30" height="30" />,
   },
-  decorators: [ThemeDecorator(Theme.LIGHT), RouterDecorator],
 };
 
-export const StartIconDark: Story = {
-  args: {
-    children: 'Text',
-    startIcon: <IconArrowRight className="icon" width="30" height="30" />,
-  },
-  decorators: [ThemeDecorator(Theme.DARK), RouterDecorator],
-};
-
-export const EndIconLight: Story = {
+export const EndIcon: Story = {
   args: {
     children: 'Text',
     endIcon: <IconArrowRight className="icon" width="30" height="30" />,
   },
-  decorators: [ThemeDecorator(Theme.LIGHT), RouterDecorator],
-};
-
-export const EndIconDark: Story = {
-  args: {
-    children: 'Text',
-    endIcon: <IconArrowRight className="icon" width="30" height="30" />,
-  },
-  decorators: [ThemeDecorator(Theme.DARK), RouterDecorator],
 };

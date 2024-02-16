@@ -1,25 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from 'app/providers/ThemeProvider';
+import { CountrySelect as CountrySelectComponent } from './CountrySelect';
 
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-
-import { CountrySelect } from './CountrySelect';
-
-const meta: Meta<typeof CountrySelect> = {
-  component: CountrySelect,
+const meta: Meta<typeof CountrySelectComponent> = {
   title: 'entities/CountrySelect',
+  component: CountrySelectComponent,
 };
 
 export default meta;
-type Story = StoryObj<typeof CountrySelect>;
+type Story = StoryObj<typeof CountrySelectComponent>;
 
-export const CountrySelectLight: Story = {
+export const CountrySelect: Story = {
   args: {},
-  decorators: [ThemeDecorator(Theme.LIGHT)],
-};
-
-export const CountrySelectDark: Story = {
-  args: {},
-  decorators: [ThemeDecorator(Theme.DARK)],
 };

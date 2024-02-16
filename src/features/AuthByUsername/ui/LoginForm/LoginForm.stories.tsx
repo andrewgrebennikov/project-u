@@ -1,71 +1,28 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from 'app/providers/ThemeProvider';
-
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 
-import LoginForm from './LoginForm';
+import { LoginFormLazy } from './LoginFormLazy';
 
-const meta: Meta<typeof LoginForm> = {
-  component: LoginForm,
+const meta: Meta<typeof LoginFormLazy> = {
   title: 'features/AuthByUsername/LoginForm',
+  component: LoginFormLazy,
 };
 
 export default meta;
-type Story = StoryObj<typeof LoginForm>;
+type Story = StoryObj<typeof LoginFormLazy>;
 
-export const Light: Story = {
+export const LoginForm: Story = {
   args: {},
-  decorators: [
-    ThemeDecorator(Theme.LIGHT),
-    StoreDecorator({ login: { username: '123', password: '123' } }),
-    RouterDecorator,
-  ],
+  decorators: [StoreDecorator({ login: { username: '123', password: '123' } })],
 };
 
-export const Dark: Story = {
+export const LoginFormWithError: Story = {
   args: {},
-  decorators: [
-    ThemeDecorator(Theme.DARK),
-    StoreDecorator({ login: { username: '123', password: '123' } }),
-    RouterDecorator,
-  ],
+  decorators: [StoreDecorator({ login: { username: '123', password: '123', error: 'Ошибка' } })],
 };
 
-export const LightWithError: Story = {
+export const LoginFormWithLoading: Story = {
   args: {},
-  decorators: [
-    ThemeDecorator(Theme.LIGHT),
-    StoreDecorator({ login: { username: '123', password: '123', error: 'Ошибка' } }),
-    RouterDecorator,
-  ],
-};
-
-export const DarkWithError: Story = {
-  args: {},
-  decorators: [
-    ThemeDecorator(Theme.DARK),
-    StoreDecorator({ login: { username: '123', password: '123', error: 'Ошибка' } }),
-    RouterDecorator,
-  ],
-};
-
-export const LightWithLoading: Story = {
-  args: {},
-  decorators: [
-    ThemeDecorator(Theme.LIGHT),
-    StoreDecorator({ login: { username: '123', password: '123', isLoading: true } }),
-    RouterDecorator,
-  ],
-};
-
-export const DarkWithLoading: Story = {
-  args: {},
-  decorators: [
-    ThemeDecorator(Theme.DARK),
-    StoreDecorator({ login: { username: '123', password: '123', isLoading: true } }),
-    RouterDecorator,
-  ],
+  decorators: [StoreDecorator({ login: { username: '123', password: '123', isLoading: true } })],
 };

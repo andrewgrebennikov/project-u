@@ -1,26 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from 'app/providers/ThemeProvider';
+import { LangSwitcher as LangSwitcherComponent } from './LangSwitcher';
 
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { TranslationDecorator } from 'shared/config/storybook/TranslationDecorator';
-
-import { LangSwitcher } from './LangSwitcher';
-
-const meta: Meta<typeof LangSwitcher> = {
-  component: LangSwitcher,
+const meta: Meta<typeof LangSwitcherComponent> = {
   title: 'shared/LangSwitcher',
+  component: LangSwitcherComponent,
 };
 
 export default meta;
-type Story = StoryObj<typeof LangSwitcher>;
+type Story = StoryObj<typeof LangSwitcherComponent>;
 
-export const Light: Story = {
+export const LangSwitcher: Story = {
   args: {},
-  decorators: [ThemeDecorator(Theme.LIGHT), TranslationDecorator],
-};
-
-export const Dark: Story = {
-  args: {},
-  decorators: [ThemeDecorator(Theme.DARK), TranslationDecorator],
 };

@@ -1,20 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from 'app/providers/ThemeProvider';
+import { Select as SelectComponent } from './Select';
 
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-
-import { Select } from './Select';
-
-const meta: Meta<typeof Select> = {
-  component: Select,
+const meta: Meta<typeof SelectComponent> = {
   title: 'shared/Select',
+  component: SelectComponent,
 };
 
 export default meta;
-type Story = StoryObj<typeof Select>;
+type Story = StoryObj<typeof SelectComponent>;
 
-export const SelectLight: Story = {
+export const Select: Story = {
   args: {
     label: 'Выберите пункт',
     options: [
@@ -28,22 +24,4 @@ export const SelectLight: Story = {
       },
     ],
   },
-  decorators: [ThemeDecorator(Theme.LIGHT)],
-};
-
-export const SelectDark: Story = {
-  args: {
-    label: 'Выберите пункт',
-    options: [
-      {
-        value: '1',
-        name: '1',
-      },
-      {
-        value: '2',
-        name: '2',
-      },
-    ],
-  },
-  decorators: [ThemeDecorator(Theme.DARK)],
 };

@@ -1,25 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from 'app/providers/ThemeProvider';
+import { ArticlesSort as ArticlesSortComponent } from './ArticlesSort';
 
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-
-import { ArticlesSort } from './ArticlesSort';
-
-const meta: Meta<typeof ArticlesSort> = {
-  component: ArticlesSort,
+const meta: Meta<typeof ArticlesSortComponent> = {
+  component: ArticlesSortComponent,
   title: 'features/ArticlesSort',
 };
 
 export default meta;
-type Story = StoryObj<typeof ArticlesSort>;
+type Story = StoryObj<typeof ArticlesSortComponent>;
 
-export const Light: Story = {
+export const ArticlesSort: Story = {
   args: {},
-  decorators: [ThemeDecorator(Theme.LIGHT)],
-};
-
-export const Dark: Story = {
-  args: {},
-  decorators: [ThemeDecorator(Theme.DARK)],
 };

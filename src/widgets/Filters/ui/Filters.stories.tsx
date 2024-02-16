@@ -1,28 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from 'app/providers/ThemeProvider';
+import { Filters as FiltersComponent } from './Filters';
 
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-
-import { Filters } from './Filters';
-
-const meta: Meta<typeof Filters> = {
+const meta: Meta<typeof FiltersComponent> = {
   title: 'widget/Filters',
-  component: Filters,
-  decorators: [StoreDecorator({}), RouterDecorator],
+  component: FiltersComponent,
 };
 
 export default meta;
-type Story = StoryObj<typeof Filters>;
+type Story = StoryObj<typeof FiltersComponent>;
 
-export const Light: Story = {
+export const Filters: Story = {
   args: {},
-  decorators: [ThemeDecorator(Theme.LIGHT)],
-};
-
-export const Dark: Story = {
-  args: {},
-  decorators: [ThemeDecorator(Theme.DARK)],
 };

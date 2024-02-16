@@ -1,37 +1,22 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from 'app/providers/ThemeProvider';
-
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 
-import { Sidebar } from './Sidebar';
+import { Sidebar as SidebarComponent } from './Sidebar';
 
-const meta: Meta<typeof Sidebar> = {
-  component: Sidebar,
+const meta: Meta<typeof SidebarComponent> = {
   title: 'widget/Sidebar',
+  component: SidebarComponent,
 };
 
 export default meta;
-type Story = StoryObj<typeof Sidebar>;
+type Story = StoryObj<typeof SidebarComponent>;
 
-export const SidebarLight: Story = {
+export const Sidebar: Story = {
   args: {},
-  decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({}), RouterDecorator],
 };
 
-export const SidebarDark: Story = {
+export const SidebarIsAuth: Story = {
   args: {},
-  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({}), RouterDecorator],
-};
-
-export const SidebarAuthLight: Story = {
-  args: {},
-  decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({ user: { authData: {} } }), RouterDecorator],
-};
-
-export const SidebarAuthDark: Story = {
-  args: {},
-  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({ user: { authData: {} } }), RouterDecorator],
+  decorators: [StoreDecorator({ user: { authData: {} } })],
 };

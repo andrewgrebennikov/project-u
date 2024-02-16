@@ -31,7 +31,7 @@ const ArticlesPage = () => {
   const [searchParams] = useSearchParams();
 
   const onLoadMore = useCallback(() => {
-    if (!isLoading) {
+    if (!isLoading && __PROJECT__ !== 'storybook') {
       dispatch(fetchArticlesMore());
     }
   }, [dispatch, isLoading]);

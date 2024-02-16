@@ -22,7 +22,7 @@ import {
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 
-import { ProfilePageHeader } from '../ProfilePageHeader/ProfilePageHeader';
+import { ProfilePageHeader } from '../ui/ProfilePageHeader/ProfilePageHeader';
 
 const initialReducers: ReducersList = { profile: profileReducer };
 

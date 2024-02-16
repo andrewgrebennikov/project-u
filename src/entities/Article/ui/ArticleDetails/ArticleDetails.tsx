@@ -16,9 +16,10 @@ import { articleReducer } from '../../model/slice/articleSlice';
 import { ArticleCodeBlock, ArticleImageBlock, ArticleTextBlock } from '../../model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlock/ArticleImageBlockComponent';
-import { ArticleTextBlockComponent } from '../ArticleTextBlock/ArticleTextBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 import styles from './ArticleDetails.module.scss';
+import { ArticleDetailsSkeleton } from './ArticleDetailsSkeleton';
 
 const initialReducers: ReducersList = {
   article: articleReducer,
@@ -39,8 +40,7 @@ export const ArticleDetails = (props: IArticleDetailsProps) => {
 
   const content = () => {
     if (isLoading) {
-      // TODO article skeleton
-      return <p>{t('Загрузка статьи')}</p>;
+      return <ArticleDetailsSkeleton />;
     } else if (error) {
       return <p>{t('Произошла ошибка при загрузки статьи')}</p>;
     } else {
@@ -96,7 +96,9 @@ export const ArticleDetails = (props: IArticleDetailsProps) => {
   };
 
   useEffect(() => {
-    dispatch(fetchArticleData(articleId));
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchArticleData(articleId));
+    }
   }, [articleId, dispatch]);
 
   return (

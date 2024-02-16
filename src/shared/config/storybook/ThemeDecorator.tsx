@@ -1,20 +1,23 @@
-import { StoryFn } from '@storybook/react';
+import { StoryContext, StoryFn } from '@storybook/react';
+import { useEffect } from 'react';
 
 import { Theme, ThemeProvider } from 'app/providers/ThemeProvider';
 
-import { THEME_LOCAL_STORAGE_KEY } from 'shared/consts/localStorage';
+export const ThemeDecorator = (Story: StoryFn, context: StoryContext) => {
+  const theme = context?.parameters?.theme || context?.globals?.theme;
 
-export const ThemeDecorator = (theme: Theme) => (Story: StoryFn) => {
-  document.documentElement.classList.add(theme);
-  localStorage.setItem(THEME_LOCAL_STORAGE_KEY, theme);
+  useEffect(() => {
+    const root = window.document.documentElement;
+    root.classList.remove(Theme.LIGHT, Theme.DARK, Theme.RED);
 
-  if (theme === Theme.LIGHT) {
-    document.documentElement.classList.remove(Theme.DARK);
-  } else if (theme === Theme.DARK) {
-    document.documentElement.classList.remove(Theme.RED);
-  } else {
-    document.documentElement.classList.remove(Theme.LIGHT);
-  }
+    if (theme === Theme.LIGHT) {
+      root.classList.add(Theme.LIGHT);
+    } else if (theme === Theme.DARK) {
+      root.classList.add(Theme.DARK);
+    } else {
+      root.classList.add(Theme.RED);
+    }
+  }, [theme]);
 
   return (
     <ThemeProvider defaultTheme={theme}>
