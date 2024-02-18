@@ -1,4 +1,5 @@
 import { cx } from 'classix';
+import { useTranslation } from 'react-i18next';
 
 import { Comment } from '../../model/types/comment';
 import { CommentItem } from '../CommentItem/CommentItem';
@@ -13,6 +14,7 @@ interface ICommentListProps {
 
 export const CommentList = (props: ICommentListProps) => {
   const { className, comments, isLoading } = props;
+  const { t } = useTranslation();
 
   if (isLoading) {
     return (
@@ -31,7 +33,7 @@ export const CommentList = (props: ICommentListProps) => {
           return <CommentItem key={id} comment={comment} />;
         })
       ) : (
-        <p>Комментарии отсутствуют</p>
+        <p>{t('Комментарии отсутствуют')}</p>
       )}
     </div>
   );

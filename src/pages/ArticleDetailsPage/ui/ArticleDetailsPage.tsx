@@ -52,7 +52,7 @@ const ArticleDetailsPage = () => {
         <ArticleDetails articleId={articleId} />
         <AddCommentForm className={styles.form} onSubmitCommentForm={onSubmitCommentForm} />
         <div className={styles.comments}>
-          <h2>Комментарии</h2>
+          <h2>{t('Комментарии')}</h2>
           <CommentList comments={comments} isLoading={commentsIsLoading} />
         </div>
       </Page>

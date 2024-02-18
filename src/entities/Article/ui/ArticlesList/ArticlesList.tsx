@@ -1,4 +1,5 @@
 import { cx } from 'classix';
+import { useTranslation } from 'react-i18next';
 
 import { ArticlesView } from 'features/ArticlesViewSelector';
 
@@ -24,11 +25,12 @@ const getSkeletons = (view: ArticlesView) => {
 
 export const ArticlesList = (props: IArticlesListProps) => {
   const { articles, view = ArticlesView.LIST, className, isLoading, error } = props;
+  const { t } = useTranslation('error');
 
   if (error) {
     return (
       <div className={cx(styles.listing, className, view === ArticlesView.GRID && styles.listingGrid)}>
-        <p>Произошла ошибка</p>
+        <p>{t('Произошла ошибка')}</p>
       </div>
     );
   }

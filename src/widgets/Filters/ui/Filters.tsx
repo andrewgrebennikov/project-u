@@ -33,6 +33,7 @@ export const Filters = (props: IFiltersProps) => {
 
   const fetchData = useCallback(() => {
     if (__PROJECT__ !== 'storybook') {
+      dispatch(articlesActions.setPage(1));
       dispatch(fetchArticlesData({ replace: true }));
     }
   }, [dispatch]);
@@ -48,7 +49,6 @@ export const Filters = (props: IFiltersProps) => {
       const isSortCreated = newSort === ArticlesSortField.CREATED;
 
       dispatch(articlesActions.setSort(newSort));
-      dispatch(articlesActions.setPage(1));
       fetchData();
 
       !isSortCreated ? searchParams.set('sort', newSort) : searchParams.delete('sort');
@@ -62,7 +62,6 @@ export const Filters = (props: IFiltersProps) => {
       const isOrderAsc = newOrder === ArticlesOrderField.ASC;
 
       dispatch(articlesActions.setOrder(newOrder));
-      dispatch(articlesActions.setPage(1));
       fetchData();
 
       !isOrderAsc ? searchParams.set('order', newOrder) : searchParams.delete('order');
@@ -74,7 +73,6 @@ export const Filters = (props: IFiltersProps) => {
   const handleSearchChange = useCallback(
     (newSearch: string) => {
       dispatch(articlesActions.setSearch(newSearch));
-      dispatch(articlesActions.setPage(1));
       debounceFetchData();
 
       newSearch ? searchParams.set('search', newSearch) : searchParams.delete('search');
@@ -88,7 +86,6 @@ export const Filters = (props: IFiltersProps) => {
       const isCategoryAll = newCategory === ArticlesCategoriesField.ALL;
 
       dispatch(articlesActions.setType(newCategory));
-      dispatch(articlesActions.setPage(1));
       debounceFetchData();
 
       !isCategoryAll ? searchParams.set('type', newCategory) : searchParams.delete('type');

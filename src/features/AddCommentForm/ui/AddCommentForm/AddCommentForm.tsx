@@ -1,5 +1,6 @@
 import { cx } from 'classix';
 import { SyntheticEvent, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
@@ -23,6 +24,7 @@ const initialReducers: ReducersList = {
 
 const AddCommentForm = (props: ICommentFormProps) => {
   const { className, onSubmitCommentForm } = props;
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const commentText = useSelector(getCommentFormText);
 
@@ -49,7 +51,7 @@ const AddCommentForm = (props: ICommentFormProps) => {
           value={commentText}
         />
         <Button className={styles.submitButton} variant={ButtonVariant.OUTLINED}>
-          Отправить
+          {t('Отправить')}
         </Button>
       </form>
     </DynamicModuleLoader>
