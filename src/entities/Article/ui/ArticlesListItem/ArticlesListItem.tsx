@@ -1,4 +1,5 @@
 import { cx } from 'classix';
+import { HTMLAttributeAnchorTarget } from 'react';
 
 import { ArticlesView } from 'features/ArticlesViewSelector';
 
@@ -17,14 +18,15 @@ interface IArticlesListItemProps {
   className?: string;
   view?: ArticlesView;
   article: Article;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticlesListItem = (props: IArticlesListItemProps) => {
-  const { className, article, view } = props;
+  const { className, article, view, target } = props;
   const textBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
 
   const articleImage = (
-    <AppLink to={`${RoutePath.article_details}${article.id}`} className={styles.link}>
+    <AppLink to={`${RoutePath.article_details}${article.id}`} className={styles.link} target={target}>
       <picture className={styles.picture}>
         <img height="200" width="200" className={styles.image} src={article.img} alt={article.title} />
       </picture>

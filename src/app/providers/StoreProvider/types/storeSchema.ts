@@ -2,6 +2,7 @@ import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesSchema } from 'pages/ArticlesPage';
 
 import { AddCommentFormSchema } from 'features/AddCommentForm';
+import { ArticleRecommendationSchema } from 'features/ArticlesRecomendation';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ScrollSchema } from 'features/SavePositionScroll';
 
@@ -17,8 +18,9 @@ export interface StoreSchema {
   login?: LoginSchema;
   profile?: ProfileSchema;
   article?: ArticleSchema;
-  articleDetailsComments?: ArticleDetailsCommentsSchema;
+  articleRecommendation?: ArticleRecommendationSchema;
   addCommentForm?: AddCommentFormSchema;
+  articleDetailsComments?: ArticleDetailsCommentsSchema;
   articles?: ArticlesSchema;
 }
 

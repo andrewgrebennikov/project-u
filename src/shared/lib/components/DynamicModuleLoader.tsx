@@ -3,12 +3,12 @@ import { FC, PropsWithChildren, useEffect } from 'react';
 import { useStore } from 'react-redux';
 
 import { StoreWithManager } from 'app/providers/StoreProvider';
-import { StoreSchemaKeys } from 'app/providers/StoreProvider/types/storeSchema';
+import { StoreSchema, StoreSchemaKeys } from 'app/providers/StoreProvider/types/storeSchema';
 
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 
 export type ReducersList = {
-  [name in StoreSchemaKeys]?: Reducer;
+  [name in StoreSchemaKeys]?: Reducer<NonNullable<StoreSchema[name]>>;
 };
 
 interface IDynamicModuleLoader {

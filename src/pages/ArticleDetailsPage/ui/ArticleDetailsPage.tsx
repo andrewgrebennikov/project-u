@@ -1,11 +1,12 @@
-import { useCallback, useEffect } from 'react';
+import { Suspense, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import { Page } from 'widgets/Page/Page';
 
-import { AddCommentForm } from 'features/AddCommentForm';
+import { AddCommentFormLazy } from 'features/AddCommentForm';
+import { ArticleRecommendation } from 'features/ArticlesRecomendation';
 
 import { ArticleDetails } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
@@ -20,7 +21,9 @@ import { articleDetailsCommentsReducer, getArticleComments } from '../model/slic
 
 import styles from './ArticleDetailsPage.module.scss';
 
-const initialReducers: ReducersList = { articleDetailsComments: articleDetailsCommentsReducer };
+const initialReducers: ReducersList = {
+  articleDetailsComments: articleDetailsCommentsReducer,
+};
 
 const ArticleDetailsPage = () => {
   const dispatch = useAppDispatch();
@@ -43,14 +46,17 @@ const ArticleDetailsPage = () => {
   }, [articleId, dispatch]);
 
   if (!articleId) {
-    return <div>{t('Статья не найдена')}</div>;
+    return <p>{t('Статья не найдена')}</p>;
   }
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <Page className={styles.article}>
         <ArticleDetails articleId={articleId} />
-        <AddCommentForm className={styles.form} onSubmitCommentForm={onSubmitCommentForm} />
+        <ArticleRecommendation />
+        <Suspense fallback={'Загрузка...'}>
+          <AddCommentFormLazy className={styles.form} onSubmitCommentForm={onSubmitCommentForm} />
+        </Suspense>
         <div className={styles.comments}>
           <h2>{t('Комментарии')}</h2>
           <CommentList comments={comments} isLoading={commentsIsLoading} />

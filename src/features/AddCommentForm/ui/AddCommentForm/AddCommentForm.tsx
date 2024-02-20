@@ -43,6 +43,7 @@ const AddCommentForm = (props: ICommentFormProps) => {
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
+      <h2>{t('Оставить комментарий')}</h2>
       <form className={cx(styles.addCommentForm, className)} onSubmit={handleCommentFormSubmit}>
         <Input
           className={styles.inputText}
