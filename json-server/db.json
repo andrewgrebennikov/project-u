@@ -20,9 +20,7 @@
       "views": 10,
       "createdAt": "01.02.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -91,10 +89,8 @@
       "img": "http://localhost:3000/images/pyton.png",
       "views": 1022,
       "createdAt": "26.02.2023",
-      "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "userId": "2",
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -164,9 +160,7 @@
       "views": 102,
       "createdAt": "03.04.2021",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -236,9 +230,7 @@
       "views": 563,
       "createdAt": "20.03.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -308,9 +300,7 @@
       "views": 852,
       "createdAt": "26.05.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -380,9 +370,7 @@
       "views": 147,
       "createdAt": "02.12.2022",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -452,9 +440,7 @@
       "views": 89,
       "createdAt": "26.08.2023",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -524,9 +510,7 @@
       "views": 426,
       "createdAt": "26.06.2024",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -596,9 +580,7 @@
       "views": 827,
       "createdAt": "06.02.2024",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -668,9 +650,7 @@
       "views": 635,
       "createdAt": "10.01.2023",
       "userId": "1",
-      "type": [
-        "IT"
-      ],
+      "type": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -740,9 +720,7 @@
       "views": 258,
       "createdAt": "21.09.2023",
       "userId": "1",
-      "type": [
-        "Science"
-      ],
+      "type": ["Science"],
       "blocks": [
         {
           "id": "1",
@@ -812,9 +790,7 @@
       "views": 456,
       "createdAt": "18.09.2021",
       "userId": "1",
-      "type": [
-        "Economy"
-      ],
+      "type": ["Economy"],
       "blocks": [
         {
           "id": "1",

@@ -48,5 +48,6 @@ export interface Article {
   createdAt: string;
   type: ArticleType[];
   blocks: ArticleBlock[];
+  userId: string;
   user: User;
 }

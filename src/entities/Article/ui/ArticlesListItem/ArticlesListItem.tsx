@@ -26,7 +26,7 @@ export const ArticlesListItem = (props: IArticlesListItemProps) => {
   const textBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
 
   const articleImage = (
-    <AppLink to={`${RoutePath.article_details}${article.id}`} className={styles.link} target={target}>
+    <AppLink to={RoutePath.article_details(article.id)} className={styles.link} target={target}>
       <picture className={styles.picture}>
         <img height="200" width="200" className={styles.image} src={article.img} alt={article.title} />
       </picture>

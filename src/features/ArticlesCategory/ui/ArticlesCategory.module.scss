@@ -9,17 +9,6 @@
   list-style-type: none;
 }
 
-.link {
-  display: inline-flex;
-
-  color: var(--primary-color);
-  text-decoration: none;
-  vertical-align: top;
-
-  border: 1px solid var(--primary-color);
-  border-radius: 5px;
-}
-
 .activeLink {
   background-color: var(--secondary-color);
 }

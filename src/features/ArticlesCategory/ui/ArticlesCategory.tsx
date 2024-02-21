@@ -1,6 +1,6 @@
 import { cx } from 'classix';
 
-import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink';
 
 import { ArticlesCategoriesField } from '../model/types/category';
 
@@ -64,6 +64,7 @@ export const ArticlesCategory = (props: IArticlesCategoryProps) => {
                 className={cx(styles.link, value === category && styles.activeLink)}
                 onClick={handleCategoryChange(value)}
                 to={{ search: `type=${value}` }}
+                variant={AppLinkVariant.OUTLINED}
               >
                 {name}
               </AppLink>

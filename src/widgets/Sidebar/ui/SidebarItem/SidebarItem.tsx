@@ -38,7 +38,7 @@ export const SidebarItem = memo((props: ISidebarItemProps) => {
   type !== ArticlesCategoriesField.ALL && searchParams.set('type', type);
   search.length && searchParams.set('search', search);
 
-  if (item.path === RoutePath.articles) {
+  if (item.path === RoutePath.articles()) {
     return (
       <AppLink
         to={{ pathname: item.path, search: searchParams.toString() }}

@@ -7,8 +7,10 @@ import { LoginModal } from 'features/AuthByUsername';
 
 import { getAuthData, userActions } from 'entities/User';
 
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useModal } from 'shared/hooks/useModal';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink';
 import { Button } from 'shared/ui/Button/Button';
 
 import styles from './Navbar.module.scss';
@@ -31,6 +33,9 @@ export const Navbar = memo((props: INavbarProps) => {
   if (authData) {
     return (
       <nav className={cx(styles.navbar, className)} data-testid="navbar">
+        <AppLink variant={AppLinkVariant.TEXT} to={RoutePath.create_article()}>
+          {t('Создать статью')}
+        </AppLink>
         <Button variant="text" onClick={handleLogout}>
           {t('Выйти')}
         </Button>

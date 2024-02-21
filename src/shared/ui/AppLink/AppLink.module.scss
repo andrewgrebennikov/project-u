@@ -1,14 +1,20 @@
-.appLink {
+.appLink,
+.appLinkButton {
   display: inline-flex;
   gap: 8px;
   align-items: center;
 
   padding: 5px;
 
-  color: var(--interactive-color);
   vertical-align: top;
 
-  transition: color 0.3s ease-in-out;
+  transition:
+    color 0.3s ease-in-out,
+    background-color 0.3s ease-in-out;
+}
+
+.appLink {
+  color: var(--interactive-color);
 }
 
 .underlineNone {
@@ -21,4 +27,27 @@
   &:hover {
     text-decoration: underline;
   }
+}
+
+.appLinkButton {
+  color: inherit;
+  text-decoration: none;
+
+  background-color: transparent;
+  border: 0;
+  border-radius: 5px;
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--secondary-color);
+  }
+}
+
+.contained {
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+}
+
+.outlined {
+  border: 1px solid var(--primary-color);
 }

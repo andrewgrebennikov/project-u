@@ -16,7 +16,7 @@ export const RequireAuth = (props: IRequireAuthProps) => {
   const location = useLocation();
 
   if (!authData) {
-    return <Navigate to={RoutePath.main} state={{ from: location }} replace />;
+    return <Navigate to={RoutePath.main()} state={{ from: location }} replace />;
   }
 
   return children;

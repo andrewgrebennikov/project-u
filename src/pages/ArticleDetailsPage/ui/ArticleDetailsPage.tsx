@@ -11,10 +11,13 @@ import { ArticleRecommendation } from 'features/ArticlesRecomendation';
 import { ArticleDetails } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
 
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink';
 
 import { getArticleDetailsCommentsIsLoading } from '../model/selectors/getArticleDetailsCommentsIsLoading/getArticleDetailsCommentsIsLoading';
+import { getIsEditArticleDetails } from '../model/selectors/getIsEditArticleDetails/getIsEditArticleDetails';
 import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { articleDetailsCommentsReducer, getArticleComments } from '../model/slice/articleDetailsCommentsSlice';
@@ -31,6 +34,7 @@ const ArticleDetailsPage = () => {
   const { t } = useTranslation();
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
+  const isEdit = useSelector(getIsEditArticleDetails);
 
   const onSubmitCommentForm = useCallback(
     (text: string) => {
@@ -52,6 +56,16 @@ const ArticleDetailsPage = () => {
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <Page className={styles.article}>
+        <header className={styles.header}>
+          <AppLink to={RoutePath.articles()} variant={AppLinkVariant.OUTLINED}>
+            {t('Назад')}
+          </AppLink>
+          {isEdit && (
+            <AppLink to={RoutePath.article_edit(articleId)} variant={AppLinkVariant.OUTLINED}>
+              {t('Редактировать')}
+            </AppLink>
+          )}
+        </header>
         <ArticleDetails articleId={articleId} />
         <ArticleRecommendation />
         <Suspense fallback={'Загрузка...'}>
