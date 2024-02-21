@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import IconArrowRight from 'shared/assets/icons/icon-arrow-right.svg';
 
-import { AppLink, AppLinkUnderline } from './AppLink';
+import { AppLink, AppLinkUnderline, AppLinkVariant } from './AppLink';
 
 const meta: Meta<typeof AppLink> = {
   title: 'shared/AppLink',
@@ -44,5 +44,26 @@ export const EndIcon: Story = {
   args: {
     children: 'Text',
     endIcon: <IconArrowRight className="icon" width="30" height="30" />,
+  },
+};
+
+export const VariantText: Story = {
+  args: {
+    children: 'Text',
+    variant: AppLinkVariant.TEXT,
+  },
+};
+
+export const VariantOutlined: Story = {
+  args: {
+    children: 'Text',
+    variant: AppLinkVariant.OUTLINED,
+  },
+};
+
+export const VariantContained: Story = {
+  args: {
+    children: 'Text',
+    variant: AppLinkVariant.CONTAINED,
   },
 };
