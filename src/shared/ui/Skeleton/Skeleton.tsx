@@ -1,7 +1,7 @@
 import { cx } from 'classix';
 import { CSSProperties, HTMLAttributes } from 'react';
 
-import { ValueOf } from 'shared/lib/types/valueOf';
+import { ValueOf } from '../../lib/types/valueOf';
 
 import styles from './Skeleton.module.scss';
 

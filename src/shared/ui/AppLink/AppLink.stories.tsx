@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import IconArrowRight from 'shared/assets/icons/icon-arrow-right.svg';
+import IconArrowRight from '../../assets/icons/icon-arrow-right.svg';
 
 import { AppLink, AppLinkUnderline, AppLinkVariant } from './AppLink';
 

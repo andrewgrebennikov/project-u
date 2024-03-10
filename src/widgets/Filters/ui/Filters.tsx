@@ -3,8 +3,7 @@ import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 
-import { fetchArticlesData } from 'pages/ArticlesPage/model/services/fetchArticlesData/fetchArticlesData';
-import { articlesActions } from 'pages/ArticlesPage/model/slice/articlesSlice';
+import { fetchArticlesData, articlesActions } from 'pages/ArticlesPage';
 
 import { ArticlesCategoriesField, ArticlesCategory, getArticlesCategory } from 'features/ArticlesCategory';
 import { ArticlesOrder, ArticlesOrderField, getArticlesOrder } from 'features/ArticlesOrder';

@@ -4,8 +4,9 @@ import { useSelector } from 'react-redux';
 
 import IconDate from 'shared/assets/icons/icon-date.svg';
 import IconEye from 'shared/assets/icons/icon-eye.svg';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { ReducersList } from 'shared/lib/types/reducersList';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 
 import { getArticleData } from '../../model/selectors/getArticleData/getArticleData';

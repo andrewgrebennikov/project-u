@@ -9,7 +9,7 @@ import { MainPage } from 'pages/MainPage';
 import { NotFound } from 'pages/NotFound';
 import { ProfilePage } from 'pages/ProfilePage';
 
-import { ValueOf } from 'shared/lib/types/valueOf';
+import { ValueOf } from '../../lib/types/valueOf';
 
 export type AppRoutesProps = RouteProps & {
   authOnly?: boolean;

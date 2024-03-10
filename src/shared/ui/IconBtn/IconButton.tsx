@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, FC, ReactNode } from 'react';
 
-import { Button } from 'shared/ui/Button/Button';
+import { Button } from '../Button/Button';
 
 interface IIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;

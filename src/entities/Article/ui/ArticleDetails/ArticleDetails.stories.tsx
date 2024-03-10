@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Article, ArticleBlockType, ArticleType } from 'entities/Article';
-
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
+
+import { Article, ArticleBlockType, ArticleType } from '../../model/types/article';
 
 import { ArticleDetails as ArticleDetailsComponent } from './ArticleDetails';
 

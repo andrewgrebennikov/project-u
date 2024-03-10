@@ -1,6 +1,6 @@
 import { AxiosInstance } from 'axios';
 
-import { StoreSchema } from 'app/providers/StoreProvider/types/storeSchema';
+import { StoreSchema } from '../types/storeSchema';
 
 interface ThunkExtraArg {
   api: AxiosInstance;

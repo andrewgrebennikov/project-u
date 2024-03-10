@@ -3,8 +3,9 @@ import { SyntheticEvent, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { ReducersList } from 'shared/lib/types/reducersList';
 import { Button, ButtonVariant } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 

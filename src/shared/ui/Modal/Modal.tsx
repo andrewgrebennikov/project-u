@@ -1,7 +1,7 @@
 import { cx } from 'classix';
 import { FC, PropsWithChildren, useCallback, useEffect, useState } from 'react';
 
-import { Portal } from 'shared/ui/Portal/Portal';
+import { Portal } from '../Portal/Portal';
 
 import styles from './Modul.module.scss';
 

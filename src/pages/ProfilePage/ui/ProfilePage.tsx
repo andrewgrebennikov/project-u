@@ -19,8 +19,9 @@ import {
   updateProfileData,
 } from 'entities/Profile';
 
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { ReducersList } from 'shared/lib/types/reducersList';
 
 import { ProfilePageHeader } from '../ui/ProfilePageHeader/ProfilePageHeader';
 

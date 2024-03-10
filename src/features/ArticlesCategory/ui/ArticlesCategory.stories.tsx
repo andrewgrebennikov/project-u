@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ArticlesCategoriesField } from 'features/ArticlesCategory';
+import { ArticlesCategoriesField } from '../model/types/category';
 
 import { ArticlesCategory as ArticlesCategoryComponent } from './ArticlesCategory';
 

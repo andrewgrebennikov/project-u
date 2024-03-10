@@ -9,8 +9,9 @@ import { getArticlesView } from 'features/ArticlesViewSelector';
 
 import { ArticlesList } from 'entities/Article';
 
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { ReducersList } from 'shared/lib/types/reducersList';
 
 import { getArticlesError } from '../model/selectors/getArticlesError/getArticlesError';
 import { getArticlesIsLoading } from '../model/selectors/getArticlesIsLoading/getArticlesIsLoading';

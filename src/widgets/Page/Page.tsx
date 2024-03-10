@@ -5,8 +5,7 @@ import { useLocation } from 'react-router-dom';
 
 import { StoreSchema } from 'app/providers/StoreProvider/types/storeSchema';
 
-import { scrollActions } from 'features/SavePositionScroll';
-import { getScrollPositionByPathname } from 'features/SavePositionScroll/model/selectors/getScrollPosition/getScrollPosition';
+import { scrollActions, getScrollPositionByPathname } from 'features/SavePositionScroll';
 
 import { useInfinityScroll } from 'shared/hooks/useInfinityScroll';
 import { useThrottle } from 'shared/hooks/useThrottle';

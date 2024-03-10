@@ -1,9 +1,9 @@
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
 
-import IconDarkTheme from 'shared/assets/icons/icon-dark-theme.svg';
-import IconLightTheme from 'shared/assets/icons/icon-light-theme.svg';
-import IconRedTheme from 'shared/assets/icons/icon-red-theme.svg';
-import { IconButton } from 'shared/ui/IconBtn/IconButton';
+import IconDarkTheme from '../../assets/icons/icon-dark-theme.svg';
+import IconLightTheme from '../../assets/icons/icon-light-theme.svg';
+import IconRedTheme from '../../assets/icons/icon-red-theme.svg';
+import { IconButton } from '../IconBtn/IconButton';
 
 interface IThemeSwitcherProps {
   className?: string;

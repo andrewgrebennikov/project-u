@@ -12,8 +12,9 @@ import { ArticleDetails } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
 
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { ReducersList } from 'shared/lib/types/reducersList';
 import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink';
 
 import { getArticleDetailsCommentsIsLoading } from '../model/selectors/getArticleDetailsCommentsIsLoading/getArticleDetailsCommentsIsLoading';

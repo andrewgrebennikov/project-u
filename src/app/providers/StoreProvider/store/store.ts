@@ -1,6 +1,6 @@
 import { CombinedState, configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 
-import { scrollReducer } from 'features/SavePositionScroll/model/slice/scrollSlice';
+import { scrollReducer } from 'features/SavePositionScroll';
 
 import { userReducer } from 'entities/User';
 

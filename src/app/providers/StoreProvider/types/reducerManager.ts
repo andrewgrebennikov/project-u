@@ -1,6 +1,6 @@
 import { AnyAction, CombinedState, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 
-import { StoreSchema, StoreSchemaKeys } from 'app/providers/StoreProvider/types/storeSchema';
+import { StoreSchema, StoreSchemaKeys } from '../types/storeSchema';
 
 export interface ReducerManager {
   getReducerMap: () => ReducersMapObject<StoreSchema>;

@@ -1,15 +1,12 @@
-import { Reducer } from '@reduxjs/toolkit';
 import { FC, PropsWithChildren, useEffect } from 'react';
 import { useStore } from 'react-redux';
 
 import { StoreWithManager } from 'app/providers/StoreProvider';
-import { StoreSchema, StoreSchemaKeys } from 'app/providers/StoreProvider/types/storeSchema';
+import { StoreSchemaKeys } from 'app/providers/StoreProvider/types/storeSchema';
 
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { ReducersList } from 'shared/lib/types/reducersList';
 
-export type ReducersList = {
-  [name in StoreSchemaKeys]?: Reducer<NonNullable<StoreSchema[name]>>;
-};
+import { useAppDispatch } from '../hooks/useAppDispatch';
 
 interface IDynamicModuleLoader {
   reducers: ReducersList;

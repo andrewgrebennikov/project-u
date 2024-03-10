@@ -2,16 +2,15 @@ import { StoryFn } from '@storybook/react';
 
 import { StoreProvider } from 'app/providers/StoreProvider';
 import { StoreSchema } from 'app/providers/StoreProvider/types/storeSchema';
+import { articleDetailsCommentsReducer } from 'pages/ArticleDetailsPage';
 
-import { articleDetailsCommentsReducer } from 'pages/ArticleDetailsPage/model/slice/articleDetailsCommentsSlice';
+import { addCommentFormReducer } from 'features/AddCommentForm';
+import { loginReducer } from 'features/AuthByUsername';
 
-import { addCommentFormReducer } from 'features/AddCommentForm/model/slice/addCommentFormSlice';
-import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
-
-import { articleReducer } from 'entities/Article/model/slice/articleSlice';
+import { articleReducer } from 'entities/Article';
 import { profileReducer } from 'entities/Profile';
 
-import { ReducersList } from 'shared/lib/components/DynamicModuleLoader';
+import { ReducersList } from 'shared/lib/types/reducersList';
 
 const defaultAsyncReducers: ReducersList = {
   login: loginReducer,

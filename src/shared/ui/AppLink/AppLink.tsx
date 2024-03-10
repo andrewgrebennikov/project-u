@@ -2,7 +2,7 @@ import { cx } from 'classix';
 import { FC, ReactNode } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 
-import { ValueOf } from 'shared/lib/types/valueOf';
+import { ValueOf } from '../../lib/types/valueOf';
 
 import styles from './AppLink.module.scss';
 

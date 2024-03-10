@@ -1,10 +1,10 @@
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { RequireAuth } from 'app/router/ui/RequireAuth';
-
 import { routeConfig } from 'shared/config/routeConfig/routeConfig';
 import { Loader } from 'shared/ui/Loader/Loader';
+
+import { RequireAuth } from '../ui/RequireAuth';
 
 export const AppRouter = () => {
   return (

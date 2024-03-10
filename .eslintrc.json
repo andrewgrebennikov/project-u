@@ -14,7 +14,8 @@
     "plugin:react-hooks/recommended",
     "plugin:i18next/recommended",
     "prettier",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@conarti/feature-sliced/recommended"
   ],
   "globals": {
     "__IS_DEV__": true,
@@ -41,16 +42,6 @@
         },
         "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
         "pathGroups": [
-          {
-            "pattern": "app/**",
-            "group": "internal",
-            "position": "after"
-          },
-          {
-            "pattern": "pages/**",
-            "group": "internal",
-            "position": "after"
-          },
           {
             "pattern": "widgets/**",
             "group": "internal",

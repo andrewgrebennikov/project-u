@@ -1,4 +1,3 @@
-import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -35,7 +34,6 @@ export const buildPlugins = (options: BuildOptions): webpack.WebpackPluginInstan
         openAnalyzer: false,
       }),
       new webpack.HotModuleReplacementPlugin(),
-      new ReactRefreshWebpackPlugin(),
     );
   }
 

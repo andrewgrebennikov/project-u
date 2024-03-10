@@ -1,8 +1,6 @@
 import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-import { AppRouter } from 'app/router';
-
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 
@@ -11,7 +9,8 @@ import { getAuthInited, userActions } from 'entities/User';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Loader } from 'shared/ui/Loader/Loader';
 
-import 'app/styles/index.scss';
+import { AppRouter } from './router';
+import './styles/index.scss';
 
 export const App = () => {
   const dispatch = useAppDispatch();
