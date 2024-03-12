@@ -13,7 +13,7 @@ export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
   const fontLoader = buildFontLoader();
   const imageLoader = buildImageLoader();
   const svgLoader = buildSvgLoader();
-  const tsLoader = buildTsLoader();
+  const tsLoader = buildTsLoader(isDev);
   const styleLoader = buildStyleLoader(isDev);
 
   return [tsLoader, styleLoader, svgLoader, fontLoader, imageLoader];
