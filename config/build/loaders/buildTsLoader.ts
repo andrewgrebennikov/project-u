@@ -1,16 +1,19 @@
-import ReactRefreshTypeScript from 'react-refresh-typescript';
-
 export const buildTsLoader = (isDev: boolean) => {
   return {
     test: /\.tsx?$/,
     use: [
       {
-        loader: 'ts-loader',
+        loader: 'swc-loader',
         options: {
-          getCustomTransformers: () => ({
-            before: [isDev && ReactRefreshTypeScript()].filter(Boolean),
-          }),
-          transpileOnly: true,
+          jsc: {
+            transform: {
+              react: {
+                runtime: 'automatic',
+                development: isDev,
+                refresh: isDev,
+              },
+            },
+          },
         },
       },
     ],

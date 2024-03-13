@@ -1,13 +1,13 @@
 import path from 'path';
 
-import type { JestConfigWithTsJest } from 'ts-jest';
+import type { Config } from 'jest';
 
 /*
  * For a detailed explanation regarding each configuration property, visit:
  * https://jestjs.io/docs/configuration
  */
 
-const jestConfig: JestConfigWithTsJest = {
+const jestConfig: Config = {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -100,7 +100,7 @@ const jestConfig: JestConfigWithTsJest = {
   // notifyMode: "failure-change",
 
   // A preset that is used as a base for Jest's configuration
-  preset: 'ts-jest',
+  // preset: 'ts-jest',
 
   // Run tests from one or more projects
   // projects: undefined,
@@ -168,7 +168,20 @@ const jestConfig: JestConfigWithTsJest = {
   // testRunner: "jest-circus/runner",
 
   // A map from regular expressions to paths to transformers
-  // transform: undefined,
+  transform: {
+    '^.+\\.(t|j)sx?$': [
+      '@swc/jest',
+      {
+        jsc: {
+          transform: {
+            react: {
+              runtime: 'automatic',
+            },
+          },
+        },
+      },
+    ],
+  },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   transformIgnorePatterns: ['\\\\node_modules\\\\', '\\.pnp\\.[^\\\\]+$'],
