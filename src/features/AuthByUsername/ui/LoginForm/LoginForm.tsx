@@ -72,7 +72,9 @@ const LoginForm = memo((props: ILoginFormProps) => {
             label={t('Имя')}
             value={username}
             onChange={handleUsernameChange}
+            minLength={2}
             autoFocus
+            required
           />
           <Input
             className={styles.input}
@@ -80,6 +82,7 @@ const LoginForm = memo((props: ILoginFormProps) => {
             label={t('Пароль')}
             value={password}
             onChange={handlePasswordChange}
+            required
           />
         </fieldset>
         <div className={styles.actions}>

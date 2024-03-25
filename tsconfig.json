@@ -2,11 +2,11 @@
   "compilerOptions": {
     "outDir": "./dist/",
     "noImplicitAny": true,
-    "module": "ESNext",
-    "target": "es5",
+    "module": "CommonJS",
+    "target": "ES6",
     "jsx": "react-jsx",
     "allowJs": true,
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
@@ -15,12 +15,8 @@
     },
     "strict": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
-  },
-  "ts-node": {
-    "compilerOptions": {
-      "module": "CommonJS"
-    }
+    "noUnusedParameters": true,
+    "isolatedModules": true
   },
   "exclude": ["./dist", "node_modules"],
   "include": ["./config/jest/setupTests.ts", "./src/**/*.ts", "./src/**/*.tsx"]

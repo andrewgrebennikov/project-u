@@ -85,12 +85,13 @@
     "stylelint-prettier": "^5.0.0",
     "swc-loader": "^0.2.6",
     "typescript": "^5.3.3",
-    "webpack": "^5.90.3",
+    "webpack": "^5.91.0",
     "webpack-bundle-analyzer": "^4.10.1",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.0.3"
+    "webpack-dev-server": "^5.0.4"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.18",
     "@reduxjs/toolkit": "^1.9.7",
     "axios": "^1.6.7",
     "classix": "^2.1.36",
