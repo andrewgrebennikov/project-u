@@ -1,13 +1,11 @@
-import { cx } from 'classix';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Select } from 'shared/ui/Select/Select';
+import { Listbox } from 'shared/ui/Listbox/Listbox';
 
 import { Currency, currency } from '../../model/types/currencySchema';
 
 interface ICurrencySelect {
-  className?: string;
   value?: Currency;
   readOnly?: boolean;
   onChange?: (value: Currency) => void;
@@ -19,7 +17,7 @@ const options = [
 ];
 
 export const CurrencySelect = (props: ICurrencySelect) => {
-  const { className, value, readOnly, onChange } = props;
+  const { value, readOnly, onChange } = props;
   const { t } = useTranslation();
 
   const onChangeCurrency = useCallback(
@@ -30,13 +28,6 @@ export const CurrencySelect = (props: ICurrencySelect) => {
   );
 
   return (
-    <Select
-      className={cx(className)}
-      onChange={onChangeCurrency}
-      label={t('Валюта')}
-      value={value}
-      disabled={readOnly}
-      options={options}
-    />
+    <Listbox onChange={onChangeCurrency} label={t('Валюта')} value={value} disabled={readOnly} options={options} />
   );
 };
