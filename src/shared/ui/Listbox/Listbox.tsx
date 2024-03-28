@@ -1,5 +1,6 @@
-import { Listbox as HListbox } from '@headlessui/react';
+import { Listbox as HListbox, Transition } from '@headlessui/react';
 import { cx } from 'classix';
+import { Fragment } from 'react';
 
 import styles from './Listbox.module.scss';
 
@@ -24,21 +25,31 @@ export const Listbox = (props: IListboxProps) => {
       <div className={styles.field}>
         {label && <HListbox.Label className={styles.label}>{label}</HListbox.Label>}
         <HListbox.Button className={styles.button}>{value}</HListbox.Button>
-        <HListbox.Options className={styles.options}>
-          {options.map((option) => {
-            const { value, name } = option;
+        <Transition
+          as={Fragment}
+          enter={styles.enter}
+          enterFrom={styles.enterFrom}
+          enterTo={styles.enterTo}
+          leave={styles.leave}
+          leaveFrom={styles.leaveFrom}
+          leaveTo={styles.leaveTo}
+        >
+          <HListbox.Options className={styles.options}>
+            {options.map((option) => {
+              const { value, name } = option;
 
-            return (
-              <HListbox.Option
-                key={value}
-                value={value}
-                className={({ active }) => cx(styles.option, active && styles.optionActive)}
-              >
-                {name}
-              </HListbox.Option>
-            );
-          })}
-        </HListbox.Options>
+              return (
+                <HListbox.Option
+                  key={value}
+                  value={value}
+                  className={({ active }) => cx(styles.option, active && styles.optionActive)}
+                >
+                  {name}
+                </HListbox.Option>
+              );
+            })}
+          </HListbox.Options>
+        </Transition>
       </div>
     </HListbox>
   );

@@ -53,3 +53,27 @@
 .optionActive {
   background-color: var(--secondary-color);
 }
+
+.enter {
+  transition: opacity 300ms;
+}
+
+.enterFrom {
+  opacity: 0;
+}
+
+.enterTo {
+  opacity: 1;
+}
+
+.leave {
+  transition: opacity 300ms;
+}
+
+.leaveFrom {
+  opacity: 1;
+}
+
+.leaveTo {
+  opacity: 0;
+}

@@ -1,5 +1,5 @@
 import { cx } from 'classix';
-import { FC, ReactNode } from 'react';
+import { forwardRef, ReactNode } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 
 import { ValueOf } from '../../lib/types/valueOf';
@@ -31,7 +31,7 @@ interface IAppLink extends LinkProps {
   children: ReactNode;
 }
 
-export const AppLink: FC<IAppLink> = (props) => {
+export const AppLink = forwardRef<HTMLAnchorElement, IAppLink>((props, ref) => {
   const {
     className,
     children,
@@ -54,6 +54,7 @@ export const AppLink: FC<IAppLink> = (props) => {
             [AppLinkVariant.OUTLINED]: styles.outlined,
           }[variant],
         )}
+        ref={ref}
         {...otherProps}
       >
         {startIcon}
@@ -74,6 +75,7 @@ export const AppLink: FC<IAppLink> = (props) => {
           [AppLinkUnderline.ALWAYS]: styles.underlineAlways,
         }[underline],
       )}
+      ref={ref}
       {...otherProps}
     >
       {startIcon}
@@ -81,4 +83,4 @@ export const AppLink: FC<IAppLink> = (props) => {
       {endIcon}
     </Link>
   );
-};
+});

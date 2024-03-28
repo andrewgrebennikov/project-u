@@ -1,5 +1,5 @@
 import { cx } from 'classix';
-import { ButtonHTMLAttributes, FC, ReactNode } from 'react';
+import { ButtonHTMLAttributes, forwardRef, ReactNode } from 'react';
 
 import { ValueOf } from '../../lib/types/valueOf';
 
@@ -21,7 +21,7 @@ interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
 }
 
-export const Button: FC<IButtonProps> = (props) => {
+export const Button = forwardRef<HTMLButtonElement, IButtonProps>((props, ref) => {
   const { children, className, variant = ButtonVariant.TEXT, startIcon, endIcon, ...otherProps } = props;
 
   return (
@@ -35,6 +35,7 @@ export const Button: FC<IButtonProps> = (props) => {
           [ButtonVariant.OUTLINED]: styles.outlined,
         }[variant],
       )}
+      ref={ref}
       {...otherProps}
     >
       {startIcon}
@@ -42,4 +43,4 @@ export const Button: FC<IButtonProps> = (props) => {
       {endIcon}
     </button>
   );
-};
+});

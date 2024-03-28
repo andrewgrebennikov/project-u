@@ -1,5 +1,5 @@
 import { cx } from 'classix';
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
@@ -11,7 +11,9 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useModal } from 'shared/hooks/useModal';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button } from 'shared/ui/Button/Button';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
 
 import styles from './Navbar.module.scss';
 
@@ -30,15 +32,32 @@ export const Navbar = memo((props: INavbarProps) => {
     dispatch(userActions.logout());
   }, [dispatch]);
 
+  const items = useMemo(
+    () => [
+      {
+        id: '1',
+        label: t('Выйти'),
+        action: handleLogout,
+      },
+      {
+        id: '2',
+        label: t('Профиль'),
+        href: RoutePath.profile(authData?.id),
+      },
+    ],
+    [authData?.id, handleLogout, t],
+  );
+
   if (authData) {
     return (
       <nav className={cx(styles.navbar, className)} data-testid="navbar">
         <AppLink variant={AppLinkVariant.TEXT} to={RoutePath.create_article()}>
           {t('Создать статью')}
         </AppLink>
-        <Button variant="text" onClick={handleLogout}>
-          {t('Выйти')}
-        </Button>
+        <Dropdown
+          button={<Avatar src={authData.avatar} alt={authData.username} width="40" height="40" />}
+          items={items}
+        />
       </nav>
     );
   }

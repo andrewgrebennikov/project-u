@@ -1,0 +1,49 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.button {
+  cursor: pointer;
+
+  display: inline-flex;
+
+  padding: 0;
+
+  vertical-align: top;
+
+  background-color: transparent;
+  border: 0;
+}
+
+.items {
+  position: absolute;
+  right: 0;
+  margin: 8px 0 0;
+  background-color: white;
+}
+
+.enter {
+  transition: opacity 300ms;
+}
+
+.enterFrom {
+  opacity: 0;
+}
+
+.enterTo {
+  opacity: 1;
+}
+
+.leave {
+  transition: opacity 300ms;
+}
+
+.leaveFrom {
+  opacity: 1;
+}
+
+.leaveTo {
+  opacity: 0;
+}

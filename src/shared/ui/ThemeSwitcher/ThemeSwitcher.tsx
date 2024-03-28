@@ -18,7 +18,7 @@ export const ThemeSwitcher = (props: IThemeSwitcherProps) => {
     <IconButton className={className} onClick={toggleTheme}>
       {theme === Theme.LIGHT && <IconDarkTheme className="icon" width="30" height="30" />}
       {theme === Theme.DARK && <IconRedTheme className="icon" width="30" height="30" />}
-      {theme === Theme.RED && <IconLightTheme className="icon" width="30" height="30" />}
+      {theme === Theme.SYSTEM && <IconLightTheme className="icon" width="30" height="30" />}
     </IconButton>
   );
 };

@@ -8,14 +8,14 @@ export const ThemeDecorator = (Story: StoryFn, context: StoryContext) => {
 
   useEffect(() => {
     const root = window.document.documentElement;
-    root.classList.remove(Theme.LIGHT, Theme.DARK, Theme.RED);
+    root.classList.remove(Theme.LIGHT, Theme.DARK);
 
     if (theme === Theme.LIGHT) {
       root.classList.add(Theme.LIGHT);
     } else if (theme === Theme.DARK) {
       root.classList.add(Theme.DARK);
     } else {
-      root.classList.add(Theme.RED);
+      root.classList.add(Theme.SYSTEM);
     }
   }, [theme]);
 

@@ -1,6 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { cx } from 'classix';
-import { FC, Fragment, PropsWithChildren } from 'react';
+import { Fragment, ReactNode } from 'react';
 
 import styles from './Modul.module.scss';
 
@@ -8,9 +8,10 @@ interface IModalProps {
   className?: string;
   isOpen: boolean;
   onClose: () => void;
+  children: ReactNode;
 }
 
-export const Modal: FC<PropsWithChildren<IModalProps>> = (props) => {
+export const Modal = (props: IModalProps) => {
   const { children, isOpen, onClose, className } = props;
 
   return (
