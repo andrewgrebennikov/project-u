@@ -16,7 +16,7 @@ export const ThemeProvider = (props: IThemeProviderProps) => {
   );
 
   useEffect(() => {
-    const root = window.document.documentElement;
+    const root = document.documentElement;
     const themeQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
     const handleThemeChange = () => {

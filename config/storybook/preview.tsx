@@ -1,5 +1,6 @@
 import { Preview } from '@storybook/react';
 
+import { Theme } from '../../src/app/providers/ThemeProvider';
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator';
 import { StoreDecorator } from '../../src/shared/config/storybook/StoreDecorator';
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator';
@@ -10,7 +11,7 @@ const preview: Preview = {
   globalTypes: {
     theme: {
       description: 'Global theme for components',
-      defaultValue: 'light',
+      defaultValue: Theme.SYSTEM,
       toolbar: {
         // The label to show for this toolbar item
         title: 'Theme',
@@ -19,6 +20,7 @@ const preview: Preview = {
         items: [
           { value: 'light', title: 'Light' },
           { value: 'dark', title: 'Dark' },
+          { value: 'system', title: 'System' },
         ],
         // Change title based on selected value
         dynamicTitle: true,
