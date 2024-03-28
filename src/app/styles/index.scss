@@ -1,24 +1,33 @@
 @import 'reset';
+@import './fonts';
 @import './variables/global';
 @import './themes/light';
 @import './themes/dark';
 
+html {
+  scroll-behavior: smooth;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-inter);
+  font-size: var(--font-size-lg);
+  color: var(--primary-color);
+}
+
 .app {
   min-height: 100vh;
-  font: var(--font-m);
-  color: var(--primary-color);
   background-color: var(--bg-color);
-}
 
-.app-content {
-  overflow: hidden;
-  display: flex;
-  height: calc(100vh - 66px);
-}
+  &__content {
+    display: flex;
+  }
 
-.app-page {
-  flex-grow: 1;
-  min-width: 0;
+  &__page {
+    flex-grow: 1;
+    min-width: 0;
+  }
 }
 
 .icon {
