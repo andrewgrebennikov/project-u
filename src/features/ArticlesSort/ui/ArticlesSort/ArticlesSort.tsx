@@ -1,6 +1,6 @@
 import { cx } from 'classix';
 
-import { Select } from 'shared/ui/Select/Select';
+import { Listbox } from 'shared/ui/Listbox/Listbox';
 
 import { ArticlesSortField } from '../../model/types/articles';
 
@@ -36,7 +36,7 @@ export const ArticlesSort = (props: IArticlesSortProps) => {
 
   return (
     <div className={cx(styles.sort, className)}>
-      <Select label="Сортировать" options={options} value={sort} onChange={handleSortChange} />
+      <Listbox label="Сортировать" options={options} value={sort} onChange={handleSortChange} />
     </div>
   );
 };

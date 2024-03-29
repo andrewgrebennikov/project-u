@@ -1,6 +1,6 @@
 import { cx } from 'classix';
 
-import { Input } from 'shared/ui/Input/Input';
+import { SearchField } from 'shared/ui/SearchField/SearchField';
 
 import styles from './ArticlesSearch.module.scss';
 
@@ -15,7 +15,7 @@ export const ArticlesSearch = (props: IArticlesSearchProps) => {
 
   return (
     <div className={cx(styles.search, className)}>
-      <Input placeholder="Поиск..." value={search} onChange={onSearchChange} />
+      <SearchField placeholder="Поиск" value={search} onChange={onSearchChange} />
     </div>
   );
 };

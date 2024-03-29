@@ -1,7 +1,7 @@
 import { cx } from 'classix';
 import { ChangeEvent, InputHTMLAttributes, memo } from 'react';
 
-import styles from './Input.module.scss';
+import styles from './TextField.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
 
@@ -14,7 +14,7 @@ interface IInputProps extends HTMLInputProps {
   autoFocus?: boolean;
 }
 
-export const Input = memo((props: IInputProps) => {
+export const TextField = memo((props: IInputProps) => {
   const { className, type = 'text', label, value, onChange, placeholder, ...otherProps } = props;
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {

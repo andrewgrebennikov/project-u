@@ -7,13 +7,15 @@ import { LoginModal } from 'features/AuthByUsername';
 
 import { getAuthData, userActions } from 'entities/User';
 
+import IconArrowDown from 'shared/assets/icons/icon-arrow-down.svg';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useModal } from 'shared/hooks/useModal';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Button } from 'shared/ui/Button/Button';
+import { Button, ButtonVariant } from 'shared/ui/Button/Button';
 import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
+import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
 
 import styles from './Navbar.module.scss';
 
@@ -36,13 +38,13 @@ export const Navbar = memo((props: INavbarProps) => {
     () => [
       {
         id: '1',
-        label: t('Выйти'),
-        action: handleLogout,
+        label: t('Профиль'),
+        href: RoutePath.profile(authData?.id),
       },
       {
         id: '2',
-        label: t('Профиль'),
-        href: RoutePath.profile(authData?.id),
+        label: t('Выйти'),
+        action: handleLogout,
       },
     ],
     [authData?.id, handleLogout, t],
@@ -50,25 +52,31 @@ export const Navbar = memo((props: INavbarProps) => {
 
   if (authData) {
     return (
-      <nav className={cx(styles.navbar, className)} data-testid="navbar">
-        <AppLink variant={AppLinkVariant.TEXT} to={RoutePath.create_article()}>
-          {t('Создать статью')}
-        </AppLink>
+      <div className={cx(styles.navbar, className)} data-testid="navbar">
+        <ThemeSwitcher className={styles.themeSwitcher} />
+        <LangSwitcher className={styles.langSwitcher} />
         <Dropdown
-          button={<Avatar src={authData.avatar} alt={authData.username} width="40" height="40" />}
+          button={
+            <>
+              <Avatar src={authData.avatar} alt={authData.username} width="40" height="40" />
+              <IconArrowDown className={cx('icon', styles.dropDownIcon)} width="20" height="20" />
+            </>
+          }
           items={items}
         />
-      </nav>
+      </div>
     );
   }
 
   return (
     <>
-      <nav className={cx(styles.navbar, className)} data-testid="navbar">
-        <Button variant="text" onClick={handleModalOpen}>
+      <div className={cx(styles.navbar, className)} data-testid="navbar">
+        <ThemeSwitcher />
+        <LangSwitcher />
+        <Button variant={ButtonVariant.CONTAINED} onClick={handleModalOpen}>
           {t('Войти')}
         </Button>
-      </nav>
+      </div>
       <LoginModal isOpen={isOpenModal} onClose={handleModalClose} />
     </>
   );

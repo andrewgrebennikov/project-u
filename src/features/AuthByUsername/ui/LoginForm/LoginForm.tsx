@@ -7,7 +7,7 @@ import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { ReducersList } from 'shared/lib/types/reducersList';
 import { Button } from 'shared/ui/Button/Button';
-import { Input } from 'shared/ui/Input/Input';
+import { TextField } from 'shared/ui/TextField/TextField';
 
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
@@ -66,7 +66,7 @@ const LoginForm = memo((props: ILoginFormProps) => {
         <fieldset className={styles.fieldset}>
           <legend className={styles.legend}>{t('Форма авторизации')}</legend>
           {error && <p className={styles.error}>{t('Вы ввели неверный логин или пароль')}</p>}
-          <Input
+          <TextField
             className={styles.input}
             type="text"
             label={t('Имя')}
@@ -76,7 +76,7 @@ const LoginForm = memo((props: ILoginFormProps) => {
             autoFocus
             required
           />
-          <Input
+          <TextField
             className={styles.input}
             type="text"
             label={t('Пароль')}

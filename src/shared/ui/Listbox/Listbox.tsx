@@ -1,6 +1,6 @@
 import { Listbox as HListbox, Transition } from '@headlessui/react';
 import { cx } from 'classix';
-import { Fragment } from 'react';
+import { Fragment, useMemo } from 'react';
 
 import styles from './Listbox.module.scss';
 
@@ -17,14 +17,22 @@ interface IListboxProps {
   disabled?: boolean;
 }
 
+type ActiveOptionType = IListboxItem | undefined;
+
 export const Listbox = (props: IListboxProps) => {
   const { value, onChange, options, label, disabled } = props;
+  const activeOption: ActiveOptionType = useMemo(
+    () => options.find((option) => option.value === value),
+    [options, value],
+  );
 
   return (
     <HListbox value={value} onChange={onChange} disabled={disabled}>
       <div className={styles.field}>
         {label && <HListbox.Label className={styles.label}>{label}</HListbox.Label>}
-        <HListbox.Button className={styles.button}>{value}</HListbox.Button>
+        <HListbox.Button className={({ open }) => cx(styles.button, open && styles.buttonActive)}>
+          {activeOption?.name}
+        </HListbox.Button>
         <Transition
           as={Fragment}
           enter={styles.enter}

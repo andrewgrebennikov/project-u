@@ -1,6 +1,5 @@
 import { cx } from 'classix';
-
-import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink';
+import { Link } from 'react-router-dom';
 
 import { ArticlesCategoriesField } from '../model/types/category';
 
@@ -60,14 +59,13 @@ export const ArticlesCategory = (props: IArticlesCategoryProps) => {
 
           return (
             <li key={id} className={styles.item}>
-              <AppLink
+              <Link
                 className={cx(styles.link, value === category && styles.activeLink)}
                 onClick={handleCategoryChange(value)}
                 to={{ search: `type=${value}` }}
-                variant={AppLinkVariant.OUTLINED}
               >
                 {name}
-              </AppLink>
+              </Link>
             </li>
           );
         })}

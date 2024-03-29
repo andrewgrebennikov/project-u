@@ -1,9 +1,10 @@
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
 
+import { Button } from 'shared/ui/Button/Button';
+
 import IconDarkTheme from '../../assets/icons/icon-dark-theme.svg';
 import IconLightTheme from '../../assets/icons/icon-light-theme.svg';
 import IconSystemTheme from '../../assets/icons/icon-system-theme.svg';
-import { IconButton } from '../IconBtn/IconButton';
 
 interface IThemeSwitcherProps {
   className?: string;
@@ -15,10 +16,10 @@ export const ThemeSwitcher = (props: IThemeSwitcherProps) => {
   const { toggleTheme, theme } = useTheme();
 
   return (
-    <IconButton className={className} onClick={toggleTheme}>
+    <Button className={className} onClick={toggleTheme}>
       {theme === Theme.DARK && <IconDarkTheme className="icon" width="30" height="30" />}
       {theme === Theme.LIGHT && <IconLightTheme className="icon" width="30" height="30" />}
       {theme === Theme.SYSTEM && <IconSystemTheme className="icon" width="30" height="30" />}
-    </IconButton>
+    </Button>
   );
 };

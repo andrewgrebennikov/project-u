@@ -1,8 +1,6 @@
 import { Menu, Transition } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
-
-import { AppLink, AppLinkUnderline } from '../AppLink/AppLink';
-import { Button, ButtonVariant } from '../Button/Button';
+import { Link } from 'react-router-dom';
 
 import styles from './Dropdown.module.scss';
 
@@ -34,21 +32,23 @@ export const Dropdown = (props: IDropdownProps) => {
           leaveFrom={styles.leaveFrom}
           leaveTo={styles.leaveTo}
         >
-          <Menu.Items className={styles.items}>
+          <Menu.Items className={styles.items} as="ul">
             {items.map((item) => {
               const { href, label, action, id } = item;
 
               if (href) {
                 return (
-                  <Menu.Item key={id} as={AppLink} to={href} underline={AppLinkUnderline.NONE}>
-                    {label}
+                  <Menu.Item key={id} as="li">
+                    <Link className={styles.item} to={href}>
+                      {label}
+                    </Link>
                   </Menu.Item>
                 );
               }
 
               return (
-                <Menu.Item key={id} as={Button} onClick={action} variant={ButtonVariant.TEXT}>
-                  {label}
+                <Menu.Item key={id} as="li" onClick={action}>
+                  <button className={styles.item}>{label}</button>
                 </Menu.Item>
               );
             })}

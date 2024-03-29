@@ -30,16 +30,17 @@ export const Button = forwardRef<HTMLButtonElement, IButtonProps>((props, ref) =
         styles.button,
         className,
         {
-          [ButtonVariant.CONTAINED]: styles.contained,
           [ButtonVariant.TEXT]: styles.text,
+          [ButtonVariant.CONTAINED]: styles.contained,
           [ButtonVariant.OUTLINED]: styles.outlined,
         }[variant],
       )}
       ref={ref}
+      data-testid="button"
       {...otherProps}
     >
       {startIcon}
-      {children}
+      <span className={styles.label}>{children}</span>
       {endIcon}
     </button>
   );

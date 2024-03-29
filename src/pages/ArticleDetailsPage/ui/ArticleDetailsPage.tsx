@@ -56,7 +56,7 @@ const ArticleDetailsPage = () => {
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
-      <Page className={styles.article}>
+      <Page>
         <header className={styles.header}>
           <AppLink to={RoutePath.articles()} variant={AppLinkVariant.OUTLINED}>
             {t('Назад')}

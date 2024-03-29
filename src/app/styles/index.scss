@@ -13,15 +13,16 @@ html {
 body {
   font-family: var(--font-inter);
   font-size: var(--font-size-lg);
+  line-height: 1.2;
   color: var(--primary-color);
 }
 
 .app {
-  min-height: 100vh;
-  background-color: var(--bg-color);
+  background-color: var(--body-bg);
 
   &__content {
     display: flex;
+    min-height: 100vh;
   }
 
   &__page {
