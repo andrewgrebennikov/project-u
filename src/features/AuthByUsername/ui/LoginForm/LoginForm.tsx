@@ -64,12 +64,13 @@ const LoginForm = memo((props: ILoginFormProps) => {
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <form className={cx(styles.form, className)} onSubmit={handleLoginFormSubmit}>
         <fieldset className={styles.fieldset}>
-          <legend className={styles.legend}>{t('Форма авторизации')}</legend>
+          <legend className={styles.legend}>{t('Вход')}</legend>
           {error && <p className={styles.error}>{t('Вы ввели неверный логин или пароль')}</p>}
           <TextField
             className={styles.input}
             type="text"
             label={t('Имя')}
+            placeholder={t('Имя')}
             value={username}
             onChange={handleUsernameChange}
             minLength={2}
@@ -80,6 +81,7 @@ const LoginForm = memo((props: ILoginFormProps) => {
             className={styles.input}
             type="text"
             label={t('Пароль')}
+            placeholder={t('Пароль')}
             value={password}
             onChange={handlePasswordChange}
             required

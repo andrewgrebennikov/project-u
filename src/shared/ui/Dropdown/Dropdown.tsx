@@ -39,9 +39,11 @@ export const Dropdown = (props: IDropdownProps) => {
               if (href) {
                 return (
                   <Menu.Item key={id} as="li">
-                    <Link className={styles.item} to={href}>
-                      {label}
-                    </Link>
+                    {({ close }) => (
+                      <Link className={styles.item} to={href} onClick={close}>
+                        {label}
+                      </Link>
+                    )}
                   </Menu.Item>
                 );
               }

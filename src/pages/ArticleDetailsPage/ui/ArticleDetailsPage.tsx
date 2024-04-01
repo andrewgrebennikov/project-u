@@ -1,7 +1,7 @@
 import { Suspense, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import { Page } from 'widgets/Page/Page';
 
@@ -15,7 +15,6 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { ReducersList } from 'shared/lib/types/reducersList';
-import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink';
 
 import { getArticleDetailsCommentsIsLoading } from '../model/selectors/getArticleDetailsCommentsIsLoading/getArticleDetailsCommentsIsLoading';
 import { getIsEditArticleDetails } from '../model/selectors/getIsEditArticleDetails/getIsEditArticleDetails';
@@ -58,14 +57,8 @@ const ArticleDetailsPage = () => {
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <Page>
         <header className={styles.header}>
-          <AppLink to={RoutePath.articles()} variant={AppLinkVariant.OUTLINED}>
-            {t('Назад')}
-          </AppLink>
-          {isEdit && (
-            <AppLink to={RoutePath.article_edit(articleId)} variant={AppLinkVariant.OUTLINED}>
-              {t('Редактировать')}
-            </AppLink>
-          )}
+          <Link to={RoutePath.articles()}>{t('Назад')}</Link>
+          {isEdit && <Link to={RoutePath.article_edit(articleId)}>{t('Редактировать')}</Link>}
         </header>
         <ArticleDetails articleId={articleId} />
         <ArticleRecommendation />

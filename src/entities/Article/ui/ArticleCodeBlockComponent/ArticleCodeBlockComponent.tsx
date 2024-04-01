@@ -17,8 +17,8 @@ export const ArticleCodeBlockComponent = (props: IArticleCodeBlockProps) => {
   const { block, className } = props;
   const { code } = block;
 
-  const handleCodeCopy = useCallback(() => {
-    navigator.clipboard.writeText(code);
+  const handleCodeCopy = useCallback(async () => {
+    await navigator.clipboard.writeText(code);
   }, [code]);
 
   return (

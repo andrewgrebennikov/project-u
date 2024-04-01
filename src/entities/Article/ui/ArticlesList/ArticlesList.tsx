@@ -20,7 +20,7 @@ interface IArticlesListProps {
 }
 
 const getSkeletons = (view: ArticlesView) => {
-  return Array.from(Array(4).keys()).map((_, index) => {
+  return Array.from(Array(5).keys()).map((_, index) => {
     return <ArticleListItemSkeleton key={index} view={view} />;
   });
 };
@@ -32,7 +32,7 @@ export const ArticlesList = (props: IArticlesListProps) => {
   if (error) {
     return (
       <div className={cx(styles.listing, className, view === ArticlesView.GRID && styles.listingGrid)}>
-        <p>{t('Произошла ошибка')}</p>
+        <p>{t('Произошла ошибка при загрузке статей')}</p>
       </div>
     );
   }
@@ -43,10 +43,9 @@ export const ArticlesList = (props: IArticlesListProps) => {
 
   return (
     <div className={cx(styles.listing, className, view === ArticlesView.GRID && styles.listingGrid)}>
-      {articles.length > 0 &&
-        articles.map((article) => {
-          return <ArticlesListItem key={article.id} article={article} view={view} target={target} />;
-        })}
+      {articles.map((article) => {
+        return <ArticlesListItem key={article.id} article={article} view={view} target={target} />;
+      })}
       {isLoading && getSkeletons(view)}
     </div>
   );
