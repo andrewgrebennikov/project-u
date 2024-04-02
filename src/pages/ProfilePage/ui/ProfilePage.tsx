@@ -29,7 +29,7 @@ const initialReducers: ReducersList = { profile: profileReducer };
 
 const ProfilePage = () => {
   const { id: profileId } = useParams();
-  const { t } = useTranslation();
+  const { t } = useTranslation('translation');
   const dispatch = useAppDispatch();
   const formData = useSelector(getProfileFormData);
   const error = useSelector(getProfileError);

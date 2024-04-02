@@ -1,4 +1,6 @@
 import { cx } from 'classix';
+import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Listbox } from 'shared/ui/Listbox/Listbox';
 
@@ -12,23 +14,27 @@ interface IArticlesSortProps {
   onSortChange: (sort: ArticlesSortField) => void;
 }
 
-const options = [
-  {
-    value: ArticlesSortField.CREATED,
-    name: 'По дате публикации',
-  },
-  {
-    value: ArticlesSortField.VIEWS,
-    name: 'По популярности',
-  },
-  {
-    value: ArticlesSortField.TITLE,
-    name: 'По названию',
-  },
-];
-
 export const ArticlesSort = (props: IArticlesSortProps) => {
   const { className, sort, onSortChange } = props;
+  const { t } = useTranslation('translation');
+
+  const options = useMemo(
+    () => [
+      {
+        value: ArticlesSortField.CREATED,
+        name: t('По дате публикации'),
+      },
+      {
+        value: ArticlesSortField.VIEWS,
+        name: t('По популярности'),
+      },
+      {
+        value: ArticlesSortField.TITLE,
+        name: t('По названию'),
+      },
+    ],
+    [t],
+  );
 
   const handleSortChange = (sort: string) => {
     onSortChange(sort as ArticlesSortField);
@@ -36,7 +42,7 @@ export const ArticlesSort = (props: IArticlesSortProps) => {
 
   return (
     <div className={cx(styles.sort, className)}>
-      <Listbox label="Сортировать" options={options} value={sort} onChange={handleSortChange} />
+      <Listbox label={t('Сортировать')} options={options} value={sort} onChange={handleSortChange} />
     </div>
   );
 };

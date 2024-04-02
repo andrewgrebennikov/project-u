@@ -18,7 +18,7 @@ const options = [
 
 export const CurrencySelect = (props: ICurrencySelect) => {
   const { value, readOnly, onChange } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('translation');
 
   const onChangeCurrency = useCallback(
     (value: string) => {

@@ -25,7 +25,7 @@ const initialReducers: ReducersList = {
 
 const AddCommentForm = (props: ICommentFormProps) => {
   const { className, onSubmitCommentForm } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('translation');
   const dispatch = useAppDispatch();
   const commentText = useSelector(getCommentFormText);
 
@@ -48,7 +48,7 @@ const AddCommentForm = (props: ICommentFormProps) => {
       <form className={cx(styles.addCommentForm, className)} onSubmit={handleCommentFormSubmit}>
         <TextField
           className={styles.inputText}
-          placeholder="Введите текст комментария"
+          placeholder={t('Введите текст комментария')}
           onChange={onCommentTextChange}
           value={commentText}
         />

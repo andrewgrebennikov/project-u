@@ -19,7 +19,7 @@ interface IProfilePageHeader {
 
 export const ProfilePageHeader = (props: IProfilePageHeader) => {
   const { className, readOnly, onEditForm, onCancelEditForm, onSaveForm } = props;
-  const { t } = useTranslation('profile');
+  const { t } = useTranslation('translation');
   const authData = useSelector(getAuthData);
   const profileData = useSelector(getProfileFormData);
   const canEdit = authData?.id === profileData?.id;

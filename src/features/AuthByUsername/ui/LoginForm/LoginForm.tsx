@@ -27,7 +27,7 @@ interface ILoginFormProps {
 
 const LoginForm = memo((props: ILoginFormProps) => {
   const { className, onClose } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('translation');
   const dispatch = useAppDispatch();
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
@@ -64,7 +64,7 @@ const LoginForm = memo((props: ILoginFormProps) => {
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <form className={cx(styles.form, className)} onSubmit={handleLoginFormSubmit}>
         <fieldset className={styles.fieldset}>
-          <legend className={styles.legend}>{t('Вход')}</legend>
+          <legend className={styles.legend}>{t('Войти')}</legend>
           {error && <p className={styles.error}>{t('Вы ввели неверный логин или пароль')}</p>}
           <TextField
             className={styles.input}

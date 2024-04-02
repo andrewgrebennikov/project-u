@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Page } from 'widgets/Page/Page';
 
 export const NotFound = () => {
-  const { t } = useTranslation('notFound');
+  const { t } = useTranslation('translation');
 
   useEffect(() => {
     document.title = t('Страница не найдена');

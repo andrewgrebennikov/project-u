@@ -28,7 +28,7 @@ const initialReducers: ReducersList = {
 
 export const ArticleRecommendation = (props: IArticlesRecommendationProps) => {
   const { className } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('translation');
   const dispatch = useAppDispatch();
   const articles = useSelector(getArticleRecommendation.selectAll);
   const error = useSelector(getArticleRecommendationError);

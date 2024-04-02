@@ -27,7 +27,7 @@ const getSkeletons = (view: ArticlesView) => {
 
 export const ArticlesList = (props: IArticlesListProps) => {
   const { articles, view = ArticlesView.LIST, className, isLoading, error, target } = props;
-  const { t } = useTranslation('error');
+  const { t } = useTranslation('translation');
 
   if (error) {
     return (

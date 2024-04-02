@@ -18,7 +18,7 @@ const options = [
 
 export const CountrySelect = (props: ICountrySelect) => {
   const { value, onChange, readOnly } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('translation');
 
   const onChangeCountry = useCallback(
     (value: string) => {

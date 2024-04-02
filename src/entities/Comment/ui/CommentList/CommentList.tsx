@@ -15,7 +15,7 @@ interface ICommentListProps {
 
 export const CommentList = (props: ICommentListProps) => {
   const { className, comments, isLoading, error } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('translation');
 
   if (isLoading) {
     return (

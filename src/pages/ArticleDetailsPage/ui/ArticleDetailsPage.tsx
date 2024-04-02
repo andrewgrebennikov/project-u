@@ -31,7 +31,7 @@ const initialReducers: ReducersList = {
 const ArticleDetailsPage = () => {
   const dispatch = useAppDispatch();
   const { id: articleId } = useParams();
-  const { t } = useTranslation();
+  const { t } = useTranslation('translation');
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
   const isEdit = useSelector(getIsEditArticleDetails);
