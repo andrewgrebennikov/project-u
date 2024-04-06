@@ -42,6 +42,4 @@ jobs:
 
       - name: Run Chromatic
         run: npm run test:ui
-        with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
         if: always()
