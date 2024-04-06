@@ -40,12 +40,9 @@ jobs:
         run: npm run test:unit
         if: always()
 
-      - name: Build storybook
-        run: npm run storybook:build
-        if: always()
-
       - name: Run Chromatic
         uses: chromaui/action@latest
+        run: npm run test:ui
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
         if: always()

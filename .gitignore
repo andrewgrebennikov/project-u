@@ -10,6 +10,12 @@
 # storybook
 /storybook-static
 *storybook.log
+build-storybook.log
+
+# chromatic
+chromatic.log
+chromatic-build-*.xml
+chromatic-diagnostics.json
 
 # loki
 .loki/report.html
