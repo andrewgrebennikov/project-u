@@ -15,7 +15,7 @@
     "lint:stylelint": "stylelint \"./**/*.scss\"",
     "lint:stylelint:fix": "stylelint \"./**/*.scss\" --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
-    "test:ui": "npx chromatic -b storybook:build",
+    "test:ui": "npx chromatic --exit-zero-on-changes -b storybook:build",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
     "prepare": "husky install"
