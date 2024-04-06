@@ -42,6 +42,8 @@ jobs:
         run: npm run test:unit
         if: always()
 
-      - name: Run Chromatic
-        run: npm run test:ui
+      - name: Screenshot testing
+        run: npx chromatic --exit-zero-on-changes --project-token=$PROJECT_TOKEN -b storybook:build
+        env:
+          PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
         if: always()
