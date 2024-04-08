@@ -18,5 +18,6 @@
     "noUnusedParameters": true,
     "isolatedModules": true
   },
+  "include": ["config", "src"],
   "exclude": ["dist", "node_modules"]
 }
