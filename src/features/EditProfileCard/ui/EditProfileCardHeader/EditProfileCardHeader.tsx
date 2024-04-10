@@ -2,12 +2,13 @@ import { cx } from 'classix';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { getProfileFormData } from 'entities/Profile';
 import { getAuthData } from 'entities/User';
 
 import { Button } from 'shared/ui/Button/Button';
 
-import styles from './ProfilePageHeader.module.scss';
+import { getProfileFormData } from '../../selectors/getProfileFormData/getProfileFormData';
+
+import styles from './EditProfileCardHeader.module.scss';
 
 interface IProfilePageHeader {
   className?: string;
@@ -17,7 +18,7 @@ interface IProfilePageHeader {
   onSaveForm?: () => void;
 }
 
-export const ProfilePageHeader = (props: IProfilePageHeader) => {
+export const EditProfileCardHeader = (props: IProfilePageHeader) => {
   const { className, readOnly, onEditForm, onCancelEditForm, onSaveForm } = props;
   const { t } = useTranslation('translation');
   const authData = useSelector(getAuthData);

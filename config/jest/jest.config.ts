@@ -1,5 +1,3 @@
-import path from 'path';
-
 import type { Config } from 'jest';
 
 const jestConfig: Config = {
@@ -12,16 +10,16 @@ const jestConfig: Config = {
     __PROJECT__: 'jest',
   },
   moduleDirectories: ['node_modules'],
-  moduleFileExtensions: ['js', 'mjs', 'cjs', 'jsx', 'ts', 'tsx', 'json', 'node'],
+  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
   moduleNameMapper: {
     '\\.(css|scss)$': 'identity-obj-proxy',
     '\\.svg$': '<rootDir>/config/jest/svgMock.tsx',
   },
   modulePaths: ['<rootDir>/src'],
-  rootDir: path.resolve(__dirname, '..', '..'),
+  rootDir: '../../',
   setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
   testEnvironment: 'jsdom',
-  testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
+  testMatch: ['<rootDir>/src/**/*(*.)@(spec|test).[tj]s?(x)'],
   testPathIgnorePatterns: ['\\\\node_modules\\\\'],
   transform: {
     '^.+\\.(t|j)sx?$': [
@@ -38,6 +36,18 @@ const jestConfig: Config = {
     ],
   },
   transformIgnorePatterns: ['\\\\node_modules\\\\', '\\.pnp\\.[^\\\\]+$'],
+  reporters: [
+    'default',
+    [
+      'jest-html-reporters',
+      {
+        publicPath: '<rootDir>/jest-html-report',
+        filename: 'report.html',
+        openReport: false,
+        inlineSource: true,
+      },
+    ],
+  ],
 };
 
 export default jestConfig;

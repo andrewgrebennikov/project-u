@@ -27,7 +27,7 @@ const initialReducers: ReducersList = {
 };
 
 interface IArticleDetailsProps {
-  articleId: string;
+  articleId: string | undefined;
   className?: string;
 }
 

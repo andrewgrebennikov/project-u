@@ -17,5 +17,8 @@ chromatic.log
 chromatic-build-*.xml
 chromatic-diagnostics.json
 
+# jest
+/jest-html-report
+
 # env
 .env

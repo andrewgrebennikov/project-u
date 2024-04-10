@@ -2,8 +2,9 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { ThunkConfig } from 'app/providers/StoreProvider';
 
+import { Profile } from 'entities/Profile';
+
 import { getProfileFormData } from '../../selectors/getProfileFormData/getProfileFormData';
-import { Profile } from '../../types/profileSchema';
 
 export const updateProfileData = createAsyncThunk<Profile, string | undefined, ThunkConfig<string>>(
   'profile/updateProfileData',

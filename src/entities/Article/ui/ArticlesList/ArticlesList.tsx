@@ -1,3 +1,5 @@
+import { SerializedError } from '@reduxjs/toolkit';
+import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { cx } from 'classix';
 import { HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -12,10 +14,10 @@ import styles from './ArticlesList.module.scss';
 
 interface IArticlesListProps {
   className?: string;
-  articles: Article[];
+  articles?: Article[];
   view?: ArticlesView;
   isLoading?: boolean;
-  error?: string;
+  error?: SerializedError | FetchBaseQueryError | undefined | string;
   target?: HTMLAttributeAnchorTarget;
 }
 
@@ -37,13 +39,13 @@ export const ArticlesList = (props: IArticlesListProps) => {
     );
   }
 
-  if (!isLoading && !articles.length) {
+  if (!isLoading && !articles?.length) {
     return <p>{t('Статьи отсутствуют')}</p>;
   }
 
   return (
     <div className={cx(styles.listing, className, view === ArticlesView.GRID && styles.listingGrid)}>
-      {articles.map((article) => {
+      {articles?.map((article) => {
         return <ArticlesListItem key={article.id} article={article} view={view} target={target} />;
       })}
       {isLoading && getSkeletons(view)}

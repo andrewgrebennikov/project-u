@@ -5,19 +5,15 @@ import { useSearchParams } from 'react-router-dom';
 import { Filters } from 'widgets/Filters/intex';
 import { Page } from 'widgets/Page/Page';
 
-import { getArticlesView } from 'features/ArticlesViewSelector';
-
-import { ArticlesList } from 'entities/Article';
-
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { ReducersList } from 'shared/lib/types/reducersList';
 
-import { getArticlesError } from '../model/selectors/getArticlesError/getArticlesError';
-import { getArticlesIsLoading } from '../model/selectors/getArticlesIsLoading/getArticlesIsLoading';
-import { fetchArticlesMore } from '../model/services/fetchArticlesMore/fetchArticlesMore';
-import { initArticles } from '../model/services/initArticles/initArticles';
-import { articlesReducer, getArticles } from '../model/slice/articlesSlice';
+import { getArticlesIsLoading } from '../../model/selectors/getArticlesIsLoading/getArticlesIsLoading';
+import { fetchArticlesMore } from '../../model/services/fetchArticlesMore/fetchArticlesMore';
+import { initArticles } from '../../model/services/initArticles/initArticles';
+import { articlesReducer } from '../../model/slice/articlesSlice';
+import { ArticlesInfiniteList } from '../ArticlesInfiniteList/ArticlesInfiniteList';
 
 import styles from './ArticlesPage.module.scss';
 
@@ -25,10 +21,7 @@ const initialReducers: ReducersList = { articles: articlesReducer };
 
 const ArticlesPage = () => {
   const dispatch = useAppDispatch();
-  const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlesIsLoading);
-  const error = useSelector(getArticlesError);
-  const view = useSelector(getArticlesView);
   const [searchParams] = useSearchParams();
 
   const onLoadMore = useCallback(() => {
@@ -47,7 +40,7 @@ const ArticlesPage = () => {
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={false}>
       <Page onScrollEnd={onLoadMore}>
         <Filters className={styles.filters} />
-        <ArticlesList articles={articles} isLoading={isLoading} view={view} error={error} />
+        <ArticlesInfiniteList isLoading={isLoading} />
       </Page>
     </DynamicModuleLoader>
   );
