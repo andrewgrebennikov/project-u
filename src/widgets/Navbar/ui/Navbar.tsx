@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 import { LoginModal } from 'features/AuthByUsername';
 
-import { getAuthData, userActions } from 'entities/User';
+import { getAuthData, getUserIsAdmin, userActions } from 'entities/User';
 
 import IconArrowDown from 'shared/assets/icons/icon-arrow-down.svg';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
@@ -29,6 +29,7 @@ export const Navbar = memo((props: INavbarProps) => {
   const { isOpenModal, handleModalClose, handleModalOpen } = useModal();
   const authData = useSelector(getAuthData);
   const dispatch = useAppDispatch();
+  const isAdmin = useSelector(getUserIsAdmin);
 
   const handleLogout = useCallback(() => {
     dispatch(userActions.logout());
@@ -41,13 +42,22 @@ export const Navbar = memo((props: INavbarProps) => {
         label: t('Профиль'),
         href: RoutePath.profile(authData?.id),
       },
+      ...(isAdmin
+        ? [
+            {
+              id: '2',
+              label: t('Админка'),
+              href: RoutePath.admin(),
+            },
+          ]
+        : []),
       {
-        id: '2',
+        id: '3',
         label: t('Выйти'),
         action: handleLogout,
       },
     ],
-    [authData?.id, handleLogout, t],
+    [authData?.id, handleLogout, isAdmin, t],
   );
 
   if (authData) {

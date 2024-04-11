@@ -3,18 +3,18 @@ import { useTranslation } from 'react-i18next';
 
 import { Page } from 'widgets/Page/Page';
 
-const NotFound = () => {
+const ForbiddenPage = () => {
   const { t } = useTranslation('translation');
 
   useEffect(() => {
-    document.title = t('Страница не найдена');
+    document.title = t('Доступ запрещён');
   }, [t]);
 
   return (
     <Page>
-      <h1>{t('Страница не найдена')}</h1>
+      <h1>{t('Доступ запрещён')}</h1>
     </Page>
   );
 };
 
-export default NotFound;
+export default ForbiddenPage;

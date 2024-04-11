@@ -41,7 +41,9 @@ export const EditProfileCard = (props: IEditProfileCardProps) => {
   }, [dispatch]);
 
   const onSaveForm = useCallback(() => {
-    dispatch(updateProfileData(profileId));
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(updateProfileData(profileId));
+    }
   }, [dispatch, profileId]);
 
   const onChangeFirstname = useCallback(

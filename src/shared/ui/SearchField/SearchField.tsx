@@ -1,7 +1,7 @@
 import { cx } from 'classix';
 import { ChangeEvent, InputHTMLAttributes } from 'react';
 
-import IconSearch from 'shared/assets/icons/icon-search.svg';
+import IconSearch from '../../assets/icons/icon-search.svg';
 
 import styles from './SearchField.module.scss';
 

@@ -21,9 +21,15 @@ export const AppRouter = (props: IAppRouterProps) => {
       <Suspense fallback={<Loader />}>
         <Routes>
           {routeConfig.map((route) => {
-            const { path, element, authOnly } = route;
+            const { path, element, authOnly, roles } = route;
 
-            return <Route key={path} path={path} element={authOnly ? <RequireAuth>{element}</RequireAuth> : element} />;
+            return (
+              <Route
+                key={path}
+                path={path}
+                element={authOnly ? <RequireAuth roles={roles}>{element}</RequireAuth> : element}
+              />
+            );
           })}
         </Routes>
       </Suspense>

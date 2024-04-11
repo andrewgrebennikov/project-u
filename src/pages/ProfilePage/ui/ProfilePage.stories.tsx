@@ -16,8 +16,26 @@ export const ProfilePage: Story = {
   args: {},
   decorators: [
     StoreDecorator({
+      user: {
+        authData: {
+          id: '1',
+          avatar: 'https://upload.wikimedia.org/wikipedia/ru/f/f6/Kirby_FL.png',
+          username: 'ASGrebennikov',
+        },
+      },
       profile: {
         formData: {
+          id: '1',
+          firstname: 'Андрей',
+          lastname: 'Гребенников',
+          age: 32,
+          currency: 'RUB',
+          country: 'Россия',
+          city: 'Ульяновск',
+          username: 'ASGrebennikov',
+          avatar: 'https://upload.wikimedia.org/wikipedia/ru/f/f6/Kirby_FL.png',
+        },
+        profileData: {
           id: '1',
           firstname: 'Андрей',
           lastname: 'Гребенников',
