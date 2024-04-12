@@ -1,4 +1,4 @@
-import { Suspense, useCallback, useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
@@ -9,7 +9,6 @@ import { CommentList } from 'entities/Comment';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 
 import { getArticleDetailsCommentsIsLoading } from '../../model/selectors/getArticleDetailsCommentsIsLoading/getArticleDetailsCommentsIsLoading';
-import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
 
@@ -20,19 +19,12 @@ interface IArticleDetailsCommentsProps {
   articleId: string | undefined;
 }
 
-const ArticleDetailsComments = (props: IArticleDetailsCommentsProps) => {
+export const ArticleDetailsComments = (props: IArticleDetailsCommentsProps) => {
   const { articleId } = props;
   const dispatch = useAppDispatch();
   const { t } = useTranslation('translation');
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
-
-  const onSubmitCommentForm = useCallback(
-    (text: string) => {
-      dispatch(addCommentForArticle(text));
-    },
-    [dispatch],
-  );
 
   useEffect(() => {
     if (__PROJECT__ !== 'storybook') {
@@ -47,7 +39,7 @@ const ArticleDetailsComments = (props: IArticleDetailsCommentsProps) => {
   return (
     <>
       <Suspense fallback={'Загрузка...'}>
-        <AddCommentForm className={styles.form} onSubmitCommentForm={onSubmitCommentForm} />
+        <AddCommentForm className={styles.form} />
       </Suspense>
       <div className={styles.comments}>
         <h2>{t('Комментарии')}</h2>
@@ -56,5 +48,3 @@ const ArticleDetailsComments = (props: IArticleDetailsCommentsProps) => {
     </>
   );
 };
-
-export default ArticleDetailsComments;

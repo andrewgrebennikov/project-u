@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
-import { getIsEditArticleDetails } from '../../model/selectors/getIsEditArticleDetails/getIsEditArticleDetails';
+import { getArticleDetailsIsEdit } from '../../model/selectors/getArticleDetailsIsEdit/getArticleDetailsIsEdit';
 
 import styles from './ArticleDetailsHeader.module.scss';
 
@@ -16,7 +16,7 @@ interface IArticleDetailsHeaderProps {
 export const ArticleDetailsHeader = (props: IArticleDetailsHeaderProps) => {
   const { articleId } = props;
   const { t } = useTranslation('translation');
-  const isEdit = useSelector(getIsEditArticleDetails);
+  const isEdit = useSelector(getArticleDetailsIsEdit);
 
   return (
     <header className={styles.header}>

@@ -15,7 +15,7 @@ import { ReducersList } from 'shared/lib/types/reducersList';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { articleDetailsCommentsReducer } from '../../model/slice/articleDetailsCommentsSlice';
 import { ArticleDetailsHeader } from '../ArticleDetailsHeader/ArticleDetailsHeader';
-import ArticleDetailsComments from '../ArtilceDetailsComments/ArticleDetailsComments';
+import { ArticleDetailsComments } from '../ArtilceDetailsComments/ArticleDetailsComments';
 
 const initialReducers: ReducersList = {
   articleDetailsComments: articleDetailsCommentsReducer,

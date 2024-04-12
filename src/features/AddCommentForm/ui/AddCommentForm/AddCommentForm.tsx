@@ -9,14 +9,15 @@ import { ReducersList } from 'shared/lib/types/reducersList';
 import { Button, ButtonVariant } from 'shared/ui/Button/Button';
 import { TextField } from 'shared/ui/TextField/TextField';
 
+import { getCommentFormIsLoading } from '../../model/selectors/getCommentFormIsLoading/getCommentFormIsLoading';
 import { getCommentFormText } from '../../model/selectors/getCommentFormText/getCommentFormText';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
 
 import styles from './AddCommentForm.module.scss';
 
 interface ICommentFormProps {
   className?: string;
-  onSubmitCommentForm: (text: string) => void;
 }
 
 const initialReducers: ReducersList = {
@@ -24,10 +25,11 @@ const initialReducers: ReducersList = {
 };
 
 const AddCommentForm = (props: ICommentFormProps) => {
-  const { className, onSubmitCommentForm } = props;
+  const { className } = props;
   const { t } = useTranslation('translation');
   const dispatch = useAppDispatch();
   const commentText = useSelector(getCommentFormText);
+  const isLoading = useSelector(getCommentFormIsLoading);
 
   const onCommentTextChange = useCallback(
     (value: string) => {
@@ -38,7 +40,7 @@ const AddCommentForm = (props: ICommentFormProps) => {
 
   const handleCommentFormSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
-    onSubmitCommentForm(commentText);
+    addCommentForArticle(commentText);
     onCommentTextChange('');
   };
 
@@ -51,8 +53,9 @@ const AddCommentForm = (props: ICommentFormProps) => {
           placeholder={t('Введите текст комментария')}
           onChange={onCommentTextChange}
           value={commentText}
+          required
         />
-        <Button className={styles.submitButton} variant={ButtonVariant.OUTLINED}>
+        <Button className={styles.submitButton} variant={ButtonVariant.OUTLINED} disabled={isLoading}>
           {t('Отправить')}
         </Button>
       </form>

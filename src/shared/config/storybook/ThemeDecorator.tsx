@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { Theme, ThemeProvider } from 'app/providers/ThemeProvider';
 
 export const ThemeDecorator = (Story: StoryFn, context: StoryContext) => {
-  const theme = context?.parameters?.theme || context?.globals?.theme || Theme.SYSTEM;
+  const theme = context?.globals?.colorScheme;
 
   useEffect(() => {
     const root = document.documentElement;

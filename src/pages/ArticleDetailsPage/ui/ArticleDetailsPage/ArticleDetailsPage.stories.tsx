@@ -18,6 +18,11 @@ export const ArticleDetailsPage: Story = {
   args: {},
   decorators: [
     StoreDecorator({
+      user: {
+        authData: {
+          id: '1',
+        },
+      },
       article: {
         articleData: {
           id: '1',
@@ -31,6 +36,7 @@ export const ArticleDetailsPage: Story = {
             id: '1',
             username: 'Ulbi tv',
           },
+          userId: '1',
           blocks: [
             {
               id: '1',

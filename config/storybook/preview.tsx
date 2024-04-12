@@ -9,20 +9,30 @@ import { TranslationDecorator } from '../../src/shared/config/storybook/Translat
 
 const preview: Preview = {
   globalTypes: {
-    theme: {
+    colorScheme: {
       description: 'Global theme for components',
       defaultValue: Theme.SYSTEM,
       toolbar: {
-        // The label to show for this toolbar item
-        title: 'Theme',
-        icon: 'circlehollow',
-        // Array of plain string values or MenuItem shape (see below)
+        icon: 'paintbrush',
         items: [
-          { value: 'light', title: 'Light' },
-          { value: 'dark', title: 'Dark' },
-          { value: 'system', title: 'System' },
+          { title: 'Light', value: 'light', icon: 'circlehollow' },
+          { title: 'Dark', value: 'dark', icon: 'circle' },
+          { title: 'System', value: 'system', icon: 'mirror' },
         ],
-        // Change title based on selected value
+        dynamicTitle: true,
+        showName: true,
+      },
+    },
+    locale: {
+      description: 'Internationalization locale',
+      defaultValue: 'ru-RU',
+      toolbar: {
+        title: 'Locale',
+        icon: 'globe',
+        items: [
+          { title: 'Russian', value: 'ru-RU', right: '🇷🇺' },
+          { title: 'English', value: 'en-US', right: '🇺🇸' },
+        ],
         dynamicTitle: true,
         showName: true,
       },
