@@ -41,6 +41,7 @@
     "@swc/jest": "^0.2.36",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.1",
+    "@types/circular-dependency-plugin": "^5.0.8",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.25",
     "@types/react": "^18.2.64",
@@ -50,6 +51,7 @@
     "@typescript-eslint/eslint-plugin": "^7.5.0",
     "@typescript-eslint/parser": "^7.5.0",
     "chromatic": "^11.0.8",
+    "circular-dependency-plugin": "^5.2.2",
     "concurrently": "^8.2.2",
     "copy-webpack-plugin": "^12.0.2",
     "css-loader": "^6.10.0",
@@ -88,7 +90,8 @@
     "webpack": "^5.91.0",
     "webpack-bundle-analyzer": "^4.10.1",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.0.4"
+    "webpack-dev-server": "^5.0.4",
+    "whatwg-fetch": "^3.6.20"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.18",
