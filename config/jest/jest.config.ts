@@ -12,6 +12,7 @@ const jestConfig: Config = {
   moduleDirectories: ['node_modules'],
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
   moduleNameMapper: {
+    'entities/(.*)': '<rootDir>/src/entities/$1',
     '\\.(css|scss)$': 'identity-obj-proxy',
     '\\.svg$': '<rootDir>/config/jest/svgMock.tsx',
   },

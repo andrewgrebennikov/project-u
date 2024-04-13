@@ -60,11 +60,11 @@ export const Navbar = memo((props: INavbarProps) => {
     [authData?.id, handleLogout, isAdmin, t],
   );
 
-  if (authData) {
-    return (
-      <div className={cx(styles.navbar, className)} data-testid="navbar">
-        <ThemeSwitcher className={styles.themeSwitcher} />
-        <LangSwitcher className={styles.langSwitcher} />
+  return (
+    <div className={cx(styles.navbar, className)} data-testid="navbar">
+      <ThemeSwitcher className={styles.themeSwitcher} />
+      <LangSwitcher className={styles.langSwitcher} />
+      {authData ? (
         <Dropdown
           button={
             <>
@@ -74,20 +74,14 @@ export const Navbar = memo((props: INavbarProps) => {
           }
           items={items}
         />
-      </div>
-    );
-  }
-
-  return (
-    <>
-      <div className={cx(styles.navbar, className)} data-testid="navbar">
-        <ThemeSwitcher />
-        <LangSwitcher />
-        <Button variant={ButtonVariant.CONTAINED} onClick={handleModalOpen}>
-          {t('Войти')}
-        </Button>
-      </div>
-      <LoginModal isOpen={isOpenModal} onClose={handleModalClose} />
-    </>
+      ) : (
+        <>
+          <Button variant={ButtonVariant.CONTAINED} onClick={handleModalOpen}>
+            {t('Войти')}
+          </Button>
+          <LoginModal isOpen={isOpenModal} onClose={handleModalClose} />
+        </>
+      )}
+    </div>
   );
 });
