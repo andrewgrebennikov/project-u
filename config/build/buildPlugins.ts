@@ -4,16 +4,16 @@ import CopyPlugin from 'copy-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import webpack from 'webpack';
+import { WebpackPluginInstance, ProgressPlugin, DefinePlugin, HotModuleReplacementPlugin } from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import { BuildOptions } from './types/config';
 
-export const buildPlugins = (options: BuildOptions): webpack.WebpackPluginInstance[] => {
+export const buildPlugins = (options: BuildOptions): WebpackPluginInstance[] => {
   const { paths, isDev, apiUrl, project } = options;
 
   const plugins = [
-    new webpack.ProgressPlugin(),
+    new ProgressPlugin(),
     new HtmlWebpackPlugin({
       template: paths.html,
     }),
@@ -21,7 +21,7 @@ export const buildPlugins = (options: BuildOptions): webpack.WebpackPluginInstan
       filename: 'css/[name].[contenthash:8].css',
       chunkFilename: 'css/[name].[contenthash:8].css',
     }),
-    new webpack.DefinePlugin({
+    new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
       __PROJECT__: JSON.stringify(project),
@@ -41,7 +41,7 @@ export const buildPlugins = (options: BuildOptions): webpack.WebpackPluginInstan
       new BundleAnalyzerPlugin({
         openAnalyzer: false,
       }),
-      new webpack.HotModuleReplacementPlugin(),
+      new HotModuleReplacementPlugin(),
       new ReactRefreshWebpackPlugin(),
     );
   }

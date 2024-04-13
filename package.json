@@ -96,6 +96,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.18",
     "@reduxjs/toolkit": "^1.9.7",
+    "@swc/plugin-react-remove-properties": "^1.5.121",
     "axios": "^1.6.8",
     "classix": "^2.1.37",
     "i18next": "^23.11.1",

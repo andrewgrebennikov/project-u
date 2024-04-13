@@ -1,8 +1,8 @@
-import webpack from 'webpack';
+import { ResolveOptions } from 'webpack';
 
 import { BuildOptions } from './types/config';
 
-export const buildResolves = (options: BuildOptions): webpack.ResolveOptions => {
+export const buildResolves = (options: BuildOptions): ResolveOptions => {
   const { paths } = options;
 
   return {

@@ -6,6 +6,9 @@ export const buildTsLoader = (isDev: boolean) => {
         loader: 'swc-loader',
         options: {
           jsc: {
+            experimental: {
+              plugins: [['@swc/plugin-react-remove-properties', {}]],
+            },
             transform: {
               react: {
                 runtime: 'automatic',

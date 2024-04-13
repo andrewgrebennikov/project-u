@@ -1,4 +1,4 @@
-import webpack from 'webpack';
+import { RuleSetRule } from 'webpack';
 
 import { buildFontLoader } from './loaders/buildFontLoader';
 import { buildImageLoader } from './loaders/buildImageLoader';
@@ -7,7 +7,7 @@ import { buildSvgLoader } from './loaders/buildSvgLoader';
 import { buildTsLoader } from './loaders/buildTsLoader';
 import { BuildOptions } from './types/config';
 
-export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
+export const buildLoaders = (options: BuildOptions): RuleSetRule[] => {
   const { isDev } = options;
 
   const fontLoader = buildFontLoader();

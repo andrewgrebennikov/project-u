@@ -22,3 +22,7 @@ chromatic-diagnostics.json
 
 # env
 .env
+
+# swc
+.swc
+
