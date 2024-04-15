@@ -21,7 +21,6 @@
     "__API__": true,
     "__PROJECT__": true
   },
-  "ignorePatterns": ["node_modules", "dist"],
   "overrides": [
     {
       "files": ["**/src/**/*.test.{ts,tsx}"],
